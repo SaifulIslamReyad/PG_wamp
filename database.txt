@@ -1,0 +1,31 @@
+CREATE TABLE doctors (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(200) NOT NULL,
+    email VARCHAR(200) NOT NULL UNIQUE,
+    password VARCHAR(200) NOT NULL,
+    specialization VARCHAR(200) NOT NULL
+);
+
+
+-- Create the all_patients table
+CREATE TABLE all_patients (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    pgID INT UNIQUE NOT NULL, -- Unique Patient ID
+    NID VARCHAR(20) UNIQUE, -- National ID (Optional)
+    birth_reg_no VARCHAR(20) UNIQUE, -- Birth Registration Number (Optional)
+    gender ENUM('Male', 'Female', 'Other') NOT NULL
+);
+
+-- Ensure pgID is assigned sequentially
+ALTER TABLE all_patients AUTO_INCREMENT = 10001;
+
+-- Create the appointments table
+CREATE TABLE appointments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    pgID INT NOT NULL, -- Foreign Key Reference to all_patients
+    doctor_id INT NOT NULL,
+    appointment_date DATE NOT NULL,
+    FOREIGN KEY (pgID) REFERENCES all_patients(pgID) ON DELETE CASCADE,
+    FOREIGN KEY (doctor_id) REFERENCES doctors(id) ON DELETE CASCADE
+);
