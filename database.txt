@@ -1,31 +1,66 @@
 CREATE TABLE doctors (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(200) NOT NULL,
-    email VARCHAR(200) NOT NULL UNIQUE,
-    password VARCHAR(200) NOT NULL,
-    specialization VARCHAR(200) NOT NULL
+    doctor_id INT AUTO_INCREMENT PRIMARY KEY,
+    doctor_name VARCHAR(200) NOT NULL,
+    doctor_email VARCHAR(200) NOT NULL UNIQUE,
+    doctor_password VARCHAR(200) NOT NULL,
+    specialization VARCHAR(200) NOT NULL,
+    mobile VARCHAR(15) NOT NULL, -- Adjusted to VARCHAR to store numbers with leading zeros or symbols
+    qualification VARCHAR(255) NOT NULL,
+    registration_number VARCHAR(100) NOT NULL
 );
 
 
--- Create the all_patients table
-CREATE TABLE all_patients (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    pgID INT UNIQUE NOT NULL, -- Unique Patient ID
-    NID VARCHAR(20) UNIQUE, -- National ID (Optional)
-    birth_reg_no VARCHAR(20) UNIQUE, -- Birth Registration Number (Optional)
-    gender ENUM('Male', 'Female', 'Other') NOT NULL
+CREATE TABLE patients (
+    patient_id INT AUTO_INCREMENT PRIMARY KEY,
+    patient_name VARCHAR(255) NOT NULL,
+    patient_NID VARCHAR(20) UNIQUE, -- National ID (Optional)
+    patient_birth_reg_no VARCHAR(20) UNIQUE, -- Birth Registration Number (Optional)
+    patient_gender ENUM('Male', 'Female', 'Other') NOT NULL
 );
 
--- Ensure pgID is assigned sequentially
-ALTER TABLE all_patients AUTO_INCREMENT = 10001;
 
--- Create the appointments table
+
 CREATE TABLE appointments (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    pgID INT NOT NULL, -- Foreign Key Reference to all_patients
+    appointment_no INT AUTO_INCREMENT PRIMARY KEY,
+    patient_id INT NOT NULL,
     doctor_id INT NOT NULL,
-    appointment_date DATE NOT NULL,
-    FOREIGN KEY (pgID) REFERENCES all_patients(pgID) ON DELETE CASCADE,
-    FOREIGN KEY (doctor_id) REFERENCES doctors(id) ON DELETE CASCADE
+    problem VARCHAR (200),
+    phone VARCHAR (200) NOT NULL,
+    preffered_appointment_date DATE NOT NULL,
+    FOREIGN KEY (patient_id) REFERENCES patients(patient_id) ON DELETE CASCADE,
+    FOREIGN KEY (doctor_id) REFERENCES doctors(doctor_id) ON DELETE CASCADE
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+--DML
+INSERT INTO doctors (name, email, password, specialization) VALUES
+('Dr. John Smith', 'john.smith@example.com', 'pass123', 'Cardiologist'),
+('Dr. Jane Doe', 'jane.doe@example.com', 'pass456', 'Dermatologist'),
+('Dr. Emily Clark', 'emily.clark@example.com', 'pass789', 'Pediatrician');
+
+
+INSERT INTO all_patients (name, NID, birth_reg_no, gender) VALUES
+('Kamal Sharif', '123456789', 'BR123456', 'Male'),
+('Jamal Sharif', '987654321', 'BR654321', 'Male'),
+('Helal Sharif', '123456700', 'BR123411', 'Male'),
+('Belal Sharif', '987654300', 'BR654300', 'Male'),
+('Yoyo Sharif', '993456789', 'BB123456', 'Male'),
+('Zozo Sharif', '887654321', 'BB654321', 'Male'),
+('Xoxo Sharif', '773456700', 'BB123411', 'Male'),
+('Wowo Sharif', '667654300', 'BB654300', 'Male');
+
+INSERT INTO appointments (pgID, doctor_id, appointment_date) VALUES
+(10001, 1, '2025-03-01'),
+(10002, 2, '2025-03-05'),
+(10003, 3, '2025-03-10');
