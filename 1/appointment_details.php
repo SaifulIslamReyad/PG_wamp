@@ -49,7 +49,135 @@ while ($medicine = $result_medicines->fetch_assoc()) {
 $stmt->close();
 $stmt_medicines->close();
 $conn->close();
-
-// Pass the data to the HTML page (use variables)
-include('appointment_details.html');
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment & Prescription Details</title>
+    <link rel="stylesheet" href="details.css">
+    <link rel="stylesheet" href="suhadstyles.css">
+    <link rel="stylesheet" href="addmedi.css">
+    <style>
+        /* Styles for side-by-side layout */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 20px;
+        }
+        .appointment-details{
+            width: 30%;
+        }
+        .prescription-generator {
+            width: 70%;
+            border: 2px solid white;
+            border-radius: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Appointment Details Section -->
+        <div class="appointment-details">
+            <h1>Appointment Details</h1>
+
+            <h2>Patient Information</h2>
+            <p><strong>Name:</strong> <?= htmlspecialchars($appointment['patient_name']) ?></p>
+            <p><strong>Gender:</strong> <?= htmlspecialchars($appointment['patient_gender']) ?></p>
+            <p><strong>NID:</strong> <?= htmlspecialchars($appointment['patient_NID']) ?></p>
+            <p><strong>Phone:</strong> <?= htmlspecialchars($appointment['phone']) ?></p>
+
+            <h2>Appointment Information</h2>
+            <p><strong>Problem:</strong> <?= htmlspecialchars($appointment['problem']) ?></p>
+            <p><strong>Appointment Date:</strong> <?= htmlspecialchars($appointment['appointment_date']) ?></p>
+            <p><strong>Appointment Time:</strong> <?= htmlspecialchars($appointment['appointment_time']) ?></p>
+            <p><strong>Status:</strong> <?= htmlspecialchars($appointment['status']) ?></p>
+
+            <h2>Medicines Prescribed</h2>
+            <?php if (count($medicines) > 0): ?>
+                <ul>
+                    <?php foreach ($medicines as $medicine): ?>
+                        <li>
+                            <strong>Medicine:</strong> <?= htmlspecialchars($medicine['medicine_name']) ?><br>
+                            <strong>Dosage:</strong> <?= htmlspecialchars($medicine['dosage']) ?><br>
+                            <strong>When to Take:</strong> <?= htmlspecialchars($medicine['before_after']) ?><br>
+                            <strong>Duration:</strong> <?= htmlspecialchars($medicine['duration']) ?>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php else: ?>
+                <p>No medicines prescribed for this appointment.</p>
+            <?php endif; ?>
+
+            <a href="dashboard.html">Back to Dashboard</a>
+        </div>
+
+        <!-- Prescription Generator Section -->
+        <div class="prescription-generator">
+            <header>
+                <h1>ZS Sharif Dental Care & Surgery</h1>
+                <p class="tagline">You smile, our team smiles</p>
+                <div class="header-content">
+                    <div class="clinic-info">
+                        <p class="doctor-info">
+                            <span>Dr. Md. Ashraful Islam Suhad <br></span>
+                            BDS (Dhaka University)<br>
+                            Sher-E-Bangla Medical College and hospital, Barishal
+                        </p>
+                    </div>
+                    <img src="logo.jpg" alt="Clinic Logo" class="clinic-logo">
+                    <div class="logo-and-specialization">
+                        <p class="specialization">
+                            Oral and dental specialist & surgeon<br>
+                            Special Training on Root canal Treatment<br>
+                            BMDC Regi No: 14041
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <div class="form-container">
+                <form id="prescription-form">
+                    <div class="info-row">
+                        <div class="left">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required value="<?= htmlspecialchars($appointment['patient_name']) ?>">
+                        </div>
+                        <div class="right">
+                            <label for="age">Age:</label>
+                            <input type="number" id="age" name="age" required>
+
+                            <label for="sex">Sex:</label>
+                            <select id="sex" name="sex" required>
+                                <option value="Male" <?= $appointment['patient_gender'] == 'Male' ? 'selected' : '' ?>>Male</option>
+                                <option value="Female" <?= $appointment['patient_gender'] == 'Female' ? 'selected' : '' ?>>Female</option>
+                                <option value="Other" <?= $appointment['patient_gender'] == 'Other' ? 'selected' : '' ?>>Other</option>
+                            </select>
+
+                            <label for="date">Date:</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                    </div>
+
+                    <div id="cc">
+                        <label for="cc-input">C/C:</label>
+                        <input type="text" id="cc-input" name="cc" required>
+                    </div>
+
+                    <div id="medicine-list"></div>
+
+                    <button type="button" id="add-medicine-btn">+ Add Medicine</button>
+
+                    <button type="button" onclick="generatePrescription()">Generate Prescription</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="suhadscripts.js"></script>
+</body>
+</html>
