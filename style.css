@@ -1,86 +1,103 @@
-/* General Styles */
 body {
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to right, #74ebd5, #acb6e5);
-    color: #333;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #5ca598, #b9d5dd);
+  color: #333;
 }
 
-/* Container */
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 50px;
 }
 
-/* Card Styles */
-.doctor-login, .doctor-signup, .appointment-section {
-    background: rgb(204, 228, 241);
-    padding: 60px;
-    border-radius: 12px;
-    /* width: 320px; */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+.doctor-login,
+.doctor-signup,
+.appointment-section {
+  background: rgb(204, 228, 241);
+  padding: 60px;
+  border-radius: 12px;
+  width: 320px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
 }
 
-.doctor-login:hover, .doctor-signup:hover, .appointment-section:hover {
-    transform: translateY(-5px);
+.doctor-login:hover,
+.doctor-signup:hover,
+.appointment-section:hover {
+  transform: translateY(-5px);
 }
 
-/* Headings */
 h1 {
-    font-size: 32px;
-    margin-top: 20px;
-    color: #fff;
+  text-transform: uppercase;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-bottom: 4px solid;
+  border-right: 2px solid;
+  color: #0a7378;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  display: inline-block;
 }
 
 h2 {
-    margin-bottom: 10px;
-    color: #2c3e50;
+  font-size: 28px;
+  font-weight: 600;
+  color: #2c3e50;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  border-bottom: 3px solid #0a7378;
+  padding-bottom: 5px;
 }
 
-/* Form Elements */
-input, button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
+button {
+  width: 50%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
 }
 
-/* Buttons */
-input[type="submit"], button {
-    background: #50bce6;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
+button {
+  background: #0a7378;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
 }
 
-input[type="submit"]:hover, button:hover {
-    background: #4a52de;
+button:hover {
+  background: #033d4a;
 }
 
 /* Labels */
 label {
-    display: block;
-    text-align: left;
-    margin-top: 10px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #555;
+  display: block;
+  text-align: left;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
 }
 
-/* Responsive Design */
+footer {
+    margin-top: 40px;
+    padding: 20px 0;
+}
+
 @media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        align-items: center;
-    }
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
 }

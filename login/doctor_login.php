@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             $doctor_id = $doctor['doctor_id'];
             $doctor_name = $doctor['doctor_name'];
-            header("Location: ${doctor_id}/dashboard.html"); // Redirect to doctor-specific page
+            header("Location: ../${doctor_id}/dashboard.html"); // Redirect to doctor-specific page
             exit();
         } else {
             echo "Invalid password. <a href='../index.html'>Try again</a>";

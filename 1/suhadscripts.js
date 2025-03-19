@@ -139,10 +139,6 @@ function generatePrescription() {
 
 function convertToBengaliNumerals(number) {
   const bengaliNumerals = "০১২৩৪৫৬৭৮৯";
-  return number
-    .toString()
-    .split("")
-    .map((digit) => bengaliNumerals[digit] || digit)
-    .join("");
+  return number.toString().split("").map((digit) => bengaliNumerals[digit] || digit).join("");
 }
-///
+

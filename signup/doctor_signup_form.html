@@ -5,12 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor Signup</title>
     <link rel="stylesheet" href="signup.css">
+    <script>
+        function fetchSpecializations() {
+            fetch('get_specialization.php')
+                .then(response => response.json())
+                .then(data => {
+                    const specializationSelect = document.getElementById('specialization_id');
+                    specializationSelect.innerHTML = '<option value="">Select Specialization</option>';
+                    data.forEach(specialization => {
+                        let option = document.createElement('option');
+                        option.value = specialization.specialization_id;
+                        option.textContent = specialization.specialization_name;
+                        specializationSelect.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Error fetching specializations:', error));
+        }
+
+        window.onload = fetchSpecializations;
+    </script>
 </head>
 <body>
 
     <div class="container">
-        <h1>Sign up as a Doctor</h1>
-        
+        <h1>Doctor's Signup Form</h1>
+
         <form action="doctor_signup.php" method="post" class="signup-form">
             <label for="doctor_name">Full Name:</label>
             <input type="text" id="doctor_name" name="doctor_name" required>
@@ -21,8 +40,10 @@
             <label for="doctor_password">Password:</label>
             <input type="password" id="doctor_password" name="doctor_password" required>
 
-            <label for="doctor_specialization">Specialization:</label>
-            <input type="text" id="doctor_specialization" name="doctor_specialization" required>
+            <label for="specialization_id">Specialization:</label>
+            <select id="specialization_id" name="specialization_id" required>
+                <option value="">Loading...</option>
+            </select>
 
             <label for="mobile">Mobile:</label>
             <input type="text" id="mobile" name="mobile" required>
@@ -36,7 +57,7 @@
             <input type="submit" value="Sign Up">
         </form>
 
-        <a href="../index.html" class="back-link">Back to Login</a>
+        <a href="../index.html" class="back-link">Back to Log in</a>
     </div>
 
 </body>
