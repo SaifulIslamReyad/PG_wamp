@@ -15,10 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if ($result->num_rows > 0) {
         $doctor = $result->fetch_assoc();
-        if ($password == $doctor['doctor_password']) {  // Verifying password without hashing
-            //$_SESSION['doctor_id'] = $doctor['doctor_id']; // Assuming the doctor_id is 'doctor_id' in the table
-            //$_SESSION['doctor_name'] = $doctor['doctor_name'];  // Assuming the doctor_name is 'doctor_name' in the table
-            //$_SESSION['doctor_specialization'] = $doctor['specialization'];  // Assuming specialization is correct
+        if (password_verify($password, $doctor['doctor_password'])) {  // Verifying password
+            $_SESSION['doctor_id'] = $doctor['doctor_id']; // Assuming the doctor_id is 'doctor_id' in the table
+            $_SESSION['doctor_name'] = $doctor['doctor_name'];  // Assuming the doctor_name is 'doctor_name' in the table
+            $_SESSION['doctor_specialization'] = $doctor['specialization'];  // Assuming specialization is correct
             
             $doctor_id = $doctor['doctor_id'];
             $doctor_name = $doctor['doctor_name'];

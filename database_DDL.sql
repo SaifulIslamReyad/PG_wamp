@@ -1,4 +1,4 @@
-CREATE TABLE specialization (
+CREATE TABLE specializations (
     specialization_id INT AUTO_INCREMENT PRIMARY KEY,
     specialization_name VARCHAR(255) NOT NULL
 ) ENGINE=InnoDB;
@@ -18,7 +18,7 @@ CREATE TABLE doctor_specialization (
     doctor_id INT,
     specialization_id INT,
     FOREIGN KEY (doctor_id) REFERENCES doctors(doctor_id) ON DELETE CASCADE,
-    FOREIGN KEY (specialization_id) REFERENCES specialization(specialization_id) ON DELETE CASCADE
+    FOREIGN KEY (specialization_id) REFERENCES specializations(specialization_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
 
@@ -28,7 +28,7 @@ CREATE TABLE patients (
     patient_dob DATE NOT NULL,
     patient_NID VARCHAR(20) UNIQUE,
     patient_birth_reg_no VARCHAR(20) UNIQUE,
-    patient_gender ENUM('Male', 'Female', 'Other') NOT NULL
+    patient_gender CHAR(1) CHECK (patient_gender IN ('M', 'F', 'O'))
 ) ENGINE=InnoDB;
 
 CREATE TABLE appointments (
@@ -60,12 +60,12 @@ CREATE TABLE medicines (
 ) ENGINE=InnoDB;
 
 CREATE TABLE prescribed_medicines (
-    appointment_no INT,
+    prescription_id INT,
     medicine_id INT,
     dosage VARCHAR(50), 
     before_after ENUM('Before Meal', 'After Meal') DEFAULT 'After Meal',
     duration VARCHAR(50),
-    FOREIGN KEY (appointment_no) REFERENCES appointments(appointment_no) ON DELETE CASCADE,
+    FOREIGN KEY (prescription_id) REFERENCES prescription(prescription_id) ON DELETE CASCADE,
     FOREIGN KEY (medicine_id) REFERENCES medicines(medicine_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 

@@ -1,7 +1,7 @@
 <?php
 include('../db_connect.php');
 
-$sql = "SELECT specialization_id, specialization_name FROM specialization";
+$sql = "SELECT specialization_id, specialization_name FROM specializations";
 $result = $conn->query($sql);
 
 $specializations = [];

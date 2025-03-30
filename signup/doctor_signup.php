@@ -9,24 +9,28 @@ $qualification = $_POST['qualification'];
 $registration_number = $_POST['registration_number'];
 $specialization_ids = $_POST['specialization_id']; // Array of specializations
 
-// Insert doctor data
-$stmt = $conn->prepare("INSERT INTO doctors (doctor_name, doctor_email, doctor_password, mobile, qualification, registration_number) VALUES (?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssss", $doctor_name, $doctor_email, $doctor_password, $mobile, $qualification, $registration_number);
-$stmt->execute();
-$doctor_id = $stmt->insert_id;
-$stmt->close();
-
-// Insert into doctor_specializations
-if (!empty($specialization_ids)) {
-    $stmt = $conn->prepare("INSERT INTO doctor_specializations (doctor_id, specialization_id) VALUES (?, ?)");
-    foreach ($specialization_ids as $specialization_id) {
-        $stmt->bind_param("ii", $doctor_id, $specialization_id);
-        $stmt->execute();
-    }
+try {
+    // Insert doctor data
+    $stmt = $conn->prepare("INSERT INTO doctors (doctor_name, doctor_email, doctor_password, mobile, qualification, registration_number) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssss", $doctor_name, $doctor_email, $doctor_password, $mobile, $qualification, $registration_number);
+    $stmt->execute();
+    $doctor_id = $stmt->insert_id;
     $stmt->close();
+
+    // Insert into doctor_specialization
+    if (!empty($specialization_ids)) {
+        $stmt = $conn->prepare("INSERT INTO doctor_specialization (doctor_id, specialization_id) VALUES (?, ?)");
+        foreach ($specialization_ids as $specialization_id) {
+            $stmt->bind_param("ii", $doctor_id, $specialization_id);
+            $stmt->execute();
+        }
+        $stmt->close();
+    }
+
+    echo "Doctor registered successfully!";
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage();
 }
 
-echo "Doctor registered successfully!";
 $conn->close();
-
 ?>
