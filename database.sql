@@ -1,5 +1,5 @@
 CREATE TABLE specialization (
-    specialization_id INT PRIMARY KEY,
+    specialization_id INT AUTO_INCREMENT PRIMARY KEY,
     specialization_name VARCHAR(255) NOT NULL
 ) ENGINE=InnoDB;
 
@@ -8,16 +8,24 @@ CREATE TABLE doctors (
     doctor_name VARCHAR(200) NOT NULL,
     doctor_email VARCHAR(200) NOT NULL UNIQUE,
     doctor_password VARCHAR(200) NOT NULL,
-    specialization_id INT,
-    mobile VARCHAR(15) NOT NULL, 
+    mobile VARCHAR(15) NOT NULL,
     qualification VARCHAR(255) NOT NULL,
-    registration_number VARCHAR(100) NOT NULL,
+    registration_number VARCHAR(100) NOT NULL
+) ENGINE=InnoDB;
+
+
+CREATE TABLE doctor_specialization (
+    doctor_id INT,
+    specialization_id INT,
+    FOREIGN KEY (doctor_id) REFERENCES doctors(doctor_id) ON DELETE CASCADE,
     FOREIGN KEY (specialization_id) REFERENCES specialization(specialization_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
+
 
 CREATE TABLE patients (
     patient_id INT AUTO_INCREMENT PRIMARY KEY,
     patient_name VARCHAR(255) NOT NULL,
+    patient_dob DATE NOT NULL,
     patient_NID VARCHAR(20) UNIQUE,
     patient_birth_reg_no VARCHAR(20) UNIQUE,
     patient_gender ENUM('Male', 'Female', 'Other') NOT NULL
@@ -36,24 +44,28 @@ CREATE TABLE appointments (
     FOREIGN KEY (doctor_id) REFERENCES doctors(doctor_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE favourite_medicines (
+CREATE TABLE prescription (
+    prescription_id INT PRIMARY KEY,
+    medicine_details TEXT NOT NULL,
+    dosage_instructions TEXT NOT NULL,
+    issued_date DATE NOT NULL,
+    FOREIGN KEY (prescription_id) REFERENCES appointments(appointment_no) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+
+
+CREATE TABLE medicines (
     medicine_id INT AUTO_INCREMENT PRIMARY KEY,
     medicine_name VARCHAR(255) NOT NULL
 ) ENGINE=InnoDB;
 
-CREATE TABLE medicines (
+CREATE TABLE prescribed_medicines (
     appointment_no INT,
     medicine_id INT,
     dosage VARCHAR(50), 
     before_after ENUM('Before Meal', 'After Meal') DEFAULT 'After Meal',
     duration VARCHAR(50),
     FOREIGN KEY (appointment_no) REFERENCES appointments(appointment_no) ON DELETE CASCADE,
-    FOREIGN KEY (medicine_id) REFERENCES favourite_medicines(medicine_id) ON DELETE CASCADE
+    FOREIGN KEY (medicine_id) REFERENCES medicines(medicine_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE specialization_favourite_medicines (
-    medicine_id INT,
-    specialization_id INT,
-    FOREIGN KEY (specialization_id) REFERENCES specialization(specialization_id) ON DELETE CASCADE,
-    FOREIGN KEY (medicine_id) REFERENCES favourite_medicines(medicine_id) ON DELETE CASCADE
-) ENGINE=InnoDB;
