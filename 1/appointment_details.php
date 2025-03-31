@@ -32,23 +32,7 @@ if ($result->num_rows > 0) {
     exit;
 }
 
-// Fetch medicines related to the appointment
-$sql_medicines = "SELECT fm.medicine_name, m.dosage, m.before_after, m.duration
-                  FROM medicines m
-                  JOIN favourite_medicines fm ON m.medicine_id = fm.medicine_id
-                  WHERE m.appointment_no = ?";
-$stmt_medicines = $conn->prepare($sql_medicines);
-$stmt_medicines->bind_param("i", $appointment_no);
-$stmt_medicines->execute();
-$result_medicines = $stmt_medicines->get_result();
-$medicines = [];
-while ($medicine = $result_medicines->fetch_assoc()) {
-    $medicines[] = $medicine;
-}
 
-$stmt->close();
-$stmt_medicines->close();
-$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -91,28 +75,13 @@ $conn->close();
             <p><strong>NID:</strong> <?= htmlspecialchars($appointment['patient_NID']) ?></p>
             <p><strong>Phone:</strong> <?= htmlspecialchars($appointment['phone']) ?></p>
 
-            <h2>Appointment Information</h2>
+            <!-- <h2>Appointment Information</h2> -->
             <p><strong>Problem:</strong> <?= htmlspecialchars($appointment['problem']) ?></p>
             <p><strong>Appointment Date:</strong> <?= htmlspecialchars($appointment['appointment_date']) ?></p>
             <p><strong>Appointment Time:</strong> <?= htmlspecialchars($appointment['appointment_time']) ?></p>
             <p><strong>Status:</strong> <?= htmlspecialchars($appointment['status']) ?></p>
 
-            <h2>Medicines Prescribed</h2>
-            <?php if (count($medicines) > 0): ?>
-                <ul>
-                    <?php foreach ($medicines as $medicine): ?>
-                        <li>
-                            <strong>Medicine:</strong> <?= htmlspecialchars($medicine['medicine_name']) ?><br>
-                            <strong>Dosage:</strong> <?= htmlspecialchars($medicine['dosage']) ?><br>
-                            <strong>When to Take:</strong> <?= htmlspecialchars($medicine['before_after']) ?><br>
-                            <strong>Duration:</strong> <?= htmlspecialchars($medicine['duration']) ?>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            <?php else: ?>
-                <p>No medicines prescribed for this appointment.</p>
-            <?php endif; ?>
-
+         
             <a href="dashboard.html">Back to Dashboard</a>
         </div>
 
