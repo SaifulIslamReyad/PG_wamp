@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +16,23 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #e6f2ff;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .left-div {
+            flex: 0 0 40%;
+            background-color: lightblue;
+            padding: 10px;
+        }
+
+        .right-div {
+            flex: 0 0 60%;
+            padding: 10px;
         }
 
         img {
@@ -72,13 +90,16 @@
 
         .patient-info {
             border-bottom: 1px solid #00a2e8;
-
         }
 
         .patient-info,
-        .main-content,
-        .footer {
+        .main-content
+        {
             padding: 5px 20px;
+            display: flex;
+        }
+        .footer{
+            padding: 20px;
         }
 
         .patient-info label {
@@ -86,8 +107,8 @@
         }
 
         .patient-info input {
-            margin-right: 20px;
-            padding: 5px;
+            margin-right: 2px;
+            padding: 4px;
             background-color: #e6f2ff;
             border: none;
         }
@@ -195,6 +216,30 @@
         .footer p {
             margin-bottom: 5px;
         }
+
+        #generate-prescription-btn {
+            position: fixed;
+            bottom: 70px;
+            right: 50px;
+            padding: 12px 20px;
+            font-size: 20px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #14B3FE, #9ad0f2);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.6);
+            border-radius: 50px;
+        }
+
+        #generate-prescription-btn:hover {
+            background: linear-gradient(45deg, #4d8fb9, #0e6fac);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.6);
+        }
     </style>
 
 
@@ -285,17 +330,22 @@
             background: linear-gradient(45deg, #b41020, #ac0e77);
             box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.6);
         }
-        .eating {
-    display: flex;
-    flex-wrap: nowrap; /* Prevent wrapping */
-    gap: 10px;
-    align-items: center; /* Align items vertically */
-}
 
-.eating input[type="number"] {
-    flex-shrink: 0; /* Prevent shrinking */
-    width: 150px; /* Set a fixed width */
-}
+        .eating {
+            display: flex;
+            flex-wrap: nowrap;
+            /* Prevent wrapping */
+            gap: 10px;
+            align-items: center;
+            /* Align items vertically */
+        }
+
+        .eating input[type="number"] {
+            flex-shrink: 0;
+            /* Prevent shrinking */
+            width: 150px;
+            /* Set a fixed width */
+        }
 
 
         .checkbox-group,
@@ -338,8 +388,6 @@
             background-color: #4c8cb4;
         }
 
-
-
         .last {
             display: flex;
             align-items: center;
@@ -349,110 +397,115 @@
 </head>
 
 <body>
-    <header>
-        <h1>ZS Sharif Dental Care & Surgery</h1>
-        <p class="tagline">You smile, our team smiles</p>
-        <div class="header-content">
-            <div class="clinic-info">
-                <p class="doctor-info">
-                    <span>Dr. Md. Ashraful Islam Suhad <br></span>
-                    BDS (Dhaka University)<br>
-                    Sher-E-Bangla Medical College and hospital, Barishal
-                </p>
-            </div>
-            <img src="assets/logo.jpg" alt="Clinic Logo" class="clinic-logo">
-            <div class="logo-and-specialization">
-                <p class="specialization">
-                    Oral and dental specialist & surgeon<br>
-                    Special Training on Root canal Treatment<br>
-                    BMDC Regi No: 14041 <br>
-                    Dhaka University
-                </p>
-            </div>
-        </div>
-    </header>
-    <div class="patient-info">
-        <label>Name:</label>
-        <input type="text">
-        <label>Age:</label>
-        <input type="text">
-        <label>Sex:</label>
-        <input type="text">
-        <label>Date:</label>
-        <input type="date">
-    </div>
-    <div class="main-content">
-        <div class="left-section">
-            <label>🔹C/C:</label>
-
-            <input type="text">
-
-            <br>
-            <label>🔹M/H:</label>
-            <ol>
-                <li>HTN</li>
-                <li>DM</li>
-                <li>Asthma</li>
-                <li>Bleeding disorder</li>
-                <li>Pregnancy</li>
-                <li>Hepatitis</li>
-                <li>Kidney disease</li>
-                <li>Others</li>
-            </ol>
-            <br>
-            <label>🔹O/E:</label>
-            <ol>
-                <li>Caries</li>
-                <li>Pulpitis</li>
-                <li>Gingivitis</li>
-                <li>Periodontitis</li>
-                <li>Plaque</li>
-                <li>Calculus</li>
-                <li>Pericoronitis</li>
-                <li>Impaction</li>
-                <li>Others</li>
-            </ol>
-            <div class="investigation-box">
-                <br>
-                <label>🔹Investigation:</label>
-                <br><br>
-                <div class="quadrant-container">
-                    <div class="quadrant"><input type="text" id="q1" name="q1" placeholder="Q1"></div>
-                    <div class="quadrant"><input type="text" id="q2" name="q2" placeholder="Q2"></div>
-                    <div class="quadrant"><input type="text" id="q3" name="q3" placeholder="Q3"></div>
-                    <div class="quadrant"><input type="text" id="q4" name="q4" placeholder="Q4"></div>
+    <div class="container">
+        <div class="left-div"></div>
+        <div class="right-div">
+            <header>
+                <h1>ZS Sharif Dental Care & Surgery</h1>
+                <p class="tagline">You smile, our team smiles</p>
+                <div class="header-content">
+                    <div class="clinic-info">
+                        <p class="doctor-info">
+                            <span>Dr. Md. Ashraful Islam Suhad <br></span>
+                            BDS (Dhaka University)<br>
+                            Sher-E-Bangla Medical College and hospital, Barishal
+                        </p>
+                    </div>
+                    <img src="assets/logo.jpg" alt="Clinic Logo" class="clinic-logo">
+                    <div class="logo-and-specialization">
+                        <p class="specialization">
+                            Oral and dental specialist & surgeon<br>
+                            Special Training on Root canal Treatment<br>
+                            BMDC Regi No: 14041 <br>
+                            Dhaka University
+                        </p>
+                    </div>
                 </div>
-                <br>
-                <input type="text" id="investigation-extra" name="investigation-extra"
-                    placeholder="Investigation Details">
+            </header>
+
+            <div class="patient-info">
+                <label>Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label>Age:</label>
+                <input type="number" id="age" name="age" required>
+                <label>Sex:</label>
+                <input type="text" id="sex" name="sex" required>
+                <label>Date:</label>
+                <input type="date" id="date" name="date" required>
             </div>
-            <div class="treatment-box">
-                <br>
-                <label>🔹Treatment Plan:</label>
-                <br><br>
-                <div class="quadrant-container">
-                    <div class="quadrant"><input type="text" id="q1" name="q1" placeholder="T1"></div>
-                    <div class="quadrant"><input type="text" id="q2" name="q2" placeholder="T2"></div>
-                    <div class="quadrant"><input type="text" id="q3" name="q3" placeholder="T3"></div>
-                    <div class="quadrant"><input type="text" id="q4" name="q4" placeholder="T4"></div>
+
+            <div class="main-content">
+                <div class="left-section">
+                    <label>🔹C/C:</label>
+                    <input type="text" id="cc-input" name="cc" required>
+                    <br>
+                    <label>🔹M/H:</label>
+                    <ol>
+                        <li>HTN</li>
+                        <li>DM</li>
+                        <li>Asthma</li>
+                        <li>Bleeding disorder</li>
+                        <li>Pregnancy</li>
+                        <li>Hepatitis</li>
+                        <li>Kidney disease</li>
+                        <li>Others</li>
+                    </ol>
+                    <br>
+                    <label>🔹O/E:</label>
+                    <ol>
+                        <li>Caries</li>
+                        <li>Pulpitis</li>
+                        <li>Gingivitis</li>
+                        <li>Periodontitis</li>
+                        <li>Plaque</li>
+                        <li>Calculus</li>
+                        <li>Pericoronitis</li>
+                        <li>Impaction</li>
+                        <li>Others</li>
+                    </ol>
+                    <div class="investigation-box">
+                        <br>
+                        <label>🔹Investigation:</label>
+                        <br><br>
+                        <div class="quadrant-container">
+                            <div class="quadrant"><input type="text" id="q1" name="q1" placeholder="Q1"></div>
+                            <div class="quadrant"><input type="text" id="q2" name="q2" placeholder="Q2"></div>
+                            <div class="quadrant"><input type="text" id="q3" name="q3" placeholder="Q3"></div>
+                            <div class="quadrant"><input type="text" id="q4" name="q4" placeholder="Q4"></div>
+                        </div>
+                        <br>
+                        <input type="text" id="investigation-extra" name="investigation-extra"
+                            placeholder="Investigation Details">
+                    </div>
+                    <div class="treatment-box">
+                        <br>
+                        <label>🔹Treatment Plan:</label>
+                        <br><br>
+                        <div class="quadrant-container">
+                            <div class="quadrant"><input type="text" id="q1" name="q1" placeholder="T1"></div>
+                            <div class="quadrant"><input type="text" id="q2" name="q2" placeholder="T2"></div>
+                            <div class="quadrant"><input type="text" id="q3" name="q3" placeholder="T3"></div>
+                            <div class="quadrant"><input type="text" id="q4" name="q4" placeholder="T4"></div>
+                        </div>
+                        <br>
+                        <input type="text" id="treatment-extra" name="treatment-extra" placeholder="Treatment Details">
+                    </div>
                 </div>
-                <br>
-                <input type="text" id="treatment-extra" name="treatment-extra" placeholder="Treatment Details">
+                <div class="right-section">
+                    <h2>Rx</h2>
+                    <div id="medicine-container"></div>
+                    <button id="add-medicine">+</button>
+                    <button type="button" id="generate-prescription-btn" onclick="generatePrescription()">Print</button>
+
+                </div>
+            </div>
+            <div class="footer">
+                <p>চেম্বার ১: হোসাইনিয়া মাদরাসা সড়ক, বৈদ্যপাড়া, বরিশাল।</p>
+                <p>চেম্বার ২:, শরীফ ভিলা, ভাটিখানা প্রধান সড়ক, বরিশাল।</p>
+                <p>📞 +880162-8949739</p>
             </div>
         </div>
-        <div class="right-section">
-            <h2>Rx</h2>
-            <div id="medicine-container"></div>
-            <button id="add-medicine">+</button>
-
-        </div>
     </div>
-    <div class="footer">
-        <p>চেম্বার ১: হোসাইনিয়া মাদরাসা সড়ক, বৈদ্যপাড়া, বরিশাল।</p>
-        <p>চেম্বার ২:, শরীফ ভিলা, ভাটিখানা প্রধান সড়ক, বরিশাল।</p>
-        <p>📞 +880162-8949739</p>
-    </div>
-
 
 
 
@@ -487,22 +540,17 @@
                     <label for="before-eating">  Before eating</label>
                     <input type="checkbox" id="after-eating" name="after-eating" checked>
                     <label for="after-eating"> After eating</label>
-                    <input type="number" id="days-input" name="days" placeholder="For how many days?">
-
+                    <input type="number" id="days-input" name="days" placeholder="Days ">
                 </div>
-  
-
-
-
             `;
-
             document.getElementById('medicine-container').appendChild(medicineEntry);
-
             medicineEntry.querySelector('.remove-medicine').addEventListener('click', () => {
                 medicineEntry.remove();
             });
         });
     </script>
+    <script src="generate.js"></script>
+
 </body>
 
 </html>
