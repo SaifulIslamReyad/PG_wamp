@@ -1,0 +1,304 @@
+<?php
+include('../db_connect.php'); 
+
+$appointment_no = isset($_GET['appointment_no']) ? $_GET['appointment_no'] : '';
+
+$sql = "SELECT 
+            a.appointment_no, 
+            p.patient_name, 
+            p.patient_dob,
+            a.phone, 
+            p.patient_gender, 
+            p.patient_NID, 
+            a.problem, 
+            a.appointment_date, 
+            a.appointment_time, 
+            a.status, 
+            a.doctor_id
+        FROM appointments a
+        JOIN patients p ON a.patient_id = p.patient_id
+        WHERE a.appointment_no = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $appointment_no);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    $appointment = $result->fetch_assoc();
+} else {
+    echo "No appointment found!";
+    exit;
+}
+function calculateAge($dob) {
+    $dob = new DateTime($dob); 
+    $today = new DateTime();  
+    $age = $dob->diff($today)->y;  
+    return $age;
+}
+
+
+
+// Fetch Prescription Details
+$prescription_sql = "SELECT 
+                        pr.prescription_id, 
+                        pr.issued_date 
+                     FROM prescriptions pr
+                     WHERE pr.prescription_id = ?";
+$stmt = $conn->prepare($prescription_sql);
+$stmt->bind_param("i", $appointment_no);
+$stmt->execute();
+$prescription_result = $stmt->get_result();
+
+$prescription = [];
+if ($prescription_result->num_rows > 0) {
+    $prescription = $prescription_result->fetch_assoc();
+} else {
+    echo "No prescription found for this appointment!";
+    exit;
+}
+
+// Fetch Prescribed Medicines
+$medicines_sql = "SELECT 
+                    m.medicine_name, 
+                    pm.dosage, 
+                    pm.before_after, 
+                    pm.duration
+                 FROM prescribed_medicines pm
+                 JOIN medicines m ON pm.medicine_id = m.medicine_id
+                 WHERE pm.prescription_id = ?";
+$stmt = $conn->prepare($medicines_sql);
+$stmt->bind_param("i", $appointment_no);
+$stmt->execute();
+$medicines_result = $stmt->get_result();
+
+$prescribed_medicines = [];
+while ($row = $medicines_result->fetch_assoc()) {
+    $prescribed_medicines[] = $row;
+}
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZS Sharif Dental Care & Surgery</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+</script>
+<body>
+    <div class="container">
+        <div class="left-div">
+            <div class="info-box">
+                <div>
+                <h3>Patient Information</h3>
+                <p><strong>Phone:</strong> <?= htmlspecialchars($appointment['phone']) ?></p>
+                <p><strong>Problem:</strong> <?= htmlspecialchars($appointment['problem']) ?></p>
+                <p><strong>Date of birth:</strong> <?= htmlspecialchars($appointment['patient_dob']) ?></p>
+                </div>
+                <div>
+                <h3>Appointment Information</h3>
+                <p><strong>Appointment Date:</strong> <?= htmlspecialchars($appointment['appointment_date']) ?></p>
+                <p><strong>Appointment Time:</strong> <?= htmlspecialchars($appointment['appointment_time']) ?></p>
+                <p><strong>Status:</strong> <?= htmlspecialchars($appointment['status']) ?></p>
+                </div>
+            </div>
+            <?php if (!empty($prescription)): ?>
+            <div class="prescription-info">
+                <h2>Previous Prescription</h2>
+                <p><strong>Prescription ID:</strong> <?= htmlspecialchars($prescription['prescription_id']) ?></p>
+                <p><strong>Issued Date:</strong> <?= htmlspecialchars($prescription['issued_date']) ?></p>
+
+                <h3>Prescribed Medicines</h3>
+                <?php if (!empty($prescribed_medicines)): ?>
+                    <table border="1" cellpadding="10">
+                        <thead>
+                            <tr>
+                                <th>Medicine Name</th>
+                                <th>Dosage</th>
+                                <th>Before/After Meal</th>
+                                <th>Duration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($prescribed_medicines as $medicine): ?>
+                                <tr>
+                                    <td><?= htmlspecialchars($medicine['medicine_name']) ?></td>
+                                    <td><?= htmlspecialchars($medicine['dosage']) ?></td>
+                                    <td><?= htmlspecialchars($medicine['before_after']) ?></td>
+                                    <td><?= htmlspecialchars($medicine['duration']) ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                <?php else: ?>
+                    <p>No medicines prescribed.</p>
+                <?php endif; ?>
+            </div>
+            <?php endif; ?>
+
+
+        </div>
+        <div class="right-div">
+            <header>
+                <h1>ZS Sharif Dental Care & Surgery</h1>
+                <p class="tagline">You smile, our team smiles</p>
+                <div class="header-content">
+                    <div class="clinic-info">
+                        <p class="doctor-info">
+                            <span>Dr. Md. Ashraful Islam Suhad <br></span>
+                            BDS (Dhaka University)<br>
+                            Sher-E-Bangla Medical College and hospital, Barishal
+                        </p>
+                    </div>
+                    <img src="assets/logo.jpg" alt="Clinic Logo" class="clinic-logo">
+                    <div class="logo-and-specialization">
+                        <p class="specialization">
+                            Oral and dental specialist & surgeon<br>
+                            Special Training on Root canal Treatment<br>
+                            BMDC Regi No: 14041 <br>
+                            Dhaka University
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <div class="patient-info">
+                <label>Name:</label>
+                <input type="text" id="name" name="name" value="<?= htmlspecialchars($appointment['patient_name']) ?>" required>
+
+                <label>Age:</label>
+                <input type="number" id="age" name="age" value="<?= calculateAge($appointment['patient_dob']) ?>" required>
+
+                <label>Sex:</label>
+                <input type="text" id="sex" name="sex" value="<?= htmlspecialchars($appointment['patient_gender']) ?>" required>
+
+                <label>Date:</label>
+                <input type="date" id="date" name="date" value="<?= htmlspecialchars($appointment['appointment_date']) ?>" required>
+            </div>
+
+
+            <div class="main-content">
+                <div class="left-section">
+                    <label>🔹C/C:</label>
+                    <input type="text" id="cc-input" name="cc" required>
+                    <br>
+                    <label>🔹M/H:</label>
+                    <ol>
+                        <li>HTN</li>
+                        <li>DM</li>
+                        <li>Asthma</li>
+                        <li>Bleeding disorder</li>
+                        <li>Pregnancy</li>
+                        <li>Hepatitis</li>
+                        <li>Kidney disease</li>
+                        <li>Others</li>
+                    </ol>
+                    <br>
+                    <label>🔹O/E:</label>
+                    <ol>
+                        <li>Caries</li>
+                        <li>Pulpitis</li>
+                        <li>Gingivitis</li>
+                        <li>Periodontitis</li>
+                        <li>Plaque</li>
+                        <li>Calculus</li>
+                        <li>Pericoronitis</li>
+                        <li>Impaction</li>
+                        <li>Others</li>
+                    </ol>
+                    <div class="investigation-box">
+                        <br>
+                        <label>🔹Investigation:</label>
+                        <br><br>
+                        <div class="quadrant-container">
+                            <div class="quadrant"><input type="text" id="q1" name="q1" placeholder="Q1"></div>
+                            <div class="quadrant"><input type="text" id="q2" name="q2" placeholder="Q2"></div>
+                            <div class="quadrant"><input type="text" id="q3" name="q3" placeholder="Q3"></div>
+                            <div class="quadrant"><input type="text" id="q4" name="q4" placeholder="Q4"></div>
+                        </div>
+                        <br>
+                        <input type="text" id="investigation-extra" name="investigation-extra"
+                            placeholder="Investigation Details">
+                    </div>
+                    <div class="treatment-box">
+                        <br>
+                        <label>🔹Treatment Plan:</label>
+                        <br><br>
+                        <div class="quadrant-container">
+                            <div class="quadrant"><input type="text" id="q1" name="q1" placeholder="T1"></div>
+                            <div class="quadrant"><input type="text" id="q2" name="q2" placeholder="T2"></div>
+                            <div class="quadrant"><input type="text" id="q3" name="q3" placeholder="T3"></div>
+                            <div class="quadrant"><input type="text" id="q4" name="q4" placeholder="T4"></div>
+                        </div>
+                        <br>
+                        <input type="text" id="treatment-extra" name="treatment-extra" placeholder="Treatment Details">
+                    </div>
+                </div>
+                <div class="right-section">
+                    <h2>Rx</h2>
+                    <div id="medicine-container"></div>
+                    <button id="add-medicine">+</button>
+                    <button type="button" id="generate-prescription-btn" onclick="generatePrescription()">Print</button>
+
+                </div>
+            </div>
+            <div class="footer">
+                <p>চেম্বার ১: হোসাইনিয়া মাদরাসা সড়ক, বৈদ্যপাড়া, বরিশাল।</p>
+                <p>চেম্বার ২:, শরীফ ভিলা, ভাটিখানা প্রধান সড়ক, বরিশাল।</p>
+                <p>📞 +880162-8949739</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        document.getElementById('add-medicine').addEventListener('click', () => {
+            const medicineEntry = document.createElement('div');
+            medicineEntry.classList.add('medicine-entry');
+            medicineEntry.innerHTML = `
+                <div class="last">  
+                    <input type="text" id="medicine-input" name="medicine" placeholder="Enter or choose a medicine" list="medicine-suggestions">
+                    <button type="button" class="remove-medicine">-</button>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="morning" name="time" value="morning">
+                    <label for="morning">Morning</label>
+
+                    <input type="checkbox" id="noon" name="time" value="noon">
+                    <label for="noon">Noon</label>
+
+                    <input type="checkbox" id="night" name="time" value="night">
+                    <label for="night">Night</label>
+
+                    <input type="checkbox" id="eat-when-pain" name="eat-when-pain">
+                    <label for="eat-when-pain">Eat when you feel pain</label>
+                </div>
+
+
+                <div class="eating">
+                    <input type="checkbox" id="before-eating" name="before-eating">
+                    <label for="before-eating">  Before eating</label>
+                    <input type="checkbox" id="after-eating" name="after-eating" checked>
+                    <label for="after-eating"> After eating</label>
+                    <input type="number" id="days-input" name="days" placeholder="Days ">
+                </div>
+            `;
+            document.getElementById('medicine-container').appendChild(medicineEntry);
+            medicineEntry.querySelector('.remove-medicine').addEventListener('click', () => {
+                medicineEntry.remove();
+            });
+        });
+    </script>
+    <script src="generate.js"></script>
+
+</body>
+
+</html>

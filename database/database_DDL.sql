@@ -44,10 +44,8 @@ CREATE TABLE appointments (
     FOREIGN KEY (doctor_id) REFERENCES doctors(doctor_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE prescription (
+CREATE TABLE prescriptions (
     prescription_id INT PRIMARY KEY,
-    medicine_details TEXT NOT NULL,
-    dosage_instructions TEXT NOT NULL,
     issued_date DATE NOT NULL,
     FOREIGN KEY (prescription_id) REFERENCES appointments(appointment_no) ON DELETE CASCADE
 ) ENGINE=InnoDB;
@@ -65,7 +63,7 @@ CREATE TABLE prescribed_medicines (
     dosage VARCHAR(50), 
     before_after ENUM('Before Meal', 'After Meal') DEFAULT 'After Meal',
     duration VARCHAR(50),
-    FOREIGN KEY (prescription_id) REFERENCES prescription(prescription_id) ON DELETE CASCADE,
+    FOREIGN KEY (prescription_id) REFERENCES prescriptions(prescription_id) ON DELETE CASCADE,
     FOREIGN KEY (medicine_id) REFERENCES medicines(medicine_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 

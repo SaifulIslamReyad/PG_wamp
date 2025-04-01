@@ -48,27 +48,26 @@ INSERT INTO patients (patient_name, patient_dob, patient_NID, patient_birth_reg_
 
 INSERT INTO appointments (patient_id, doctor_id, problem, phone, appointment_date, appointment_time, status) VALUES 
 (1, 1, 'Tooth Pain', '017XXXXXXXX', '2025-03-01', '10:00:00', 'Appointed'),
-(2, 3, 'Gum Bleeding', '018XXXXXXXX', '2025-03-02', '11:00:00', 'Appointed'),
-(3, 2, 'Root Canal', '019XXXXXXXX', '2025-03-03', '09:00:00', 'Checkup'),
-(4, 5, 'Oral Surgery', '017XXXXXXXX', '2025-03-04', '10:30:00', 'Seen'),
-(5, 4, 'Tooth Extraction', '017XXXXXXXX', '2025-03-05', '11:30:00', 'Appointed'),
-(6, 6, 'Braces Adjustment', '018XXXXXXXX', '2025-03-06', '12:00:00', 'Seen'),
-(7, 7, 'Cleaning', '019XXXXXXXX', '2025-03-07', '09:30:00', 'Appointed'),
-(8, 8, 'Teeth Whitening', '017XXXXXXXX', '2025-03-08', '10:45:00', 'Checkup'),
-(9, 9, 'Filling', '018XXXXXXXX', '2025-03-09', '11:15:00', 'Appointed'),
-(10, 10, 'Scaling', '019XXXXXXXX', '2025-03-10', '12:30:00', 'Seen');
+(2, 1, 'Gum Bleeding', '018XXXXXXXX', '2025-03-02', '11:00:00', 'Appointed'),
+(3, 1, 'Root Canal', '019XXXXXXXX', '2025-03-03', '09:00:00', 'Checkup'),
+(4, 1, 'Oral Surgery', '017XXXXXXXX', '2025-03-04', '10:30:00', 'Seen'),
+(5, 1, 'Tooth Extraction', '017XXXXXXXX', '2025-03-05', '11:30:00', 'Appointed'),
+(6, 1, 'Braces Adjustment', '018XXXXXXXX', '2025-03-06', '12:00:00', 'Seen'),
+(7, 1, 'Cleaning', '019XXXXXXXX', '2025-03-07', '09:30:00', 'Appointed'),
+(8, 1, 'Teeth Whitening', '017XXXXXXXX', '2025-03-08', '10:45:00', 'Checkup'),
+(9, 1, 'Filling', '018XXXXXXXX', '2025-03-09', '11:15:00', 'Appointed'),
+(10, 1, 'Scaling', '019XXXXXXXX', '2025-03-10', '12:30:00', 'Seen');
 
-INSERT INTO prescription (prescription_id, medicine_details, dosage_instructions, issued_date) VALUES 
-(1, 'Pain Reliever', '1 tablet 3 times a day', '2025-03-01'),
-(2, 'Antibiotics', '1 capsule twice a day', '2025-03-02'),
-(3, 'Mouthwash', 'Use twice daily', '2025-03-03'),
-(4, 'Antibiotics', '1 capsule twice a day', '2025-03-04'),
-(5, 'Pain Reliever', '1 tablet 3 times a day', '2025-03-05'),
-(6, 'Mouthwash', 'Use twice daily', '2025-03-06'),
-(7, 'Antibiotics', '1 capsule twice a day', '2025-03-07'),
-(8, 'Pain Reliever', '1 tablet 3 times a day', '2025-03-08'),
-(9, 'Antibiotics', '1 capsule twice a day', '2025-03-09'),
-(10, 'Mouthwash', 'Use twice daily', '2025-03-10');
+INSERT INTO prescriptions (prescription_id,  issued_date) VALUES 
+(1,  '2025-03-01'),
+(2, '2025-03-02'),
+(3,'2025-03-03'),
+(4, '2025-03-04'),
+(5, '2025-03-05'),
+(6, '2025-03-06'),
+(7, '2025-03-07'),
+(8,  '2025-03-08'),
+(9, '2025-03-09');
 
 INSERT INTO medicines (medicine_name) VALUES 
 ('Amoxicillin'), 
@@ -84,12 +83,11 @@ INSERT INTO medicines (medicine_name) VALUES
 
 INSERT INTO prescribed_medicines (prescription_id, medicine_id, dosage, before_after, duration) VALUES 
 (1, 1, '1 Tablet', 'After Meal', '5 Days'),
-(2, 2, '1 Capsule', 'Before Meal', '7 Days'),
-(3, 3, '1 Tablet', 'After Meal', '3 Days'),
-(4, 4, '1 Tablet', 'After Meal', '5 Days'),
-(5, 5, '1 Capsule', 'Before Meal', '7 Days'),
-(6, 6, '1 Tablet', 'After Meal', '3 Days'),
-(7, 7, '1 Tablet', 'After Meal', '5 Days'),
-(8, 8, '1 Capsule', 'Before Meal', '7 Days'),
-(9, 9, '1 Tablet', 'After Meal', '3 Days'),
-(10, 10, '1 Tablet', 'After Meal', '5 Days');
+(1, 2, '1 Capsule', 'Before Meal', '7 Days'),
+(1, 3, '1 Tablet', 'After Meal', '3 Days'),
+(1, 4, '1 Tablet', 'After Meal', '5 Days'),
+(2, 5, '1 Capsule', 'Before Meal', '7 Days'),
+(2, 6, '1 Tablet', 'After Meal', '3 Days'),
+(2, 7, '1 Tablet', 'After Meal', '5 Days'),
+(2, 8, '1 Capsule', 'Before Meal', '7 Days'),
+(2, 9, '1 Tablet', 'After Meal', '3 Days');
