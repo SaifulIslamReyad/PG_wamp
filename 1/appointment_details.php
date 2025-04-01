@@ -54,11 +54,15 @@ if ($result->num_rows > 0) {
     echo "No appointment found!";
     exit;
 }
-
-// Step 1: Get all prescription IDs for the patient
-$prescription_ids_sql = "SELECT p.prescription_id, p.issued_date 
+// Step 1: Get all prescription IDs for the patient along with the prescribing doctor
+$prescription_ids_sql = "SELECT 
+                            p.prescription_id, 
+                            p.issued_date,
+                            d.doctor_name,
+                            d.qualification
                          FROM prescriptions p
                          JOIN appointments a ON p.prescription_id = a.appointment_no
+                         JOIN doctors d ON a.doctor_id = d.doctor_id
                          WHERE a.patient_id = ?";
 $stmt = $conn->prepare($prescription_ids_sql);
 $stmt->bind_param("i", $patient_id);
@@ -70,6 +74,8 @@ $all_prescriptions = [];
 while ($prescription = $prescriptions_result->fetch_assoc()) {
     $prescription_id = $prescription['prescription_id'];
     $issued_date = $prescription['issued_date'];
+    $doctor_name = $prescription['doctor_name'];
+    $qualification = $prescription['qualification'];
 
     // Step 2: Fetch prescribed medicines for each prescription ID
     $medicines_sql = "SELECT 
@@ -90,10 +96,12 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
         $medicines[] = $medicine;
     }
 
-    // Step 3: Store data in a structured format
+    // Step 3: Store data in a structured format with doctor info
     $all_prescriptions[] = [
         'prescription_id' => $prescription_id,
         'issued_date' => $issued_date,
+        'doctor_name' => $doctor_name,
+        'qualification' => $qualification,
         'medicines' => $medicines
     ];
 }
@@ -131,13 +139,13 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
                 </div>
             </div>
     <h2 id="patient_history_h2">Prescription History</h2>
-
-<div class="prescription-info">
+    <div class="prescription-info">
     <?php if (!empty($all_prescriptions)): ?>
         <?php foreach ($all_prescriptions as $prescription): ?>
             <div class="prescription-card">
                 <h3>Prescription ID: <?= htmlspecialchars($prescription['prescription_id']) ?></h3>
                 <p><strong>Issued Date:</strong> <?= htmlspecialchars($prescription['issued_date']) ?></p>
+                <p><strong>Doctor:</strong> <?= htmlspecialchars($prescription['doctor_name']) ?> (<?= htmlspecialchars($prescription['qualification']) ?>)</p>
                 
                 <h4>Medicines:</h4>
                 <?php if (!empty($prescription['medicines'])): ?>
@@ -170,7 +178,7 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
         <p>No previous prescriptions found.</p>
     <?php endif; ?>
 </div>
-           
+   
 
 
         </div>
