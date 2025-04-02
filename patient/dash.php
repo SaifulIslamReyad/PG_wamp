@@ -81,10 +81,12 @@
             $patient_id = $_SESSION['patient_id'];
         
             $sql = "SELECT a.appointment_no, a.problem, a.appointment_date, a.appointment_time, a.status, 
-                           d.doctor_name, d.qualification 
-                    FROM appointments a 
-                    JOIN doctors d ON a.doctor_id = d.doctor_id 
-                    WHERE a.patient_id = ?";
+                d.doctor_name, d.qualification 
+                FROM appointments a 
+                JOIN doctors d ON a.doctor_id = d.doctor_id 
+                WHERE a.patient_id = ? 
+                ORDER BY a.appointment_no DESC";
+
             
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("i", $patient_id);
@@ -112,8 +114,9 @@
 
         ?>
         <div class="takeapp">
-        <a  href="appointment_form.html">Take Appointment</a>
+            <a href="appointment_form.php?patient_id=<?php echo $patient_id; ?>">Take Appointment</a>
         </div>
+
     </div>
 </body>
 </html>
