@@ -15,7 +15,7 @@
             echo "<p>Phone: " . $_SESSION['patient_phone'] . "</p>";
             echo "<p>Date of Birth: " . $_SESSION['patient_dob'] . "</p>";
             echo "<p>Gender: " . $_SESSION['patient_gender'] . "</p>";
-            
+
             // Fetch all prescriptions
             $prescription_ids_sql = "SELECT p.prescription_id, p.issued_date, d.doctor_name, d.qualification FROM prescriptions p JOIN appointments a ON p.prescription_id = a.appointment_no JOIN doctors d ON a.doctor_id = d.doctor_id WHERE a.patient_id = ?";
             $stmt = $conn->prepare($prescription_ids_sql);
@@ -111,6 +111,9 @@
         }
 
         ?>
+        <div class="takeapp">
+        <a  href="appointment_form.html">Take Appointment</a>
+        </div>
     </div>
 </body>
 </html>

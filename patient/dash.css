@@ -35,18 +35,12 @@ p {
 }
 
 a {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #4e54c8;
-    color: #ffffff;
+  
     text-decoration: none;
-    border-radius: 5px;
-    margin-top: 15px;
+
 }
 
-a:hover {
-    background: #8f94fb;
-}
+
 
 /* Table Styles */
 table {
@@ -159,4 +153,29 @@ tbody tr:hover {
     margin-bottom: 5px;
     flex: 1;
     min-width: 150px;
+}
+
+
+.takeapp{
+    position: fixed;
+    bottom: 70px;
+    right: 50px;
+    padding: 12px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #14B3FE, #9ad0f2);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.6);
+    border-radius: 50px;
+}
+
+.takeapp:hover{
+    background: linear-gradient(45deg, #4d8fb9, #0e6fac);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.6);
 }
