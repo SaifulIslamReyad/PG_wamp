@@ -35,20 +35,20 @@ INSERT INTO doctor_specialization (doctor_id, specialization_id) VALUES
 (9, 9);
 
 INSERT INTO patients (patient_name, patient_phone, patient_password, patient_dob, patient_gender) VALUES 
-('Md. Rafiq', '01772977405', '123', '1990-05-12', 'M'),
-('Farhana Akter', '01772977405', '123', '1992-07-08', 'F'),
-('Arif Hossain', '01772977405', '123', '1985-01-15', 'M'),
-('Ayesha Rahman', '01772977405', '123', '1998-11-22', 'F'),
+('Md. Rafiq', '01772977401', '123', '1990-05-12', 'M'),
+('Farhana Akter', '01772977402', '123', '1992-07-08', 'F'),
+('Arif Hossain', '01772977403', '123', '1985-01-15', 'M'),
+('Ayesha Rahman', '01772977404', '123', '1998-11-22', 'F'),
 ('Mohammad Karim', '01772977405', '123', '1975-03-18', 'M'),
-('Sabina Yasmin', '01772977405', '123', '2000-04-25', 'F'),
-('Shahadat Hossain', '01772977405', '123', '1989-06-30', 'M'),
-('Nazmul Huda', '01772977405', '123', '1977-09-14', 'M'),
-('Lubna Akter', '01772977405', '123', '1994-02-10', 'F'),
-('Tanjila Rahman', '01772977405', '123', '1991-12-01', 'F');
+('Sabina Yasmin', '01772977406', '123', '2000-04-25', 'F'),
+('Shahadat Hossain', '01772977407', '123', '1989-06-30', 'M'),
+('Nazmul Huda', '01772977408', '123', '1977-09-14', 'M'),
+('Lubna Akter', '01772977409', '123', '1994-02-10', 'F'),
+('Tanjila Rahman', '01772977410', '123', '1991-12-01', 'F');
 
 INSERT INTO appointments (patient_id, doctor_id, problem, appointment_date, appointment_time, status) VALUES 
 (1, 1, 'Tooth Pain', '2025-03-01', '10:00:00', 'Appointed'),
-(2, 1, 'Gum Bleeding', '2025-03-02', '11:00:00', 'Appointed'),
+(1, 1, 'Gum Bleeding', '2025-03-02', '11:00:00', 'Appointed'),
 (3, 1, 'Root Canal', '2025-03-03', '09:00:00', 'Checkup'),
 (4, 1, 'Oral Surgery', '2025-03-04', '10:30:00', 'Seen'),
 (5, 1, 'Tooth Extraction', '2025-03-05', '11:30:00', 'Appointed'),
@@ -82,12 +82,12 @@ INSERT INTO medicines (medicine_name) VALUES
 ('Doxycycline');
 
 INSERT INTO prescribed_medicines (prescription_id, medicine_id, dosage, before_after, duration) VALUES 
-(1, 1, '1 Tablet', 'After Meal', '5 Days'),
-(1, 2, '1 Capsule', 'Before Meal', '7 Days'),
-(1, 3, '1 Tablet', 'After Meal', '3 Days'),
-(1, 4, '1 Tablet', 'After Meal', '5 Days'),
-(2, 5, '1 Capsule', 'Before Meal', '7 Days'),
-(2, 6, '1 Tablet', 'After Meal', '3 Days'),
-(2, 7, '1 Tablet', 'After Meal', '5 Days'),
-(2, 8, '1 Capsule', 'Before Meal', '7 Days'),
-(2, 9, '1 Tablet', 'After Meal', '3 Days');
+(1, 1, '1+1+1', 'After Meal', '5 Days'),
+(1, 2, '1+1+1', 'Before Meal', '7 Days'),
+(1, 3, '1+1+1', 'After Meal', '3 Days'),
+(1, 4, '1+1+1', 'After Meal', '5 Days'),
+(2, 5, '1+1+1', 'Before Meal', '7 Days'),
+(2, 6, '1+1+1', 'After Meal', '3 Days'),
+(2, 7, '1+1+1', 'After Meal', '5 Days'),
+(2, 8, '1+1+1', 'Before Meal', '7 Days'),
+(2, 9, '1+1+1', 'After Meal', '3 Days');
