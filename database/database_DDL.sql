@@ -24,10 +24,10 @@ CREATE TABLE doctor_specialization (
 
 CREATE TABLE patients (
     patient_id INT AUTO_INCREMENT PRIMARY KEY,
+    patient_phone VARCHAR (200) NOT NULL, 
     patient_name VARCHAR(255) NOT NULL,
+    patient_password VARCHAR(200) NOT NULL,
     patient_dob DATE NOT NULL,
-    patient_NID VARCHAR(20) UNIQUE,
-    patient_birth_reg_no VARCHAR(20) UNIQUE,
     patient_gender CHAR(1) CHECK (patient_gender IN ('M', 'F', 'O'))
 ) ENGINE=InnoDB;
 
@@ -36,7 +36,6 @@ CREATE TABLE appointments (
     patient_id INT NOT NULL,
     doctor_id INT NOT NULL,
     problem VARCHAR (200), 
-    phone VARCHAR (200) NOT NULL, 
     appointment_date DATE NOT NULL, 
     appointment_time TIME NOT NULL,
     status ENUM('Checkup', 'Appointed', 'Seen') DEFAULT 'Appointed',
@@ -44,12 +43,12 @@ CREATE TABLE appointments (
     FOREIGN KEY (doctor_id) REFERENCES doctors(doctor_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
+
 CREATE TABLE prescriptions (
     prescription_id INT PRIMARY KEY,
     issued_date DATE NOT NULL,
     FOREIGN KEY (prescription_id) REFERENCES appointments(appointment_no) ON DELETE CASCADE
 ) ENGINE=InnoDB;
-
 
 
 CREATE TABLE medicines (

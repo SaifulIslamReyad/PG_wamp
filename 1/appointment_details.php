@@ -54,6 +54,7 @@ if ($result->num_rows > 0) {
     echo "No appointment found!";
     exit;
 }
+
 // Step 1: Get all prescription IDs for the patient along with the prescribing doctor
 $prescription_ids_sql = "SELECT 
                             p.prescription_id, 
@@ -105,10 +106,7 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
         'medicines' => $medicines
     ];
 }
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">

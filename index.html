@@ -9,23 +9,27 @@
 </head>
 
 <body>
-
+    
     <h1>Prescription Generator</h1>
-
     <div class="container">
-        <div class="doctor-login">
+        <div class="doctor-login card">
             <h2>Doctor's Login</h2>
             <p> Login into your dashboard doctor</p>
             <button onclick="window.location.href='login/login.html'">Log in</button>
         </div>
-        <div class="appointment-section">
-            <h2>Take Appointment</h2>
-            <p> Book an appointment with a doctor.</p>
-            <button onclick="window.location.href='appointment/appointment_form.html'">Appointment</button>
+        <div class="patient-login card">
+            <h2>Patient's Login</h2>
+            <p>Login to book appointment and find your medical history</p>
+            <button onclick="window.location.href='patient/login.html'">Log in</button>
         </div>
-        <div class="doctor-signup">
+        <div class="patient-signup card">
+            <h2>New Patient?</h2>
+            <p>Login to book appointment and watch medical history</p>
+            <button onclick="window.location.href='patient/signup.html'">Sign up</button>
+        </div>
+        <div class="doctor-signup card">
             <h2>New Doctor?</h2>
-            <p>sign up as a new doctor.</p>
+            <p>Sign up as a new doctor</p>
             <button onclick="window.location.href='signup/doctor_signup_form.html'">Sign Up</button>
         </div>
     </div>

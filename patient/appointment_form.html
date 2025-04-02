@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Appointment</title>
+    <link rel="stylesheet" href="general.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Appointment Form</h2>
+
+        <form action="submit_appointment.php" method="post" id="appointmentForm">
+            <div class="form-group">
+                <label for="problem">Medical Issue:</label>
+                <input type="text" id="problem" name="problem" placeholder="Describe your problem" required>
+            </div>
+            <div class="form-group">
+                <label for="preffered_appointment_date">Preferred Appointment Date:</label>
+                <input type="date" id="preffered_appointment_date" name="preffered_appointment_date" required>
+            </div>
+
+            <legend>Choose a doctor</legend>
+
+            <div class="form-group">
+                <label for="specialization">Choose Specialization:</label>
+                <select name="specialization" id="specialization" required>
+                    <option value="" disabled selected>Loading specializations</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="doctor">Choose a Doctor:</label>
+                <select name="doctor" id="doctor" required>
+                    <option value="" disabled selected>Select a specialization first</option>
+                </select>
+            </div>
+            <button type="submit">Book Appointment</button>
+        </form>
+    </div>
+
+    <script>
+        window.onload = function () {
+            fetch("get_doctors.php")
+                .then(response => response.json())
+                .then(data => {
+                    const specializationSelect = document.getElementById("specialization");
+                    const doctorSelect = document.getElementById("doctor");
+
+                    let specializations = {};
+
+                    // Check the data structure by logging it
+                    console.log("Doctors data:", data);
+
+                    // Group doctors by specialization
+                    data.forEach(doctor => {
+                        // Check if the doctor object has the expected properties
+                        console.log(doctor);
+                        if (!specializations[doctor.speciality]) {
+                            specializations[doctor.speciality] = [];
+                        }
+                        specializations[doctor.speciality].push(doctor);
+                    });
+
+                    // Populate specialization dropdown
+                    specializationSelect.innerHTML = `<option value="" disabled selected>Select Specialization</option>`;
+                    Object.keys(specializations).forEach(speciality => {
+                        let option = document.createElement("option");
+                        option.value = speciality;
+                        option.textContent = speciality;
+                        specializationSelect.appendChild(option);
+                    });
+
+                    // Handle specialization selection
+                    specializationSelect.addEventListener("change", function () {
+                        let selectedSpeciality = this.value;
+                        doctorSelect.innerHTML = `<option value="" disabled selected>Select a Doctor</option>`;
+
+                        // Make sure there are doctors for the selected specialization
+                        if (specializations[selectedSpeciality]) {
+                            specializations[selectedSpeciality].forEach(doctor => {
+                                let option = document.createElement("option");
+                                option.value = doctor.id;
+                                option.textContent = `${doctor.name} (${doctor.speciality})`;
+                                doctorSelect.appendChild(option);
+                            });
+                        }
+                    });
+                })
+                .catch(error => console.error("Error fetching doctors:", error));
+        };
+
+
+    </script>
+</body>
+
+</html>

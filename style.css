@@ -11,14 +11,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 40px;
   flex-wrap: wrap;
   margin-top: 50px;
 }
 
-.doctor-login,
-.doctor-signup,
-.appointment-section {
+.card {
   background: rgb(204, 228, 241);
   padding: 60px;
   border-radius: 12px;
@@ -27,9 +25,7 @@ body {
   transition: transform 0.3s ease-in-out;
 }
 
-.doctor-login:hover,
-.doctor-signup:hover,
-.appointment-section:hover {
+.card {
   transform: translateY(-5px);
 }
 
@@ -66,9 +62,6 @@ button {
   border: none;
   border-radius: 6px;
   font-size: 16px;
-}
-
-button {
   background: #0a7378;
   color: white;
   font-weight: bold;

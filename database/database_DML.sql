@@ -11,16 +11,16 @@ INSERT INTO specializations (specialization_name) VALUES
 ('General Dentistry');
 
 INSERT INTO doctors (doctor_name, doctor_email, doctor_password, mobile, qualification, registration_number) VALUES 
-('Dr. Ashraful Islam Suhad', 'suhad@gmail.com', 'suhad', '017XXXXXXXX', 'BDS, FCPS', 'REG-001'),
-('Dr. Siam Howlader', 'siam@example.com', 'pass123', '018XXXXXXXX', 'BDS, MDS', 'REG-002'),
-('Dr. Nayeem Islam', 'nayeem@example.com', 'pass123', '019XXXXXXXX', 'BDS, DDS', 'REG-003'),
-('Dr. Tania Akter', 'tania@example.com', 'pass123', '017XXXXXXXX', 'BDS', 'REG-004'),
-('Dr. Farzana Islam', 'farzana@example.com', 'pass123', '017XXXXXXXX', 'BDS, MDS', 'REG-005'),
-('Dr. Tahmina Rahman', 'tahmina@example.com', 'pass123', '018XXXXXXXX', 'BDS, MS', 'REG-006'),
-('Dr. Fahim Rahman', 'fahim@example.com', 'pass123', '019XXXXXXXX', 'BDS, FCPS', 'REG-007'),
-('Dr. Imran Hossain', 'imran@example.com', 'pass123', '017XXXXXXXX', 'BDS, MS', 'REG-008'),
-('Dr. Ayesha Siddiqua', 'ayesha@example.com', 'pass123', '018XXXXXXXX', 'BDS', 'REG-009'),
-('Dr. Mahbub Hasan', 'mahbub@example.com', 'pass123', '019XXXXXXXX', 'BDS, DDS', 'REG-010');
+('Dr. Ashraful Islam Suhad', 'suhad@gmail.com', 'suhad', 'BDS, FCPS', 'REG-001'),
+('Dr. Siam Howlader', 'siam@example.com', 'pass123', 'BDS, MDS', 'REG-002'),
+('Dr. Nayeem Islam', 'nayeem@example.com', 'pass123', 'BDS, DDS', 'REG-003'),
+('Dr. Tania Akter', 'tania@example.com', 'pass123', 'BDS', 'REG-004'),
+('Dr. Farzana Islam', 'farzana@example.com', 'pass123', 'BDS, MDS', 'REG-005'),
+('Dr. Tahmina Rahman', 'tahmina@example.com', 'pass123', 'BDS, MS', 'REG-006'),
+('Dr. Fahim Rahman', 'fahim@example.com', 'pass123', 'BDS, FCPS', 'REG-007'),
+('Dr. Imran Hossain', 'imran@example.com', 'pass123', 'BDS, MS', 'REG-008'),
+('Dr. Ayesha Siddiqua', 'ayesha@example.com', 'pass123', 'BDS', 'REG-009'),
+('Dr. Mahbub Hasan', 'mahbub@example.com', 'pass123', 'BDS, DDS', 'REG-010');
 
 INSERT INTO doctor_specialization (doctor_id, specialization_id) VALUES 
 (1, 1), 
@@ -34,29 +34,29 @@ INSERT INTO doctor_specialization (doctor_id, specialization_id) VALUES
 (8, 8), 
 (9, 9);
 
-INSERT INTO patients (patient_name, patient_dob, patient_NID, patient_birth_reg_no, patient_gender) VALUES 
-('Md. Rafiq', '1990-05-12', '1234567890', 'BR-1001', 'M'),
-('Farhana Akter', '1992-07-08', '1234567891', 'BR-1002', 'F'),
-('Arif Hossain', '1985-01-15', '1234567892', 'BR-1003', 'M'),
-('Ayesha Rahman', '1998-11-22', '1234567893', 'BR-1004', 'F'),
-('Mohammad Karim', '1975-03-18', '1234567894', 'BR-1005', 'M'),
-('Sabina Yasmin', '2000-04-25', '1234567895', 'BR-1006', 'F'),
-('Shahadat Hossain', '1989-06-30', '1234567896', 'BR-1007', 'M'),
-('Nazmul Huda', '1977-09-14', '1234567897', 'BR-1008', 'M'),
-('Lubna Akter', '1994-02-10', '1234567898', 'BR-1009', 'F'),
-('Tanjila Rahman', '1991-12-01', '1234567899', 'BR-1010', 'F');
+INSERT INTO patients (patient_name, patient_phone, patient_password, patient_dob, patient_gender) VALUES 
+('Md. Rafiq', '01772977405', '123', '1990-05-12', 'M'),
+('Farhana Akter', '01772977405', '123', '1992-07-08', 'F'),
+('Arif Hossain', '01772977405', '123', '1985-01-15', 'M'),
+('Ayesha Rahman', '01772977405', '123', '1998-11-22', 'F'),
+('Mohammad Karim', '01772977405', '123', '1975-03-18', 'M'),
+('Sabina Yasmin', '01772977405', '123', '2000-04-25', 'F'),
+('Shahadat Hossain', '01772977405', '123', '1989-06-30', 'M'),
+('Nazmul Huda', '01772977405', '123', '1977-09-14', 'M'),
+('Lubna Akter', '01772977405', '123', '1994-02-10', 'F'),
+('Tanjila Rahman', '01772977405', '123', '1991-12-01', 'F');
 
-INSERT INTO appointments (patient_id, doctor_id, problem, phone, appointment_date, appointment_time, status) VALUES 
-(1, 1, 'Tooth Pain', '017XXXXXXXX', '2025-03-01', '10:00:00', 'Appointed'),
-(2, 1, 'Gum Bleeding', '018XXXXXXXX', '2025-03-02', '11:00:00', 'Appointed'),
-(3, 1, 'Root Canal', '019XXXXXXXX', '2025-03-03', '09:00:00', 'Checkup'),
-(4, 1, 'Oral Surgery', '017XXXXXXXX', '2025-03-04', '10:30:00', 'Seen'),
-(5, 1, 'Tooth Extraction', '017XXXXXXXX', '2025-03-05', '11:30:00', 'Appointed'),
-(6, 1, 'Braces Adjustment', '018XXXXXXXX', '2025-03-06', '12:00:00', 'Seen'),
-(7, 1, 'Cleaning', '019XXXXXXXX', '2025-03-07', '09:30:00', 'Appointed'),
-(8, 1, 'Teeth Whitening', '017XXXXXXXX', '2025-03-08', '10:45:00', 'Checkup'),
-(9, 1, 'Filling', '018XXXXXXXX', '2025-03-09', '11:15:00', 'Appointed'),
-(10, 1, 'Scaling', '019XXXXXXXX', '2025-03-10', '12:30:00', 'Seen');
+INSERT INTO appointments (patient_id, doctor_id, problem, appointment_date, appointment_time, status) VALUES 
+(1, 1, 'Tooth Pain', '2025-03-01', '10:00:00', 'Appointed'),
+(2, 1, 'Gum Bleeding', '2025-03-02', '11:00:00', 'Appointed'),
+(3, 1, 'Root Canal', '2025-03-03', '09:00:00', 'Checkup'),
+(4, 1, 'Oral Surgery', '2025-03-04', '10:30:00', 'Seen'),
+(5, 1, 'Tooth Extraction', '2025-03-05', '11:30:00', 'Appointed'),
+(7, 1, 'Cleaning', '2025-03-07', '09:30:00', 'Appointed'),
+(8, 1, 'Teeth Whitening', '2025-03-08', '10:45:00', 'Checkup'),
+(9, 1, 'Filling', '2025-03-09', '11:15:00', 'Appointed'),
+(10, 1, 'Scaling', '2025-03-10', '12:30:00', 'Seen');
+
 
 INSERT INTO prescriptions (prescription_id,  issued_date) VALUES 
 (1,  '2025-03-01'),
