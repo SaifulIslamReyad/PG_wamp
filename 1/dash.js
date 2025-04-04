@@ -3,7 +3,9 @@ document.addEventListener("DOMContentLoaded", function() {
     fetch('get_appointments.php')
         .then(response => response.json())
         .then(data => {
+
             const appointmentsList = document.getElementById('appointmentsList');
+            // console.log(data);
             
             // If there are appointments
             if (data.length > 0) {

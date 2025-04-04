@@ -1,18 +1,17 @@
 <?php
-include('../db_connect.php'); // include the database connection
+include('../db_connect.php');
 
 // Fetch appointments for doctor_id = 1, group by appointment_date
 $sql = "SELECT 
             a.appointment_no, 
             p.patient_name, 
-            a.phone, 
             a.problem, 
             a.status, 
             a.appointment_date
         FROM appointments a
         JOIN patients p ON a.patient_id = p.patient_id
         WHERE a.doctor_id = 1
-        ORDER BY a.appointment_date ASC"; // Order by date, descending
+        ORDER BY a.appointment_date ASC";
 
 $result = $conn->query($sql);
 

@@ -7,9 +7,8 @@ $sql = "SELECT
             a.appointment_no, 
             p.patient_name, 
             p.patient_dob,
-            a.phone, 
+            p.patient_phone, 
             p.patient_gender, 
-            p.patient_NID, 
             a.problem, 
             a.appointment_date, 
             a.appointment_time, 
@@ -29,6 +28,7 @@ if ($result->num_rows > 0) {
     echo "No appointment found!";
     exit;
 }
+
 function calculateAge($dob) {
     $dob = new DateTime($dob); 
     $today = new DateTime();  
@@ -125,7 +125,7 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
             <div class="info-box">
                 <div>
                 <h3>Patient Information</h3>
-                <p><strong>Phone:</strong> <?= htmlspecialchars($appointment['phone']) ?></p>
+                <p><strong>Phone:</strong> <?= htmlspecialchars($appointment['patient_phone']) ?></p>
                 <p><strong>Problem:</strong> <?= htmlspecialchars($appointment['problem']) ?></p>
                 <p><strong>Date of birth:</strong> <?= htmlspecialchars($appointment['patient_dob']) ?></p>
                 </div>
