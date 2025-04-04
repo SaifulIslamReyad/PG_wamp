@@ -11,7 +11,7 @@ $sql = "SELECT
             a.appointment_date
         FROM appointments a
         JOIN patients p ON a.patient_id = p.patient_id
-        WHERE a.doctor_id = 1
+        WHERE a.doctor_id = 1 and a.status='appointed'
         ORDER BY a.appointment_date ASC";
 
 $result = $conn->query($sql);

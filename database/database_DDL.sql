@@ -46,6 +46,7 @@ CREATE TABLE appointments (
 
 CREATE TABLE prescriptions (
     prescription_id INT PRIMARY KEY,
+    cc VARCHAR(200) ,
     issued_date DATE NOT NULL,
     FOREIGN KEY (prescription_id) REFERENCES appointments(appointment_no) ON DELETE CASCADE
 ) ENGINE=InnoDB;

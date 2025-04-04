@@ -58,6 +58,7 @@ if ($result->num_rows > 0) {
 // Step 1: Get all prescription IDs for the patient along with the prescribing doctor
 $prescription_ids_sql = "SELECT 
                             p.prescription_id, 
+                            p.cc,
                             p.issued_date,
                             d.doctor_name,
                             d.qualification
@@ -75,6 +76,7 @@ $all_prescriptions = [];
 while ($prescription = $prescriptions_result->fetch_assoc()) {
     $prescription_id = $prescription['prescription_id'];
     $issued_date = $prescription['issued_date'];
+    $cc = $prescription['cc'];
     $doctor_name = $prescription['doctor_name'];
     $qualification = $prescription['qualification'];
 
@@ -103,7 +105,8 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
         'issued_date' => $issued_date,
         'doctor_name' => $doctor_name,
         'qualification' => $qualification,
-        'medicines' => $medicines
+        'medicines' => $medicines,
+        'cc'=> $cc
     ];
 }
 ?>
@@ -143,6 +146,7 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
             <div class="prescription-card">
                 <h3>Prescription ID: <?= htmlspecialchars($prescription['prescription_id']) ?></h3>
                 <p><strong>Issued Date:</strong> <?= htmlspecialchars($prescription['issued_date']) ?></p>
+                <p><strong>CC:</strong> <?= htmlspecialchars($prescription['cc']) ?></p>
                 <p><strong>Doctor:</strong> <?= htmlspecialchars($prescription['doctor_name']) ?> (<?= htmlspecialchars($prescription['qualification']) ?>)</p>
                 
                 <h4>Medicines:</h4>

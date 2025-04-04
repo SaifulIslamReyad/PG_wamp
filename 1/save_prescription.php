@@ -11,10 +11,11 @@ if (!$data) {
 $appointment_no = intval($data["appointment_no"]);
 $issued_date = $data["issued_date"];
 $medicines = $data["medicines"];
+$cc = $data["cc"];
 
 // Insert into prescriptions table
-$insertPrescription = $conn->prepare("INSERT INTO prescriptions (prescription_id, issued_date) VALUES (?, ?)");
-$insertPrescription->bind_param("is", $appointment_no, $issued_date);
+$insertPrescription = $conn->prepare("INSERT INTO prescriptions (prescription_id, issued_date, cc) VALUES (?, ? , ?)");
+$insertPrescription->bind_param("iss", $appointment_no, $issued_date, $cc);
 if (!$insertPrescription->execute()) {
     echo "Failed to insert prescription";
     exit;
@@ -52,4 +53,12 @@ foreach ($medicines as $med) {
 }
 
 echo "Prescription saved successfully";
+
+// Update appointment status to 'seen'
+$updateStatus = $conn->prepare("UPDATE appointments SET status = 'Seen' WHERE appointment_no = ?");
+$updateStatus->bind_param("i", $appointment_no);
+if (!$updateStatus->execute()) {
+    echo "Failed to update appointment status";
+    exit;
+}
 ?>
