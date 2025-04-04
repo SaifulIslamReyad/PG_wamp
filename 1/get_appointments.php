@@ -5,6 +5,7 @@ include('../db_connect.php');
 $sql = "SELECT 
             a.appointment_no, 
             p.patient_name, 
+            p.patient_phone,
             a.problem, 
             a.status, 
             a.appointment_date

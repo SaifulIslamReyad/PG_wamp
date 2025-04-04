@@ -293,47 +293,51 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
     </div>
 
 
-
-
     <script>
-        document.getElementById('add-medicine').addEventListener('click', () => {
-            const medicineEntry = document.createElement('div');
-            medicineEntry.classList.add('medicine-entry');
-            medicineEntry.innerHTML = `
-                <div class="last">  
-                    <input type="text" id="medicine-input" name="medicine" placeholder="Enter or choose a medicine" list="medicine-suggestions">
-                    <button type="button" class="remove-medicine">-</button>
-                </div>
+    document.getElementById('add-medicine').addEventListener('click', () => {
+        const medicineEntry = document.createElement('div');
+        medicineEntry.classList.add('medicine-entry');
+        
+        // Generate a unique identifier for each entry
+        const uniqueId = Date.now();
 
-                <div class="checkbox-group">
-                    <input type="checkbox" id="morning" name="time" value="morning">
-                    <label for="morning">Morning</label>
+        medicineEntry.innerHTML = `
+            <div class="last">  
+                <input type="text" class="medicine-input" name="medicine" placeholder="Enter or choose a medicine" list="medicine-suggestions">
+                <button type="button" class="remove-medicine">-</button>
+            </div>
 
-                    <input type="checkbox" id="noon" name="time" value="noon">
-                    <label for="noon">Noon</label>
+            <div class="checkbox-group">
+                <input type="checkbox" class="morning" name="time" value="morning" id="morning-${uniqueId}">
+                <label for="morning-${uniqueId}">Morning</label>
 
-                    <input type="checkbox" id="night" name="time" value="night">
-                    <label for="night">Night</label>
+                <input type="checkbox" class="noon" name="time" value="noon" id="noon-${uniqueId}">
+                <label for="noon-${uniqueId}">Noon</label>
 
-                    <input type="checkbox" id="eat-when-pain" name="eat-when-pain">
-                    <label for="eat-when-pain">Eat when you feel pain</label>
-                </div>
+                <input type="checkbox" class="night" name="time" value="night" id="night-${uniqueId}">
+                <label for="night-${uniqueId}">Night</label>
 
+                <input type="checkbox" class="eat-when-pain" name="eat-when-pain" id="eat-when-pain-${uniqueId}">
+                <label for="eat-when-pain-${uniqueId}">Eat when you feel pain</label>
+            </div>
 
-                <div class="eating">
-                    <input type="checkbox" id="before-eating" name="before-eating">
-                    <label for="before-eating">  Before eating</label>
-                    <input type="checkbox" id="after-eating" name="after-eating" checked>
-                    <label for="after-eating"> After eating</label>
-                    <input type="number" id="days-input" name="days" placeholder="Days ">
-                </div>
-            `;
-            document.getElementById('medicine-container').appendChild(medicineEntry);
-            medicineEntry.querySelector('.remove-medicine').addEventListener('click', () => {
-                medicineEntry.remove();
-            });
+            <div class="eating">
+                <input type="checkbox" class="before-eating" name="before-eating" id="before-eating-${uniqueId}">
+                <label for="before-eating-${uniqueId}">Before eating</label>
+                <input type="checkbox" class="after-eating" name="after-eating" id="after-eating-${uniqueId}" checked>
+                <label for="after-eating-${uniqueId}">After eating</label>
+                <input type="number" class="days-input" name="days" placeholder="Days">
+            </div>
+        `;
+
+        document.getElementById('medicine-container').appendChild(medicineEntry);
+
+        medicineEntry.querySelector('.remove-medicine').addEventListener('click', () => {
+            medicineEntry.remove();
         });
-    </script>
+    });
+</script>
+
     <script src="generate.js"></script>
 
 </body>

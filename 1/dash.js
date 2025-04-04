@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     row.innerHTML = `
                         <td>${index + 1}</td>
                         <td>${appointment.patient_name}</td>
-                        <td>${appointment.phone}</td>
+                        <td>${appointment.patient_phone}</td>
                         <td>${appointment.problem}</td>
                         <td>${appointment.status}</td>
                     `;

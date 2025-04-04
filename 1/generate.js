@@ -1,9 +1,9 @@
 function getDosageValue(entry) {
   const dosageCheckboxes = entry.querySelectorAll(
-    ".checkbox-group input[type='checkbox']"
+    ".checkbox-group input[name='time']"
   );
   const values = Array.from(dosageCheckboxes).map((checkbox) =>
-    checkbox.checked ? "১" : "০"
+    checkbox.checked ? "1" : "0"
   );
   return values.join("+");
 }
@@ -101,6 +101,48 @@ function generatePrescription() {
 
     printWindow.print();
   };
+
+  //
+
+  const appointmentNo = new URLSearchParams(window.location.search).get(
+    "appointment_no"
+  );
+  // const appointmentNo = 1;
+  const dataToSend = {
+    appointment_no: appointmentNo,
+    issued_date: new Date(date).toISOString().split("T")[0], // YYYY-MM-DD
+    medicines: medicines.map((med, i) => {
+      const medicineEntry =
+        document.getElementsByClassName("medicine-entry")[i];
+      const name = medicineEntry.querySelector("input[name='medicine']").value;
+      const duration = medicineEntry.querySelector("input[name='days']").value;
+      const before = medicineEntry.querySelector(
+        "input[name='before-eating']"
+      ).checked;
+      const after = medicineEntry.querySelector(
+        "input[name='after-eating']"
+      ).checked;
+
+      return {
+        name,
+        dosage: getDosageValue(medicineEntry),
+        before_after: before ? "Before Meal" : "After Meal",
+        duration,
+      };
+    }),
+  };
+
+  // Send to PHP
+  fetch("save_prescription.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(dataToSend),
+  })
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.error("Error:", error));
 }
 
 function convertToBengaliNumerals(number) {
