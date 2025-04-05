@@ -1,4 +1,5 @@
 INSERT INTO specializations (specialization_name) VALUES 
+-- Dental Specializations
 ('Orthodontics'), 
 ('Periodontics'), 
 ('Endodontics'), 
@@ -8,9 +9,36 @@ INSERT INTO specializations (specialization_name) VALUES
 ('Oral Medicine'), 
 ('Oral Pathology'), 
 ('Oral Radiology'), 
-('General Dentistry');
+('General Dentistry'),
 
-INSERT INTO doctors (doctor_name, doctor_email, doctor_password, mobile, qualification, ration_number) VALUES 
+-- Medical Specializations
+('General Medicine'),
+('Cardiology'),
+('Dermatology'),
+('Neurology'),
+('Psychiatry'),
+('Pediatrics'),
+('Oncology'),
+('Nephrology'),
+('Endocrinology'),
+('Pulmonology'),
+('Rheumatology'),
+('Gastroenterology'),
+('Hematology'),
+('Urology'),
+('ENT (Otorhinolaryngology)'),
+('Ophthalmology'),
+('Orthopedics'),
+('Gynecology'),
+('Anesthesiology'),
+('Radiology'),
+('Pathology'),
+('Emergency Medicine'),
+('Family Medicine'),
+('Infectious Diseases');
+
+
+INSERT INTO doctors (doctor_name, doctor_email, doctor_password, mobile, qualification, registration_number) VALUES 
 ('Dr. Ashraful Islam Suhad', 'suhad@gmail.com', 'suhad', 'BDS, FCPS', '1'),
 ('Dr. Siam Howlader', 'siam@example.com', 'pass123', 'BDS, MDS', '2'),
 ('Dr. Nayeem Islam', 'nayeem@example.com', 'pass123', 'BDS, DDS', '3'),
@@ -58,16 +86,17 @@ INSERT INTO appointments (patient_id, doctor_id, problem, appointment_date, appo
 (10, 1, 'Scaling', '2025-03-10', '12:30:00', 'Seen');
 
 
-INSERT INTO prescriptions (prescription_id,  issued_date) VALUES 
-(1,  '2025-03-01'),
-(2, '2025-03-02'),
-(3,'2025-03-03'),
-(4, '2025-03-04'),
-(5, '2025-03-05'),
-(6, '2025-03-06'),
-(7, '2025-03-07'),
-(8,  '2025-03-08'),
-(9, '2025-03-09');
+INSERT INTO prescriptions (prescription_id, issued_date, cc) VALUES 
+(1, '2025-03-01', 'Toothache'),
+(2, '2025-03-02', 'Gum bleeding'),
+(3, '2025-03-03', 'Root canal pain'),
+(4, '2025-03-04', 'Swelling in jaw'),
+(5, '2025-03-05', 'Tooth sensitivity'),
+(6, '2025-03-06', 'Bad breath'),
+(7, '2025-03-07', 'Cavity issue'),
+(8, '2025-03-08', 'Broken tooth'),
+(9, '2025-03-09', 'Follow-up checkup');
+
 
 INSERT INTO medicines (medicine_name) VALUES 
 ('Amoxicillin'), 
@@ -82,12 +111,12 @@ INSERT INTO medicines (medicine_name) VALUES
 ('Doxycycline');
 
 INSERT INTO prescribed_medicines (prescription_id, medicine_id, dosage, before_after, duration) VALUES 
-(1, 1, '1+1+1', 'After Meal', '5 Days'),
-(1, 2, '1+1+1', 'Before Meal', '7 Days'),
-(1, 3, '1+1+1', 'After Meal', '3 Days'),
-(1, 4, '1+1+1', 'After Meal', '5 Days'),
-(2, 5, '1+1+1', 'Before Meal', '7 Days'),
-(2, 6, '1+1+1', 'After Meal', '3 Days'),
-(2, 7, '1+1+1', 'After Meal', '5 Days'),
-(2, 8, '1+1+1', 'Before Meal', '7 Days'),
-(2, 9, '1+1+1', 'After Meal', '3 Days');
+(1, 1, '1+1+1', 'After Meal', '5'),
+(1, 2, '1+1+1', 'Before Meal', '7'),
+(1, 3, '1+1+1', 'After Meal', '3'),
+(1, 4, '1+1+1', 'After Meal', '5'),
+(2, 5, '1+1+1', 'Before Meal', '7'),
+(2, 6, '1+1+1', 'After Meal', '3'),
+(2, 7, '1+1+1', 'After Meal', '5'),
+(2, 8, '1+1+1', 'Before Meal', '7'),
+(2, 9, '1+1+1', 'After Meal', '3');

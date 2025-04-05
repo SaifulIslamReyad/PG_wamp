@@ -13,6 +13,7 @@ if (isset($_REQUEST['patient_id'])) {
     <meta charset="UTF-8">
     <title>Appointment Form</title>
     <link rel="stylesheet" href="../general.css">
+    <!-- <link rel="stylesheet" href="appointment.css"> -->
 </head>
 <body>
     <div class="container">
@@ -30,7 +31,7 @@ if (isset($_REQUEST['patient_id'])) {
                 <label for="preffered_appointment_date">Preferred Appointment Date:</label>
                 <input type="date" id="preffered_appointment_date" name="appointment_date" required>
             </div>
-
+        <!-- <fieldset> -->
             <legend>Choose a doctor</legend>
 
             <div class="form-group">
@@ -46,7 +47,7 @@ if (isset($_REQUEST['patient_id'])) {
                     <option value="" disabled selected>Select a specialization first</option>
                 </select>
             </div>
-
+            <!-- </fieldset> -->
             <button type="submit">Book Appointment</button>
         </form>
     </div>
