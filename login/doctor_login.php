@@ -25,10 +25,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: ../${doctor_id}/dashboard.html"); // Redirect to doctor-specific page
             exit();
         } else {
-            echo "Invalid password. <a href='../index.html'>Try again</a>";
+            echo "<h2> Invalid password. <a href='../index.html'>Try again</a> </h2>";
         }
     } else {
-        echo "Doctor not found. <a href='../index.html'>Try again</a>";
+        echo "Doctor not found. <a href='../index.html'>Signup as new doctor and Try again</a>";
     }
     
     $stmt->close();

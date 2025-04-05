@@ -7,7 +7,7 @@ $doctor_password = $_POST['doctor_password'];
 $mobile = $_POST['mobile'];
 $qualification = $_POST['qualification'];
 $registration_number = $_POST['registration_number'];
-$specialization_ids = $_POST['specialization_id']; // Array of specializations
+$specialization_ids = $_POST['specialization_id']; 
 
 try {
     // Insert doctor data
@@ -17,7 +17,6 @@ try {
     $doctor_id = $stmt->insert_id;
     $stmt->close();
 
-    // Insert into doctor_specialization
     if (!empty($specialization_ids)) {
         $stmt = $conn->prepare("INSERT INTO doctor_specialization (doctor_id, specialization_id) VALUES (?, ?)");
         foreach ($specialization_ids as $specialization_id) {
@@ -27,9 +26,15 @@ try {
         $stmt->close();
     }
 
-    echo "Doctor registered successfully!";
+    echo "<script>
+        alert('Doctor registered successfully!');
+        window.location.href = '../login/login.html';
+    </script>";
 } catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
+    echo "<script>
+        alert('Error: " . $e->getMessage() . "');
+        window.location.href = 'doctor_signup_form.html';
+    </script>";
 }
 
 $conn->close();

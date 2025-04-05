@@ -127,6 +127,7 @@ function generatePrescription() {
     appointment_no: appointmentNo,
     issued_date: today, // Use today's date
     medicines: medicineData,
+    cc : cc 
   };
 
   // Send to PHP

@@ -12,9 +12,15 @@ try {
     $stmt->bind_param("sssss", $patient_name, $patient_phone, $patient_password, $patient_dob, $patient_gender);
     $stmt->execute();
     $stmt->close();
-    echo "Patient registered successfully!";
-} catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
+    echo "<script>
+        alert('Patient registered successfully!');
+        window.location.href = 'login.html';
+    </script>";
+} catch (Exception $e) {"
+    <script>
+        alert('Error: " . $e->getMessage() . "');
+        window.location.href = 'signup.html';
+    </script>";
 }
 
 $conn->close();

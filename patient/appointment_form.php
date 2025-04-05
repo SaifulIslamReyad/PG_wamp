@@ -12,7 +12,7 @@ if (isset($_REQUEST['patient_id'])) {
 <head>
     <meta charset="UTF-8">
     <title>Appointment Form</title>
-    <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="../general.css">
 </head>
 <body>
     <div class="container">

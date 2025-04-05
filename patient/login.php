@@ -25,10 +25,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: ./dash.php");
             exit();
         } else {
-            echo "Invalid password. <a href='../index.html'>Try again</a>";
+            echo "<h2> Invalid password. <a href='../index.html'>HOME</a> </h2>";
         }
     } else {
-        echo "Patient not found. <a href='../index.html'>Try again</a>";
+        echo "Patient not found. <a href='../index.html'>HOME</a>";
     }
     
     $stmt->close();

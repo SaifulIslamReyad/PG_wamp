@@ -25,11 +25,17 @@ $stmt = $conn->prepare("INSERT INTO appointments (patient_id, doctor_id, problem
 $stmt->bind_param("iisss", $patient_id, $doctor_id, $problem, $appointment_date, $appointment_time);
 
 if ($stmt->execute()) {
-    echo "Appointment successfully booked!";
-    header("Location: dash.php?patient_id=$patient_id");
+    echo "<script>
+        alert('Appointment successfully booked!!');
+        window.location.href = 'dash.php?patient_id={$patient_id}';
+    </script>";
     exit();
 } else {
-    echo "Error: " . $stmt->error;
+    $errorMsg = $stmt->error;
+    echo "<script>
+        alert('Appointment booking failed! Error: {$errorMsg}');
+        window.history.back();
+    </script>";
 }
 
 $stmt->close();
