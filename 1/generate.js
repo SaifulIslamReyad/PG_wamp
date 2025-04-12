@@ -130,7 +130,6 @@ function generatePrescription() {
     cc : cc 
   };
 
-  // Send to PHP
   fetch("save_prescription.php", {
     method: "POST",
     headers: {
@@ -138,7 +137,18 @@ function generatePrescription() {
     },
     body: JSON.stringify(dataToSend),
   })
-    .then((response) => response.text())
-    .then((result) => console.log(result))
-    .catch((error) => console.error("Error:", error));
+  .then((response) => response.text())
+  .then((result) => {
+    // console.log(result);
+    if (result.trim() === "success") {
+      alert("Successfully saved prescription");
+      window.location.assign("./dashboard.html");
+    } else {
+      alert("Something went wrong");
+    }
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+    alert("An error occurred while saving the prescription.");
+  });
 }
