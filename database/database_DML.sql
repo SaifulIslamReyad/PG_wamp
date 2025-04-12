@@ -11,7 +11,7 @@ INSERT INTO specializations (specialization_name) VALUES
 ('Oral Radiology'), 
 ('General Dentistry'),
 
--- Medical Specializations
+-- other Specializations
 ('General Medicine'),
 ('Cardiology'),
 ('Dermatology'),
@@ -38,17 +38,18 @@ INSERT INTO specializations (specialization_name) VALUES
 ('Infectious Diseases');
 
 
-INSERT INTO doctors (doctor_name, doctor_email, doctor_password, mobile, qualification, registration_number) VALUES 
-('Dr. Ashraful Islam Suhad', 'suhad@gmail.com', 'suhad', 'BDS, FCPS', '1'),
-('Dr. Siam Howlader', 'siam@example.com', 'pass123', 'BDS, MDS', '2'),
-('Dr. Nayeem Islam', 'nayeem@example.com', 'pass123', 'BDS, DDS', '3'),
-('Dr. Tania Akter', 'tania@example.com', 'pass123', 'BDS', '4'),
-('Dr. Farzana Islam', 'farzana@example.com', 'pass123', 'BDS, MDS', '5'),
-('Dr. Tahmina Rahman', 'tahmina@example.com', 'pass123', 'BDS, MS', '6'),
-('Dr. Fahim Rahman', 'fahim@example.com', 'pass123', 'BDS, FCPS', '7'),
-('Dr. Imran Hossain', 'imran@example.com', 'pass123', 'BDS, MS', '8'),
-('Dr. Ayesha Siddiqua', 'ayesha@example.com', 'pass123', 'BDS', '9'),
-('Dr. Mahbub Hasan', 'mahbub@example.com', 'pass123', 'BDS, DDS', '10');
+INSERT INTO doctors (doctor_name, doctor_email, doctor_password, qualification, registration_number, mobile) VALUES 
+('Dr. Ashraful Islam Suhad', 'suhad@gmail.com', 'suhad', 'BDS, FCPS', '1', '01580000001'),
+('Dr. Siam Howlader', 'siam@example.com', 'pass123', 'BDS, MDS', '2', '01580000002'),
+('Dr. Nayeem Islam', 'nayeem@example.com', 'pass123', 'BDS, DDS', '3', '01580000003'),
+('Dr. Tania Akter', 'tania@example.com', 'pass123', 'BDS', '4', '01580000004'),
+('Dr. Farzana Islam', 'farzana@example.com', 'pass123', 'BDS, MDS', '5', '01580000005'),
+('Dr. Tahmina Rahman', 'tahmina@example.com', 'pass123', 'BDS, MS', '6', '01580000006'),
+('Dr. Fahim Rahman', 'fahim@example.com', 'pass123', 'BDS, FCPS', '7', '01580000007'),
+('Dr. Imran Hossain', 'imran@example.com', 'pass123', 'BDS, MS', '8', '01580000008'),
+('Dr. Ayesha Siddiqua', 'ayesha@example.com', 'pass123', 'BDS', '9', '01580000009'),
+('Dr. Mahbub Hasan', 'mahbub@example.com', 'pass123', 'BDS, DDS', '10', '01580000010');
+
 
 INSERT INTO doctor_specialization (doctor_id, specialization_id) VALUES 
 (1, 1), 
