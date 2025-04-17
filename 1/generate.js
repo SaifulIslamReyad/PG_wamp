@@ -142,7 +142,7 @@ function generatePrescription() {
     // console.log(result);
     if (result.trim() === "success") {
       alert("Successfully saved prescription");
-      window.location.assign("./dashboard.html");
+      window.location.assign("./dashboard.php");
     } else {
       alert("Something went wrong");
     }
