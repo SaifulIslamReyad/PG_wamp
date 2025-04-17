@@ -1,5 +1,5 @@
 <?php
-include('../db_connect.php');
+include('../../db_connect.php');
 session_start();
 
 // Check if patient_id is received from POST
@@ -27,7 +27,7 @@ $stmt->bind_param("iisss", $patient_id, $doctor_id, $problem, $appointment_date,
 if ($stmt->execute()) {
     echo "<script>
         alert('Appointment successfully booked!!');
-        window.location.href = 'dash.php?patient_id={$patient_id}';
+        window.location.href = '../dash.php?patient_id={$patient_id}';
     </script>";
     exit();
 } else {

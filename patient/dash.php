@@ -191,10 +191,11 @@ $patient_id = $_SESSION['patient_id'];
 
         <!-- Take Appointment Button -->
         <div class="takeapp">
-            <a href="appointment_form.php?patient_id=<?php echo $patient_id; ?>">
+            <a href="appointment/form.php?patient_id=<?php echo $patient_id; ?>">
                 <i class="fas fa-capsules icon"></i> Take Appointment
             </a>
         </div>
+        
     </div>
 
     <script>

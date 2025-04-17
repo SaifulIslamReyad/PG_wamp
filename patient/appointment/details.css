@@ -1,0 +1,216 @@
+/* ===== Global Reset & Base Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    padding: 30px;
+    color: #2c3e50;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+  }
+  
+  /* ===== Headings ===== */
+  h1, h2 {
+    text-align: center;
+    color: #2c3e50;
+    width: 100%;
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+  
+  h1 {
+    font-size: 32px;
+  }
+  
+  h2 {
+    font-size: 26px;
+  }
+  
+  /* ===== Container Styling ===== */
+  .doctor-details-container,
+  .container {
+    flex: 1 1 45%;
+    min-width: 320px;
+    max-width: 700px;
+    background-color: #fff;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* ===== Doctor Details Section ===== */
+  .doctor-details-container h2 {
+    color: #2980b9;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .doctor-details-container h3 {
+    font-size: 22px;
+    color: #2c3e50;
+    margin: 30px 0 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #eee;
+  }
+  
+  .doctor-details-container p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 1.7;
+  }
+  
+  .doctor-details-container strong {
+    color: #2c3e50;
+  }
+  
+  /* ===== Form Styling ===== */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+    color: #34495e;
+  }
+  
+  input[type="text"],
+  input[type="date"],
+  select {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    transition: border 0.3s ease;
+  }
+  
+  input[type="text"]:focus,
+  input[type="date"]:focus,
+  select:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+  
+  button[type="submit"] {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #2980b9;
+  }
+  
+  legend {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 15px 0;
+  }
+  
+  /* Debug/Info Style */
+  p[style*="color: gray"] {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  /* ===== Custom Calendar Picker ===== */
+  .calendar-picker {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 12px;
+    margin-top: 10px;
+    background-color: #fafafa;
+    padding: 18px 15px;
+    border-radius: 10px;
+    border: 1px solid #dcdde1;
+    max-width: 100%;
+    transition: all 0.2s ease;
+  }
+  
+  .calendar-picker div {
+    background-color: #ecf0f1;
+    padding: 10px 6px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #2c3e50;
+    transition: background-color 0.3s, color 0.3s;
+    user-select: none;
+  }
+  
+  .calendar-picker div:hover {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  .calendar-picker .selected {
+    background-color: #2ecc71 !important;
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* ===== Responsive Layout ===== */
+  @media (max-width: 1000px) {
+    body {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .doctor-details-container,
+    .container {
+      flex: 1 1 90%;
+    }
+  
+    .doctor-details-container h2,
+    .container h2 {
+      font-size: 24px;
+    }
+  
+    .doctor-details-container h3 {
+      font-size: 20px;
+    }
+  
+    .doctor-details-container p,
+    label,
+    input,
+    select {
+      font-size: 15px;
+    }
+  }
+  
+
+
+
+
+  .map-container {
+    margin: 15px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+  }
+  

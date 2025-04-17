@@ -1,17 +1,4 @@
 INSERT INTO specializations (specialization_name) VALUES 
--- Dental Specializations
-('Orthodontics'), 
-('Periodontics'), 
-('Endodontics'), 
-('Prosthodontics'), 
-('Oral Surgery'), 
-('Pediatric Dentistry'), 
-('Oral Medicine'), 
-('Oral Pathology'), 
-('Oral Radiology'), 
-('General Dentistry'),
-
--- other Specializations
 ('General Medicine'),
 ('Cardiology'),
 ('Dermatology'),
@@ -35,20 +22,30 @@ INSERT INTO specializations (specialization_name) VALUES
 ('Pathology'),
 ('Emergency Medicine'),
 ('Family Medicine'),
-('Infectious Diseases');
+('Infectious Diseases'),
+('Orthodontics'), 
+('Periodontics'), 
+('Endodontics'), 
+('Prosthodontics'), 
+('Oral Surgery'), 
+('Pediatric Dentistry'), 
+('Oral Medicine'), 
+('Oral Pathology'), 
+('Oral Radiology'), 
+('General Dentistry');
 
 
-INSERT INTO doctors (doctor_name, doctor_email, doctor_password, qualification, registration_number, mobile) VALUES 
-('Dr. Ashraful Islam Suhad', 'suhad@gmail.com', 'suhad', 'BDS, FCPS', '1', '01580000001'),
-('Dr. Siam Howlader', 'siam@example.com', 'pass123', 'BDS, MDS', '2', '01580000002'),
-('Dr. Nayeem Islam', 'nayeem@example.com', 'pass123', 'BDS, DDS', '3', '01580000003'),
-('Dr. Tania Akter', 'tania@example.com', 'pass123', 'BDS', '4', '01580000004'),
-('Dr. Farzana Islam', 'farzana@example.com', 'pass123', 'BDS, MDS', '5', '01580000005'),
-('Dr. Tahmina Rahman', 'tahmina@example.com', 'pass123', 'BDS, MS', '6', '01580000006'),
-('Dr. Fahim Rahman', 'fahim@example.com', 'pass123', 'BDS, FCPS', '7', '01580000007'),
-('Dr. Imran Hossain', 'imran@example.com', 'pass123', 'BDS, MS', '8', '01580000008'),
-('Dr. Ayesha Siddiqua', 'ayesha@example.com', 'pass123', 'BDS', '9', '01580000009'),
-('Dr. Mahbub Hasan', 'mahbub@example.com', 'pass123', 'BDS, DDS', '10', '01580000010');
+INSERT INTO doctors (doctor_name, doctor_email, doctor_password, qualification, registration_number, mobile, chamber_address) VALUES 
+('Dr. Ashraful Islam Suhad', 'suhad@gmail.com', 'suhad', 'BDS, FCPS', '1', '01580000001',"Barishal"),
+('Dr. Siam Howlader', 'siam@example.com', 'pass123', 'BDS, MDS', '2', '01580000002',"Barishal"),
+('Dr. Nayeem Islam', 'nayeem@example.com', 'pass123', 'BDS, DDS', '3', '01580000003', "Khulna"),
+('Dr. Tania Akter', 'tania@example.com', 'pass123', 'BDS', '4', '01580000004',"Khulna"),
+('Dr. Farzana Islam', 'farzana@example.com', 'pass123', 'BDS, MDS', '5', '01580000005',"Khulna"),
+('Dr. Tahmina Rahman', 'tahmina@example.com', 'pass123', 'BDS, MS', '6', '01580000006',"Khulna"),
+('Dr. Fahim Rahman', 'fahim@example.com', 'pass123', 'BDS, FCPS', '7', '01580000007',"Khulna"),
+('Dr. Imran Hossain', 'imran@example.com', 'pass123', 'BDS, MS', '8', '01580000008',"Khulna"),
+('Dr. Ayesha Siddiqua', 'ayesha@example.com', 'pass123', 'BDS', '9', '01580000009',"Khulna"),
+('Dr. Mahbub Hasan', 'mahbub@example.com', 'pass123', 'BDS, DDS', '10', '01580000010',"Khulna");
 
 
 INSERT INTO doctor_specialization (doctor_id, specialization_id) VALUES 

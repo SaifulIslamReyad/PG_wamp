@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "prescription_generator";
+$dbname = "prescription_generator2";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
