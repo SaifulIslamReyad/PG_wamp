@@ -18,7 +18,7 @@ if (!isset($_POST['doctor_id'], $_POST['problem'], $_POST['appointment_date'])) 
 $doctor_id = intval($_POST['doctor_id']);
 $problem = trim($_POST['problem']);
 $appointment_date = $_POST['appointment_date'];
-$appointment_time = "10:00:00"; // Hardcoded for now
+$appointment_time = "09:00 PM"; // Hardcoded for now
 
 // Insert appointment data into the database
 $stmt = $conn->prepare("INSERT INTO appointments (patient_id, doctor_id, problem, appointment_date, appointment_time) VALUES (?, ?, ?, ?, ?)");

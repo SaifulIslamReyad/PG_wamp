@@ -119,13 +119,35 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZS Sharif Dental Care & Surgery</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="../nav.css">
 </head>
 
-</script>
-<body>
+
+<body><nav class="cc-navbar">
+      <div class="cc-navbar-container">
+        <div class="cc-navbar-inner">
+          <!-- Logo + Brand -->
+          <div class="cc-logo-brand">
+            <img class="cc-logo" src="../assets/clinicode.png" alt="ZS Sharif Dental Logo" />
+            <span class="cc-brand-name">CliniCode</span>
+          </div>
+    
+          <!-- Nav Links -->
+          <div class="cc-nav-links">
+            <a href="../index.html" class="cc-nav-link">Home</a>
+            <a href="#" class="cc-nav-link">About</a>
+            <a href="#" class="cc-nav-link">Our Doctors</a>
+            <a href="#" class="cc-nav-link">Services</a>
+            <a href="#" class="cc-nav-link">Contact</a>
+            <a href="#" class="cc-nav-link">Help</a>
+          </div>
+        </div>
+      </div>
+</nav>
 
 
     <div class="container">
+        
         <div class="left-div">
             <div class="info-box">
                 <div>

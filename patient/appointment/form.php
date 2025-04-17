@@ -11,10 +11,31 @@ if (isset($_REQUEST['patient_id'])) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>All Registered Doctors</title>
-  <link rel="stylesheet" href="form.css"> <!-- Link to the external CSS file -->
+  <link rel="stylesheet" href="form.css"> 
+  <link rel="stylesheet" href="../../nav.css">
 </head>
 <body>
-
+<nav class="cc-navbar">
+      <div class="cc-navbar-container">
+        <div class="cc-navbar-inner">
+          <!-- Logo + Brand -->
+          <div class="cc-logo-brand">
+            <img class="cc-logo" src="../../assets/clinicode.png" alt="ZS Sharif Dental Logo" />
+            <span class="cc-brand-name">CliniCode</span>
+          </div>
+    
+          <!-- Nav Links -->
+          <div class="cc-nav-links">
+            <a href="../index.html" class="cc-nav-link">Home</a>
+            <a href="#" class="cc-nav-link">About</a>
+            <a href="#" class="cc-nav-link">Our Doctors</a>
+            <a href="#" class="cc-nav-link">Services</a>
+            <a href="#" class="cc-nav-link">Contact</a>
+            <a href="#" class="cc-nav-link">Help</a>
+          </div>
+        </div>
+      </div>
+</nav>
 <h1>All Registered Doctors</h1>
 
 <!-- Filter Form -->
@@ -32,8 +53,7 @@ if (isset($_REQUEST['patient_id'])) {
       <th>Email</th>
       <th>Mobile</th>
       <th>Qualification</th>
-      <th>Reg. No</th>
-      <th>Chamber Address</th>
+      <th>Location</th>
       <th>Specializations</th>
     </tr>
   </thead>
@@ -85,7 +105,6 @@ if (isset($_REQUEST['patient_id'])) {
         <td>${doc.doctor_email}</td>
         <td>${doc.mobile}</td>
         <td>${doc.qualification}</td>
-        <td>${doc.registration_number}</td>
         <td>${doc.chamber_address}</td>
         <td>${doc.specializations.join(', ')}</td>
     `;

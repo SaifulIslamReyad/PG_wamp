@@ -13,62 +13,38 @@ $patient_id = $_SESSION['patient_id'];
 <head>
     <title>Patient Dashboard</title>
     <link rel="stylesheet" href="dash.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
+    <link rel="stylesheet" href="../nav.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">   
 </head>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Alpine.js for dropdown and toggle functionality (optional but helpful) -->
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 <body>
+    <nav class="cc-navbar">
+        <div class="cc-navbar-container">
+            <div class="cc-navbar-inner">
+            <!-- Logo + Brand -->
+            <div class="cc-logo-brand">
+                <img class="cc-logo" src="../assets/clinicode.png" alt="ZS Sharif Dental Logo" />
+                <span class="cc-brand-name">CliniCode</span>
+            </div>
+        
+            <!-- Nav Links -->
+            <div class="cc-nav-links">
+                <a href="../index.html" class="cc-nav-link">Home</a>
+                <a href="#" class="cc-nav-link">About</a>
+                <a href="#" class="cc-nav-link">Our Doctors</a>
+                <a href="#" class="cc-nav-link">Services</a>
+                <a href="#" class="cc-nav-link">Contact</a>
+                <a href="#" class="cc-nav-link">Help</a>
+            </div>
+            </div>
+        </div>
+    </nav>
     <div class="dashboard-container">
-                <nav class="bg-white shadow-md">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div class="flex h-16 justify-between items-center">
-                <!-- Logo & Title -->
-                <div class="flex items-center">
-                    <img class="h-10 w-auto mr-2" src="../assets/clinicode.png" alt="ZS Sharif Dental Logo">
-                    <span class="text-xl font-semibold text-blue-800">CliniCode</span>
-                </div>
-
-                <!-- Desktop Menu -->
-                <div class="hidden sm:flex space-x-6">
-                    <a href="#" class="text-gray-700 hover:text-blue-800 font-medium">Home</a>
-                    <a href="#" class="text-gray-700 hover:text-blue-800 font-medium">About</a>
-                    <a href="#" class="text-gray-700 hover:text-blue-800 font-medium">Our Doctors</a>
-                    <a href="#" class="text-gray-700 hover:text-blue-800 font-medium">Services</a>
-                    <a href="#" class="text-gray-700 hover:text-blue-800 font-medium">Contact</a>
-                    <a href="#" class="text-gray-700 hover:text-blue-800 font-medium">Help</a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <div class="sm:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-blue-800 focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                    </button>
-                </div>
-                </div>
-            </div>
-
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="sm:hidden hidden px-4 pt-2 pb-4 space-y-2 bg-white">
-                <a href="#" class="block text-gray-700 hover:text-blue-800 font-medium">Home</a>
-                <a href="#" class="block text-gray-700 hover:text-blue-800 font-medium">Our Doctors</a>
-                <a href="#" class="block text-gray-700 hover:text-blue-800 font-medium">Services</a>
-                <a href="#" class="block text-gray-700 hover:text-blue-800 font-medium">Contact</a>
-            </div>
-
-            <!-- Toggle Script -->
-            <script>
-                const btn = document.getElementById('mobile-menu-btn');
-                const menu = document.getElementById('mobile-menu');
-
-                btn.addEventListener('click', () => {
-                menu.classList.toggle('hidden');
-                });
-            </script>
-            </nav>
-
-
 
         <div class="dashboard-card">
             <div class="dashboard-header">
@@ -76,7 +52,7 @@ $patient_id = $_SESSION['patient_id'];
                     <span><?php echo strtoupper(substr($_SESSION['patient_name'], 0, 1)); ?></span>
                 </div>
                 <div class="welcome-text">
-                    <h2>Patient :  <?php echo htmlspecialchars($_SESSION['patient_name']); ?></h2>
+                    <h2><?php echo htmlspecialchars($_SESSION['patient_name']); ?></h2>
                 </div>
             </div>
 
@@ -170,6 +146,7 @@ $patient_id = $_SESSION['patient_id'];
                          FROM appointments a 
                          JOIN doctors d ON a.doctor_id = d.doctor_id 
                          WHERE a.patient_id = ? 
+                         and a.status='appointed'
                          ORDER BY a.appointment_no DESC";
             $stmt = $conn->prepare($appt_sql);
             $stmt->bind_param("i", $patient_id);
@@ -178,7 +155,7 @@ $patient_id = $_SESSION['patient_id'];
 
             while ($appointment = $result->fetch_assoc()) {
                 echo '<div class="appointment-row">';
-                echo '<span><strong>Appointment No:</strong> ' . htmlspecialchars($appointment['appointment_no']) . '</span><br>';
+                
                 echo '<span><strong>Problem:</strong> ' . htmlspecialchars($appointment['problem']) . '</span><br>';
                 echo '<span><strong>Date:</strong> ' . htmlspecialchars($appointment['appointment_date']) . '</span><br>';
                 echo '<span><strong>Time:</strong> ' . htmlspecialchars($appointment['appointment_time']) . '</span><br>';
@@ -217,11 +194,6 @@ $patient_id = $_SESSION['patient_id'];
         }
     </script>
 
-    <!-- Tailwind CSS CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
-
-<!-- Alpine.js for dropdown and toggle functionality (optional but helpful) -->
-<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 </body>
 </html>

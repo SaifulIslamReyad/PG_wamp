@@ -38,9 +38,8 @@
   // Example hardcoded values
   $consultation_time = "9:00 AM - 5:00 PM";
   $address = "Nathullabad Bus Terminal";
-  $phone = "+123456789";
-  $fee = "$50";
-  $booking_charge = "$10";
+  $fee = "200 Taka";
+  $booking_charge = "300 Taka";
   $ratings = 4.5;
   $reviews = "Great doctor, very knowledgeable.";
 ?>
@@ -52,12 +51,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Doctor Details & Appointment</title>
   <link rel="stylesheet" href="details.css">
+  <link rel="stylesheet" href="../../nav.css">
 </head>
+
 <body>
 
+<nav class="cc-navbar">
+      <div class="cc-navbar-container">
+        <div class="cc-navbar-inner">
+          <!-- Logo + Brand -->
+          <div class="cc-logo-brand">
+            <img class="cc-logo" src="../../assets/clinicode.png" alt="ZS Sharif Dental Logo" />
+            <span class="cc-brand-name">CliniCode</span>
+          </div>
+    
+          <!-- Nav Links -->
+          <div class="cc-nav-links">
+            <a href="../index.html" class="cc-nav-link">Home</a>
+            <a href="#" class="cc-nav-link">About</a>
+            <a href="#" class="cc-nav-link">Our Doctors</a>
+            <a href="#" class="cc-nav-link">Services</a>
+            <a href="#" class="cc-nav-link">Contact</a>
+            <a href="#" class="cc-nav-link">Help</a>
+          </div>
+        </div>
+      </div>
+</nav>
+<div class="container">
 
-
-<div class="doctor-details-container container">
+<div class="doctor-details-container small-container">
   <h2>👨‍⚕️ <?php echo $doctor['doctor_name']; ?></h2>
   <p><strong>📨 Email:</strong> <?php echo $doctor['doctor_email']; ?></p>
   <p><strong>📱 Mobile:</strong> <?php echo $doctor['mobile']; ?></p>
@@ -69,7 +91,7 @@
     </p>
 
   <p><strong>📍 Chamber location:</strong> <?php echo $address ," , ", $doctor['chamber_address'] ; ?></p>
-  <p><strong>☎️ Phone:</strong> <?php echo $phone; ?></p>
+
   <p><strong>💰 Fee:</strong> <?php echo $fee; ?></p>
   <p><strong>💳 Booking Charge:</strong> <?php echo $booking_charge; ?></p>
   <p>
@@ -98,7 +120,7 @@
 
 
 <!-- Appointment Form Section -->
-<div class="appointment-form-container container" style="margin-top: 40px;">
+<div class="appointment-form-container small-container" style="margin-top: 40px;">
   <h2>🩺Book Appointment</h2>
 
   <form action="submit_appointment.php?patient_id=<?php echo $patient_id; ?>&doctor_id=<?php echo $doctor_id; ?>" method="post">
@@ -121,6 +143,7 @@
 
     <button type="submit">Book Appointment</button>
   </form>
+</div>
 </div>
 
 <script>

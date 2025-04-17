@@ -1,0 +1,59 @@
+/* Custom CliniCode Navbar */
+.cc-navbar {
+    background-color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cc-navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+  
+  .cc-navbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+  }
+  
+  .cc-logo-brand {
+    display: flex;
+    align-items: center;
+  }
+  
+  .cc-logo {
+    height: 40px;
+    width: auto;
+    margin-right: 8px;
+  }
+  
+  .cc-brand-name {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1e3a8a; /* Tailwind's blue-800 */
+  }
+  
+  .cc-nav-links {
+    display: flex;
+    gap: 24px;
+  }
+  
+  .cc-nav-link {
+    text-decoration: none;
+    font-weight: 500;
+    color: #374151; /* Tailwind's gray-700 */
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .cc-nav-link:hover {
+    color: #1e3a8a; /* Tailwind's blue-800 */
+  }
+  
+  /* Responsive (optional) */
+  @media (max-width: 640px) {
+    .cc-nav-links {
+      display: none;
+    }
+  }
+  

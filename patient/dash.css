@@ -307,6 +307,8 @@ tbody tr:hover {
 
 .section {
     display: none;
+    width: 1000px !important;
+    margin: 10px auto;
 }
 .section.active {
     display: block;

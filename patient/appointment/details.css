@@ -4,10 +4,12 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
-  body {
+  body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f6f8;
+  }
+  
+  .container {
     padding: 30px;
     color: #2c3e50;
     display: flex;
@@ -35,7 +37,7 @@
   
   /* ===== Container Styling ===== */
   .doctor-details-container,
-  .container {
+  .small-container {
     flex: 1 1 45%;
     min-width: 320px;
     max-width: 700px;
