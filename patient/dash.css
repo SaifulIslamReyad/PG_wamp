@@ -2,30 +2,123 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background: linear-gradient(120deg, #8a8f98, #5b5d5e);
-    color: #333;
+    background: linear-gradient(120deg, #f0f4f8, #dbe9f1);
+    color: #2f3e4d;
+}
+
+.dashboard-card {
+    background-color: #ffffff;
+    border: 1px solid #dfe7f0;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 30px auto;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.dashboard-header {
     display: flex;
-    justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.avatar-circle {
+    background-color: #1a73e8;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-actions {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.update-btn {
+    background-color: #1a73e8;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    border: none;
+    margin: 20px;
+}
+
+.update-btn:hover {
+    background-color: #125bb2;
+}
+
+.welcome-text h2 {
+    font-size: 22px;
+    color: #2f3e4d;
+}
+
+.patient-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    font-size: 16px;
+    color: #2f3e4d;
+}
+
+.patient-info-grid div {
+    background-color: #e8f0fe;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border-left: 4px solid #1a73e8;
 }
 
 .dashboard-container {
     background: #ffffff;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 900px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.06);
+    /* width: 90%;
+    max-width: 900px; */
+}
+
+.dashboard-container h1 {
+    color: #1a73e8;
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.patient-info {
+    background-color: #f1f6fb;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 123, 255, 0.05);
+}
+
+.patient-info p {
+    font-size: 16px;
+    margin: 8px 0;
+    color: #2f3e4d;
+}
+
+.patient-info strong {
+    color: #1a73e8;
 }
 
 h1 {
     font-size: 2rem;
-    color: #4e54c8;
+    color: #1a73e8;
     margin-bottom: 10px;
 }
 
@@ -35,12 +128,8 @@ p {
 }
 
 a {
-  
     text-decoration: none;
-
 }
-
-
 
 /* Table Styles */
 table {
@@ -57,30 +146,30 @@ th, td {
 }
 
 th {
-    background-color: #2c3e50;
+    background-color: #2f3e4d;
     color: #ffffff;
 }
 
 tbody tr:hover {
-    background-color: #ecf0f1;
+    background-color: #f2f7fb;
 }
 
-
+/* Prescription */
 .prescription-info {
     margin-top: 20px;
 }
 
 .prescription-card {
-    background: #b9dfed;
+    background: #eaf3fb;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
     margin-bottom: 20px;
 }
 
 .prescription-card h3 {
     font-size: 1.2rem;
-    color: #4e54c8;
+    color: #1a73e8;
     margin-bottom: 10px;
 }
 
@@ -95,87 +184,130 @@ tbody tr:hover {
     margin-top: 10px;
 }
 
-.medicine-table th,
-.medicine-table td {
+.medicine-table th, .medicine-table td {
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     text-align: center;
 }
 
 .medicine-table th {
-    background-color: #4e54c8;
+    background-color: #1a73e8;
     color: #ffffff;
 }
 
 .medicine-table tbody tr:hover {
-    background-color: #f0f0f0;
+    background-color: #f0f4fa;
 }
 
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .dashboard-container {
-        width: 95%;
-    }
-
-    th, td {
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    table {
-        overflow-x: auto;
-        display: block;
-        white-space: nowrap;
-    }
-}
-
-
-
-
-.appointments-container {
+/* Appointments */
+#appointments {
+    margin: 20px;
     padding: 20px;
-    background-color: #70a2db;
+    background-color: #f7faff;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.1);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .appointment-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+    background-color: #ffffff;
+    border-left: 5px solid #1a73e8;
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.appointment-row:hover {
+    background-color: #f0f8ff;
+    transform: scale(1.01);
 }
 
 .appointment-row span {
-    margin-bottom: 5px;
-    flex: 1;
-    min-width: 150px;
+    display: block;
+    margin-bottom: 6px;
+    color: #2f3e4d;
+    font-size: 16px;
 }
 
+.appointment-row span strong {
+    color: #1a73e8;
+    font-weight: 600;
+}
 
-.takeapp{
+/* Floating Appointment Button */
+.takeapp {
     position: fixed;
-    bottom: 70px;
-    right: 50px;
-    padding: 12px 20px;
+    bottom: 100px;
+    right: 100px;
     font-size: 20px;
     font-weight: bold;
-    background: linear-gradient(45deg, #14B3FE, #9ad0f2);
+    background: linear-gradient(45deg, #0555be, #062950);
     color: white;
     border: none;
-    border-radius: 5px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     z-index: 1000;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+.takeapp a {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
     border-radius: 50px;
 }
 
-.takeapp:hover{
-    background: linear-gradient(45deg, #4d8fb9, #0e6fac);
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.6);
+.takeapp .icon {
+    margin-right: 10px;
+    font-size: 22px;
+    transition: transform 0.3s ease;
+    color: #a4dceb ;
+}
+
+.takeapp:hover {
+    background: linear-gradient(45deg, #125bb2, #397bd1);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.takeapp:hover .icon {
+    transform: scale(2.2) rotate(45deg);
+    color: #ffffff;
+}
+
+/* Toggle Buttons */
+.toggle-buttons {
+    margin: 20px 0;
+    text-align: center;
+}
+.toggle-buttons button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    background-color: #e0eaf5;
+    color: #2f3e4d;
+}
+.toggle-buttons button.active {
+    background-color: #1a73e8;
+    color: white;
+}
+.toggle-buttons button:hover {
+    background-color: #125bb2;
+    color: white;
+}
+
+.section {
+    display: none;
+}
+.section.active {
+    display: block;
 }

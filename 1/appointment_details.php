@@ -123,6 +123,8 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
 
 </script>
 <body>
+
+
     <div class="container">
         <div class="left-div">
             <div class="info-box">

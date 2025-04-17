@@ -10,7 +10,8 @@ CREATE TABLE doctors (
     doctor_password VARCHAR(200) NOT NULL,
     mobile VARCHAR(15) NOT NULL,
     qualification VARCHAR(255) NOT NULL,
-    registration_number VARCHAR(100) NOT NULL
+    registration_number VARCHAR(100) NOT NULL,
+    chamber_address TEXT NOT NULL
 ) ENGINE=InnoDB;
 
 
