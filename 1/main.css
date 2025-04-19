@@ -219,6 +219,8 @@ ol {
     margin-bottom: 5px;
 }
 
+
+
 #generate-prescription-btn {
     position: fixed;
     bottom: 70px;
@@ -490,4 +492,18 @@ h2, h3, h4 {
     .left-div {
         width: 90%;
     }
+}
+
+#book-appointment-btn {
+    padding: 10px 10px;
+    background-color: #0A95FF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 10px auto 20px auto;
+}
+#book-appointment-btn:hover {
+    background-color: hsl(206, 92%, 19%);
 }

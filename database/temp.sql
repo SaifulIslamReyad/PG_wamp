@@ -1,3 +1,6 @@
+CREATE DATABASE clinicode;
+use clinicode;
+
 CREATE TABLE specializations (
     specialization_id INT AUTO_INCREMENT PRIMARY KEY,
     specialization_name VARCHAR(255) NOT NULL
@@ -32,6 +35,8 @@ CREATE TABLE patients (
     patient_gender CHAR(1) CHECK (patient_gender IN ('M', 'F', 'O'))
 ) ENGINE=InnoDB;
 
+
+
 CREATE TABLE appointments (
     appointment_no INT AUTO_INCREMENT PRIMARY KEY,
     patient_id INT NOT NULL,
@@ -43,6 +48,7 @@ CREATE TABLE appointments (
     FOREIGN KEY (patient_id) REFERENCES patients(patient_id) ON DELETE CASCADE,
     FOREIGN KEY (doctor_id) REFERENCES doctors(doctor_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
+
 
 
 CREATE TABLE prescriptions (
@@ -167,15 +173,16 @@ INSERT INTO patients (patient_name, patient_phone, patient_password, patient_dob
 ('Tanjila Rahman', '01772977410', '123', '1991-12-01', 'F');
 
 INSERT INTO appointments (patient_id, doctor_id, problem, appointment_date, appointment_time, status) VALUES 
-(1, 1, 'Tooth Pain', '2025-04-17', '08:00 PM ', 'Appointed'),
-(2, 1, 'Gum Bleeding', '2025-04-17', '08:00 PM ', 'Appointed'),
-(3, 1, 'Root Canal', '2025-04-17', '08:00 PM ', 'Appointed'),
-(4, 1, 'Oral Surgery', '2025-04-17', '08:00 PM ', 'Appointed'),
-(5, 1, 'Tooth Extraction', '2025-04-17', '08:00 PM ', 'Appointed'),
-(7, 1, 'Cleaning', '2025-04-17', '08:00 PM ', 'Appointed'),
-(8, 1, 'Teeth Whitening', '2025-04-17', '08:00 PM ', 'Appointed'),
-(9, 1, 'Filling', '2025-04-17', '08:00 PM ', 'Appointed'),
-(10, 1, 'Scaling', '2025-04-17', '08:00 PM ', 'Appointed');
+(1, 1, 'Tooth Pain', '2025-04-19', '08:00 PM ', 'Appointed'),
+(1, 1, 'Fever', '2025-04-19', '08:00 PM ', 'Appointed'),
+(2, 1, 'Gum Bleeding', '2025-04-19', '08:00 PM ', 'Appointed'),
+(3, 1, 'Root Canal', '2025-04-19', '08:00 PM ', 'Appointed'),
+(4, 1, 'Oral Surgery', '2025-04-19', '08:00 PM ', 'Appointed'),
+(5, 1, 'Tooth Extraction', '2025-04-19', '08:00 PM ', 'Appointed'),
+(7, 1, 'Cleaning', '2025-04-19', '08:00 PM ', 'Appointed'),
+(8, 1, 'Teeth Whitening', '2025-04-19', '08:00 PM ', 'Appointed'),
+(9, 1, 'Filling', '2025-04-19', '08:00 PM ', 'Appointed'),
+(10, 1, 'Scaling', '2025-04-19', '08:00 PM ', 'Appointed');
 
 
 -- INSERT INTO prescriptions (prescription_id, issued_date, cc) VALUES 

@@ -58,7 +58,7 @@ $patient_id = $_SESSION['patient_id'];
 
             <div class="patient-info-grid">
                 <div><strong>📞 Phone:</strong> <?php echo htmlspecialchars($_SESSION['patient_phone']); ?></div>
-                <div><strong>🎂 DOB:</strong> <?php echo htmlspecialchars($_SESSION['patient_dob']); ?></div>
+                <div><strong>🎂 Date of birth:</strong> <?php echo htmlspecialchars($_SESSION['patient_dob']); ?></div>
                 <div><strong>🚻 Gender:</strong> <?php echo htmlspecialchars($_SESSION['patient_gender']); ?></div>
                 <div><strong>🏚️ Address: </strong> Gollamari, Khulna</div>
             </div>
@@ -118,7 +118,7 @@ $patient_id = $_SESSION['patient_id'];
             if (!empty($all_prescriptions)) {
                 foreach ($all_prescriptions as $prescription) {
                     echo '<div class="prescription-card">';
-                    echo '<h3>Prescription ID: ' . htmlspecialchars($prescription['prescription_id']) . '</h3>';
+                    // echo '<h3>Prescription ID: ' . htmlspecialchars($prescription['prescription_id']) . '</h3>';
                     echo '<p><strong>Issued Date:</strong> ' . htmlspecialchars($prescription['issued_date']) . '</p>';
                     echo '<p><strong>Doctor:</strong> ' . htmlspecialchars($prescription['doctor_name']) . ' (' . htmlspecialchars($prescription['qualification']) . ')</p>';
                     echo '<h4>Medicines:</h4>';

@@ -163,7 +163,10 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
                 <p><strong>Status:</strong> <?= htmlspecialchars($appointment['status']) ?></p>
                 </div>
             </div>
-    <h2 id="patient_history_h2">Prescription History</h2>
+            
+            <button id="book-appointment-btn">Book Follow-Up</button>
+            <hr>
+    <h2 id="patient_history_h2"> Prescriptions</h2>
     <div class="prescription-info">
     <?php if (!empty($all_prescriptions)): ?>
         <?php foreach ($all_prescriptions as $prescription): ?>
@@ -308,6 +311,7 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
                     <h2>Rx</h2>
                     <div id="medicine-container"></div>
                     <button id="add-medicine">+</button>
+                    
                     <button type="button" id="generate-prescription-btn" onclick="generatePrescription()">Print</button>
 
                 </div>
