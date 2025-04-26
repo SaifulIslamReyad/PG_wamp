@@ -6,6 +6,7 @@
     <title>Login</title>
     <link rel="stylesheet" href="../general.css">
     <link rel="stylesheet" href="../nav.css">
+    
 </head>
 <body>
 <?php include '../nav.php'; ?>
@@ -25,6 +26,10 @@
 
 
             <input type="submit" value="Login">
+            <p style="margin: 25px; font-size: 18px;">Don't have an account? 
+        <a href="../signup/doctor_signup_form.php">Click here to sign up</a>
+      </p>
+           
         </form>
     </div>
 

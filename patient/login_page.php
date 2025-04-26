@@ -25,7 +25,10 @@
                 <input type="password" id="password" name="password" required>
             </div>
 
-            <button type="submit">Submit</button>
+            <button type="submit">Login</button>
+            <p style="margin: 20px; font-size: 18px;">Don't have an account? 
+        <a href="./signup.php">Click here to sign up</a>
+      </p>
         </form>
     </div>
 

@@ -6,6 +6,7 @@
   <title>nothing</title>
 </head>
 
+
 <style>
 
 .cc-navbar {
@@ -73,7 +74,7 @@
   <div class="cc-navbar-container">
     <div class="cc-navbar-inner">
       <!-- Logo + Brand -->
-      <a href="./index.html" style="text-decoration: none;">
+      <a href="/PG_wamp/index.php" style="text-decoration: none;">
         <div class="cc-logo-brand">
           <img class="cc-logo" src="/PG_wamp/assets/clinicode.png" alt="ZS Sharif Dental Logo" />
           <span class="cc-brand-name">CliniCode</span>
@@ -81,8 +82,8 @@
       </a>
       <!-- Nav Links -->
       <div class="cc-nav-links">
-        <a href="#" class="cc-nav-link">Home</a>
-        <a href="#" class="cc-nav-link">About</a>
+        <a href="/PG_wamp/index.php" class="cc-nav-link">Home</a>
+        <a href="#" class="cc-nav-link">About</a> 
         <a href="#" class="cc-nav-link">Our Doctors</a>
         <a href="#" class="cc-nav-link">Services</a>
         <a href="#" class="cc-nav-link">Contact</a>
