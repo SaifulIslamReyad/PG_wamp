@@ -15,27 +15,8 @@ if (isset($_REQUEST['patient_id'])) {
   <link rel="stylesheet" href="../../nav.css">
 </head>
 <body>
-<nav class="cc-navbar">
-      <div class="cc-navbar-container">
-        <div class="cc-navbar-inner">
-          <!-- Logo + Brand -->
-          <div class="cc-logo-brand">
-            <img class="cc-logo" src="../../assets/clinicode.png" alt="ZS Sharif Dental Logo" />
-            <span class="cc-brand-name">CliniCode</span>
-          </div>
-    
-          <!-- Nav Links -->
-          <div class="cc-nav-links">
-            <a href="../index.html" class="cc-nav-link">Home</a>
-            <a href="#" class="cc-nav-link">About</a>
-            <a href="#" class="cc-nav-link">Our Doctors</a>
-            <a href="#" class="cc-nav-link">Services</a>
-            <a href="#" class="cc-nav-link">Contact</a>
-            <a href="#" class="cc-nav-link">Help</a>
-          </div>
-        </div>
-      </div>
-</nav>
+<?php include '../../nav.php'; ?>
+
 <h1>All Registered Doctors</h1>
 
 <!-- Filter Form -->

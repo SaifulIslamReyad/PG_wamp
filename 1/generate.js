@@ -55,7 +55,7 @@ function generatePrescription() {
     }. ${medicineName}\n${dosage} ${eatingTime} ${days} দিন${eatWhenPain}`;
   });
 
-  // Gather extra investigation and treatment details
+
   const investigationExtra = document.getElementById(
     "investigation-extra"
   ).value;
@@ -69,19 +69,17 @@ function generatePrescription() {
     .map((input) => input.value)
     .join(" | ");
 
-  // Gather treatment details
   const treatmentInputs = document.querySelectorAll(".treatment-box input");
   const treatmentData = Array.from(treatmentInputs)
     .map((input) => input.value)
     .join(" | ");
-  // Open a new window for printing
+
   const printWindow = window.open("print.html", "", "width=800,height=600");
 
   const interval = setInterval(() => {
     if (printWindow.document.readyState === "complete") {
       clearInterval(interval);
 
-      // Safely access and update content in the print window
       if (printWindow.document.querySelector(".name")) {
         printWindow.document.querySelector(".name").textContent = name;
       }
@@ -120,7 +118,6 @@ function generatePrescription() {
           treatmentExtra;
       }
 
-      // Fill investigation quadrants
       const investigationQuadrants = printWindow.document.querySelectorAll(
         ".investigation .quadrant"
       );
@@ -128,7 +125,6 @@ function generatePrescription() {
         el.textContent = investigationInputs[i]?.value || "";
       });
 
-      // Fill treatment quadrants
       const treatmentQuadrants = printWindow.document.querySelectorAll(
         ".treatment .quadrant"
       );
@@ -136,14 +132,11 @@ function generatePrescription() {
         el.textContent = treatmentInputs[i]?.value || "";
       });  
 
-      // Trigger print after a short delay to ensure content is rendered
       setTimeout(() => {
-        // printWindow.print();
-      }, 500);
+      }, 1500);
     }
-  }, 100);
+  }, 1500);
 
-  // line 146
 
   const today = new Date().toISOString().split("T")[0];
 
@@ -174,6 +167,7 @@ function generatePrescription() {
     };
   });
 
+
   const dataToSend = {
     appointment_no: appointmentNo,
     issued_date: today,
@@ -184,7 +178,6 @@ function generatePrescription() {
   setTimeout(() => {
     printWindow.print();
   
-    // Then send data
     setTimeout(() => {
       fetch("save_prescription.php", {
         method: "POST",
@@ -206,7 +199,7 @@ function generatePrescription() {
           console.error("Error:", error);
           alert("An error occurred while saving the prescription.");
         });
-    }, 500); // extra delay for print dialog
-  }, 500);
+    }, 1500);
+  }, 1500);
   
 }
