@@ -5,7 +5,7 @@ body {
     padding: 0;
 }
 
-.container {
+.reyad_container {
     background-color: #ffffff;
     max-width: 550px;
     margin: 40px auto;
@@ -15,12 +15,12 @@ body {
     transition: transform 0.3s;
 }
 
-.container:hover {
+.reyad_container:hover {
     transform: translateY(-3px);
 }
 
-.container h1,
-.container h2 {
+.reyad_container h1,
+.reyad_container h2 {
     margin-bottom: 25px;
     color: #003366;
     text-align: center;
@@ -100,6 +100,20 @@ body {
     background-color: #0a7378;
 }
 
+.checkbox-wrapper {
+    display: flex;
+    align-items: center; /* This centers vertically */
+    background-color: rgb(212, 226, 255);
+    padding: 10px; /* Optional: for nicer clickable area */
+    cursor: pointer; /* Shows pointer cursor on hover */
+    user-select: none; /* Prevents unwanted text selection */
+    border: 1px ;
+    border-radius: 10px;
+}
+
+.checkbox-wrapper input {
+    margin-right: 8px;
+}
 
 
 

@@ -121,13 +121,34 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="../nav.css">
 </head>
+<script>
+    function toggleTable(index) {
+    const table = document.getElementById('medicine-table-' + index);
+    table.style.display = table.style.display === 'none' ? 'block' : 'none';
+}
+</script>
+<style>
+ .prescription-summary {
+    background-color: #f9f9f9;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
 
+.prescription-summary:hover {
+    background-color: #e6f7ff;
+}
+
+</style>
 
 <body>
-  <?php include '../nav.php'; ?>
+   <?php include '../nav2.php'; ?> 
     
-
-
     <div class="container">
         
         <div class="left-div">
@@ -148,43 +169,51 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
             
             <button id="book-appointment-btn">Book Follow-Up</button>
             <hr>
+            <?php include "template.php" ?>
+            <hr>
     <h2 id="patient_history_h2"> Prescriptions</h2>
     <div class="prescription-info">
     <?php if (!empty($all_prescriptions)): ?>
-        <?php foreach ($all_prescriptions as $prescription): ?>
-            <div class="prescription-card">
-                <h3>Prescription ID: <?= htmlspecialchars($prescription['prescription_id']) ?></h3>
-                <p><strong>Issued Date:</strong> <?= htmlspecialchars($prescription['issued_date']) ?></p>
-                <p><strong>CC:</strong> <?= htmlspecialchars($prescription['cc']) ?></p>
-                <p><strong>Doctor:</strong> <?= htmlspecialchars($prescription['doctor_name']) ?> (<?= htmlspecialchars($prescription['qualification']) ?>)</p>
-                
-                <h4>Medicines:</h4>
-                <?php if (!empty($prescription['medicines'])): ?>
-                    <table class="medicine-table">
-                        <thead>
+        <?php foreach ($all_prescriptions as $index => $prescription): ?>
+    <div class="prescription-card">
+        <!-- Summary Line (Clickable) -->
+        <div class="prescription-summary" onclick="toggleTable(<?= $index ?>)">
+            <strong>Date:</strong> <?= htmlspecialchars($prescription['issued_date']) ?> |
+            <strong>CC:</strong> <?= htmlspecialchars($prescription['cc']) ?>
+        <p><strong>Doctor:</strong> <?= htmlspecialchars($prescription['doctor_name']) ?> (<?= htmlspecialchars($prescription['qualification']) ?>)</p>
+
+        </div>
+
+        <!-- Hidden Medicine Table -->
+        <div id="medicine-table-<?= $index ?>" class="medicine-table-container" style="display: none;">
+            <?php if (!empty($prescription['medicines'])): ?>
+                <table class="medicine-table">
+                    <thead>
+                        <tr>
+                            <th>Medicine Name</th>
+                            <th>Dosage</th>
+                            <th>Before/After Meal</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($prescription['medicines'] as $medicine): ?>
                             <tr>
-                                <th>Medicine Name</th>
-                                <th>Dosage</th>
-                                <th>Before/After Meal</th>
-                                <th>Duration</th>
+                                <td><?= htmlspecialchars($medicine['medicine_name']) ?></td>
+                                <td><?= htmlspecialchars($medicine['dosage']) ?></td>
+                                <td><?= htmlspecialchars($medicine['before_after']) ?></td>
+                                <td><?= htmlspecialchars($medicine['duration']) ?></td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($prescription['medicines'] as $medicine): ?>
-                                <tr>
-                                    <td><?= htmlspecialchars($medicine['medicine_name']) ?></td>
-                                    <td><?= htmlspecialchars($medicine['dosage']) ?></td>
-                                    <td><?= htmlspecialchars($medicine['before_after']) ?></td>
-                                    <td><?= htmlspecialchars($medicine['duration']) ?></td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                <?php else: ?>
-                    <p>No medicines prescribed.</p>
-                <?php endif; ?>
-            </div>
-        <?php endforeach; ?>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            <?php else: ?>
+                <p>No medicines prescribed.</p>
+            <?php endif; ?>
+        </div>
+    </div>
+<?php endforeach; ?>
+
     <?php else: ?>
         <p>No previous prescriptions found.</p>
     <?php endif; ?>
@@ -350,6 +379,7 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
             medicineEntry.remove();
         });
     });
+
 </script>
 
     <script src="generate.js"></script>

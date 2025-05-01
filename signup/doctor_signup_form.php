@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor Signup</title>
-    <!-- <link rel="stylesheet" href="../general.css"> -->
+    <link rel="stylesheet" href="../general.css">
     <link rel="stylesheet" href="./signup.css">
-    <link rel="stylesheet" href="../nav.css">
+    <link rel="stylesheet" href="/PG_wamp/css/layout.css">
+    <link rel="stylesheet" href="../general.css">
+  <link rel="shortcut icon" href="/PG_wamp/images/clinicode.png" type="image/x-icon" />
 
     <script>
         function fetchSpecializations() {
@@ -44,11 +46,35 @@
 </head>
 
 <body>
-  <?php include '../nav.php'; ?>
+  <?php include '../nav2.php'; ?>
 
-      
 
-    <div class="container">
+  
+  <section class="hero">
+      <div class="container flex">
+        <div class="hero__text">
+          
+          <div class="hero__features"></div>
+          <!-- ///////////////////////////// -->
+          <div class="hero__icon-shape">
+            <img class="hero__icon--two animate1" src="/PG_wamp/images/hero/stethoscope.png" alt="hero shape" />
+          </div>
+        </div>
+        <div class="hero__img">
+          <!-- <img class="hero__main-img" src="/PG_wamp/images/hero/hero-man.png" alt="" /> -->
+          <!-- <div class="hero__img-shape"></div>
+          <div class="hero__img-shape"></div> -->
+          <div class="hero__icon-shape">
+            <!-- <img class="hero__icon--one animate3" src="/PG_wamp/images/hero/hospital.png" alt="hero shape" /> -->
+            <!-- <img class="hero__icon--three animate-4" src="/PG_wamp/images/hero/medical-symbol.png" alt="hero shape" /> -->
+            <img class="hero__icon--four animate-4" src="/PG_wamp/images/hero/medical-symbol (1).png" alt="hero shape" />
+          </div>
+        </div>
+        <!-- //////////////////////////// -->
+      </div>
+    </section>      
+
+    <div class="reyad_container">
         <h1>Doctor's Signup Form</h1>
 
         <form action="doctor_signup.php" method="post" class="signup-form">
@@ -80,6 +106,8 @@
 
             <input type="submit" value="Sign Up">
         </form>
+        <link rel="stylesheet" href="./signup.css">
+        <link rel="stylesheet" href="../general.css">
 
         <!-- <a href="../index.html" class="back-link">Back to Log in</a> -->
     </div>

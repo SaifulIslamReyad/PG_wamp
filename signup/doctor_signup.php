@@ -11,7 +11,6 @@ $specialization_ids = $_POST['specialization_id'];
 $chamber_address = $_POST['chamber_address'];
 
 try {
-    // Insert doctor data
     $stmt = $conn->prepare("INSERT INTO doctors (doctor_name, doctor_email, doctor_password, mobile, qualification, registration_number, chamber_address) VALUES (?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("sssssss", $doctor_name, $doctor_email, $doctor_password, $mobile, $qualification, $registration_number, $chamber_address);
     $stmt->execute();

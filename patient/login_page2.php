@@ -4,16 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>রোগী সাইন আপ</title>
+    <title>লগইন</title>
     <link rel="stylesheet" href="../general.css">
     <link rel="stylesheet" href="/PG_wamp/css/layout.css">
-
 </head>
 
 <body>
-    <?php include '../nav.php'; ?>
 
-    <section class="hero">
+<?php include '../nav.php'; ?>
+<section class="hero">
       <div class="container flex">
         <div class="hero__text">
           
@@ -38,39 +37,21 @@
     </section>
 
     <div class="reyad_container">
-        <h2>আমাদের সাথে যোগ দিতে সাইন আপ করুন</h2>
-        <form action="patient_signup.php" method="post" id="signup">
-            <div class="form-group">
-                <label for="name">পুরো নাম:</label>
-                <input type="text" id="name" name="name" placeholder="আপনার পুরো নাম লিখুন" required>
-            </div>
-
-            <div class="form-group">
-                <label for="dob">জন্ম তারিখ:</label>
-                <input type="date" id="dob" name="dob" placeholder="আপনার জন্ম তারিখ লিখুন" required>
-            </div>
-
-            <div class="form-group">
-                <label for="gender">লিঙ্গ:</label>
-                <select name="gender" id="gender" required>
-                    <option value="" disabled selected>লিঙ্গ নির্বাচন করুন</option>
-                    <option value="M">পুরুষ</option>
-                    <option value="F">নারী</option>
-                    <option value="O">অন্যান্য</option>
-                </select>
-            </div>
-
+        <h2>আপনার মেডিকেল ইতিহাস দেখতে ও অ্যাপয়েন্টমেন্ট নিতে লগইন করুন</h2>
+        <form action="login.php" method="post">
             <div class="form-group">
                 <label for="phone">ফোন নম্বর:</label>
-                <input type="tel" id="phone" name="phone" placeholder="আপনার ফোন নম্বর লিখুন" required>
+                <input type="number" id="phone" name="phone" required>
             </div>
-
             <div class="form-group">
                 <label for="password">পাসওয়ার্ড:</label>
-                <input type="password" id="password" name="password" placeholder="পাসওয়ার্ড লিখুন" required>
+                <input type="password" id="password" name="password" required>
             </div>
 
-            <button type="submit">সাবমিট করুন</button>
+            <button type="submit">লগইন করুন</button>
+            <p style="margin: 20px; font-size: 18px;">একাউন্ট নেই? 
+                <a href="./signup.php">সাইন আপ করতে এখানে ক্লিক করুন</a>
+            </p>
         </form>
     </div>
     <link rel="stylesheet" href="../general.css">

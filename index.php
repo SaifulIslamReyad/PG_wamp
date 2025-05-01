@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CliniCode</title>
-  <link rel="shortcut icon" href="images/clinicode.png" type="image/x-icon" />
+  <link rel="shortcut icon" href="/PG_wamp/images/clinicode.png" type="image/x-icon" />-
   <link rel="stylesheet" type="text/css"
     href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css" />
   <link rel="stylesheet" href="css/layout.css" />
@@ -40,67 +40,18 @@
 
     .inup {
       padding: 5px;
-      /* background-color: #102851;
-      border: none;
-      color: white; */
     }
+    .inup:hover {
+      transform: scale(1.1) translateX(3px);
+    }
+    
+
   </style>
 </head>
 
 
 <body>
-  <!-- Loader -->
-  <div id="preloader">
-    <div class="preloader-logo"></div>
-  </div>
-  <!-- header -->
-  <header id="header" class="header fixed-top">
-    <div class="container flex align-items-center justify-content-between">
-
-      <a class="header__item-left" href="/PG_wamp/index.php" style="text-decoration: none;">
-        <div class="cc-logo-brand">
-          <img class="cc-logo" src="images/clinicode.png" alt="ZS Sharif Dental Logo" />
-          <span class="cc-brand-name">CliniCode</span>
-        </div>
-      </a>
-      <!-- nav -->
-      <div class="header__item-center">
-        <nav class="navbar">
-          <ul class="nav__list flex align-items-center">
-            <li class="nav__item">
-              <a class="nav__link" href="#">হোম</a>
-            </li>
-            <li class="nav__item">
-              <a class="nav__link" href="#">সকল ডাক্তার</a>
-            </li>
-            <li class="nav__item">
-              <a class="nav__link" href="#">আমাদের সম্পর্কে</a>
-            </li>
-            <li class="nav__item">
-              <a class="nav__link" href="#">সেবাসমূহ</a>
-            </li>
-            <li class="nav__item">
-              <a class="nav__link" href="#">যোগাযোগ</a>
-            </li>
-            <li class="nav__item">
-              <a class="nav__link" href="#">নির্দেশনা</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <!-- header btns -->
-      <!-- <div class="header__item-right flex gap-1">
-        <div class="user-account flex gap-1">
-          <button type="button" class="btn btn__login">লগইন</button>
-          <button type="button" class="btn btn__primary">সাইনআপ</button>
-        </div>
-        <div class="header__mobile-btn">
-          <i class="fa-solid fa-bars header__mobile-btn-icon"></i>
-        </div>
-      </div>
-    </div> -->
-  </header>
-
+ <?php include "nav.php" ?>
   <!-- main -->
   <main>
     <!-- hero -->
@@ -129,6 +80,7 @@
               <span  class="inup"> রোগী লগইন / সাইনআপ</span>
             </div>
           </div>
+          <!-- ///////////////////////////// -->
           <div class="hero__icon-shape">
             <img class="hero__icon--two animate1" src="images/hero/stethoscope.png" alt="hero shape" />
           </div>
@@ -143,6 +95,7 @@
             <img class="hero__icon--four animate-4" src="images/hero/medical-symbol (1).png" alt="hero shape" />
           </div>
         </div>
+        <!-- //////////////////////////// -->
       </div>
     </section>
     <!-- search -->
@@ -820,7 +773,7 @@
     <p>© 2025 CliniCode. All Rights Reserved.</p>
     <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
   </footer>
-  <script src="js/script.js"></script>
+  <script src="./js/script.js"></script>
 </body>
 
 </html>
