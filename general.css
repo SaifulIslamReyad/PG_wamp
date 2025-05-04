@@ -1,11 +1,11 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #e0ecff, #f9fcff);
+    background: linear-gradient(to right, #e0ecff,#e0ecff );
     margin: 0;
     padding: 0;
 }
 
-.container {
+.reyad_container {
     background-color: #ffffff;
     max-width: 550px;
     margin: 40px auto;
@@ -15,12 +15,12 @@ body {
     transition: transform 0.3s;
 }
 
-.container:hover {
+.reyad_container:hover {
     transform: translateY(-3px);
 }
 
-.container h1,
-.container h2 {
+.reyad_container h1,
+.reyad_container h2 {
     margin-bottom: 25px;
     color: #003366;
     text-align: center;
