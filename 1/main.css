@@ -10,14 +10,15 @@ padding: 20px;
 }
 
 body {
-    font-family: Arial, sans-serif;
+  
     background-color: #e6f2ff;
 }
 
-.container {
+.container-big {
     display: flex;
     width: 100%;
     /* height: 100vh; */
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .left-div {
@@ -28,7 +29,8 @@ body {
 
 .right-div {
     flex: 0 0 60%;
-    padding: 10px;
+    padding-left: 20px;
+    border-left: 2px solid black;
 }
 
 img {
@@ -36,7 +38,7 @@ img {
     border-radius: 20%;
 }
 
-header {
+.nav-header {
     width: 100%;
     background-color: #14B3FE;
     color: white;
@@ -45,18 +47,18 @@ header {
     text-align: center;
 }
 
-header h1,
-header .tagline {
+.nav-header h1,
+.nav-header .tagline {
     margin: 0;
 }
 
-header .tagline {
+.nav-header .tagline {
     font-size: 0.9em;
     margin-bottom: 10px;
     padding: 2px;
 }
 
-header .header-content {
+.nav-header .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -177,14 +179,14 @@ ol {
     margin-bottom: 5px;
 } */
 
-.investigation-box .quadrant-container,
-.treatment-box .quadrant-container {
+.investigation-box .quadrant-container-big,
+.treatment-box .quadrant-container-big {
     display: grid;
     grid-template-columns: repeat(2, 100px);
     grid-gap: 1px;
 }
 
-.quadrant-container .quadrant input {
+.quadrant-container-big .quadrant input {
     width: 100%;
     padding: 8px;
     /* border: 1px solid #ccc; */
@@ -397,7 +399,7 @@ ol {
 }
 
 /* Container for content */
-.container {
+.container-big {
     display: flex;
     justify-content: center;
     padding: 30px;
@@ -502,8 +504,10 @@ h2, h3, h4 {
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
-    margin: 10px auto 20px auto;
+    margin: 10px 5px 20px 5px ;
 }
 #book-appointment-btn:hover {
     background-color: hsl(206, 92%, 19%);
 }
+
+

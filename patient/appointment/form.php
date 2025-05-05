@@ -11,11 +11,13 @@ if (isset($_REQUEST['patient_id'])) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>All Registered Doctors</title>
+  <link rel="shortcut icon" href="/PG_wamp/images/clinicode.png" type="image/x-icon" />
+
   <link rel="stylesheet" href="form.css"> 
-  <link rel="stylesheet" href="../../nav.css">
+
 </head>
 <body>
-<?php include '../../nav.php'; ?>
+<?php include '../../navbar.php'; ?>
 
 <h1>All Registered Doctors</h1>
 
@@ -121,3 +123,5 @@ if (isset($_REQUEST['patient_id'])) {
 
 </body>
 </html>
+
+

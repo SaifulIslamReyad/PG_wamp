@@ -5,20 +5,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CliniCode</title>
-  <link rel="shortcut icon" href="/PG_wamp/images/clinicode.png" type="image/x-icon" />-
+  <link rel="shortcut icon" href="/PG_wamp/images/clinicode.png" type="image/x-icon" />
   <link rel="stylesheet" type="text/css"
     href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css" />
   <link rel="stylesheet" href="css/layout.css" />
-  <link rel="stylesheet" href="index.css">
-  <script src="index.js"></script>
-  <style>
-  </style>
+  <link rel="stylesheet" href="/PG_wamp/css/index.css">
+  <script src="./js/index.js"></script>
+
 </head>
 
 
 <body>
   
- <?php include "navbar.php" ?>
+ <?php include "./navbar.php" ?>
 
 <main>
         <section class="hero">
@@ -33,11 +32,11 @@
                 Providing you with the right service is our responsibility
               </p>
               <div class="hero__features">
-                <div onclick="window.location.href='login/login.php'" class="hero__features-box">
+                <div onclick="window.location.href='doctor/doctor_login_form.php'" class="hero__features-box">
                   <img src="images/hero/4.png" alt="features image" />
                   <span class="inup">Doctor Login / Signup</span>
                 </div>
-                <div onclick="window.location.href='patient/login_page.php'" class="hero__features-box">
+                <div onclick="window.location.href='patient/patient_login_form.php'" class="hero__features-box">
                   <img src="images/hero/team.png" alt="features image" />
                   <span class="inup">Patient Login / Signup</span>
                 </div>
@@ -191,7 +190,7 @@
                       <img src="images/hair-loss.png" alt="Hair Loss" />
                     </div>
                     <p>Dermatology</p>
-                  </div>
+                  </div>  
                 </div>
 
                 <div class="tab__content" id="tab_content3">
@@ -273,7 +272,7 @@
               </ul>
             </div>
             <div class="find__img">
-              <img src="images/2-removebg-preview.png" alt="Doctor Search Image" />
+              <img class="doctor-search-image" src="images/2-removebg-preview.png" alt="Doctor Search Image" />
               <div class="circle circle--one"></div>
               <div class="circle circle--two"></div>
               <div class="circle circle--three"></div>
@@ -302,35 +301,8 @@
         <section class="why-us">
           <div class="container flex justify-content-between flex-wrap">
             <div class="why-us__img">
-              <img class="why-us__pic" src="images/1-removebg-preview.png" alt="Why Choose Us Image" />
+              <img class="why-us__pic" src="images/landingPageImages/lefthand.png" alt="Why Choose Us Image" />
               <div class="why-us__shape"></div>
-              <ul class="doctors__list">
-                <li class="doctors__item">
-                  <img src="images/image-1.jpg" alt="Doctor List" />
-                  <h4>Dr. Suhad</h4>
-                  <i class="bx bx-dots-vertical-rounded"></i>
-                </li>
-                <li class="doctors__item">
-                  <img src="images/image-2.jpg" alt="Doctor List" />
-                  <h4>Dr. Zebin</h4>
-                  <i class="bx bx-dots-vertical-rounded"></i>
-                </li>
-                <li class="doctors__item">
-                  <img src="images/image-3.jpg" alt="Doctor List" />
-                  <h4>Dr. Mizan</h4>
-                  <i class="bx bx-dots-vertical-rounded"></i>
-                </li>
-                <li class="doctors__item">
-                  <img src="images/image-4.jpg" alt="Doctor List" />
-                  <h4>Dr. Sohan</h4>
-                  <i class="bx bx-dots-vertical-rounded"></i>
-                </li>
-                <li class="doctors__item">
-                  <img src="images/image-2.jpg" alt="Doctor List" />
-                  <h4>Dr. Maria</h4>
-                  <i class="bx bx-dots-vertical-rounded"></i>
-                </li>
-              </ul>
             </div>
             <div class="why-us__text">
               <div class="section-title">
@@ -377,7 +349,7 @@
             <div class="grid specialist__wrapper">
               <div class="specialist__item">
                 <div class="specialist__image">
-                  <img src="images/1-removebg-preview (1).png" alt="Specialist Image" />
+                  <img src="images/landingPageImages/4-removebg-preview.png" alt="Specialist Image" />
                   <div class="specialist__overlay">
                     <a class="specialist__link" href="#"><i class="bx bx-link-alt"></i></a>
                   </div>
@@ -386,12 +358,12 @@
                   <h3>
                     <a href="#">Dr. Saif Riyad</a>
                   </h3>
-                  <p>Dental Surgery</p>
+                  <p>Cardiologist</p>
                 </div>
               </div>
               <div class="specialist__item">
                 <div class="specialist__image">
-                  <img src="images/2-removebg-preview (1).png" alt="Specialist Image" />
+                  <img src="images/landingPageImages/2-removebg-preview.png" alt="Specialist Image" />
                   <div class="specialist__overlay">
                     <a class="specialist__link" href="#"><i class="bx bx-link-alt"></i></a>
                   </div>
@@ -405,7 +377,7 @@
               </div>
               <div class="specialist__item">
                 <div class="specialist__image">
-                  <img src="images/3-removebg-preview.png" alt="Specialist Image" />
+                  <img src="images/landingPageImages/11-removebg-preview.png" alt="Specialist Image" />
                   <div class="specialist__overlay">
                     <a class="specialist__link" href="#"><i class="bx bx-link-alt"></i></a>
                   </div>
@@ -419,7 +391,7 @@
               </div>
               <div class="specialist__item">
                 <div class="specialist__image">
-                  <img src="images/5-removebg-preview.png" alt="Specialist Image" />
+                  <img src="images/landingPageImages/10-removebg-preview.png" alt="Specialist Image" />
                   <div class="specialist__overlay">
                     <a class="specialist__link" href="#"><i class="bx bx-link-alt"></i></a>
                   </div>
@@ -433,7 +405,7 @@
               </div>
               <div class="specialist__item">
                 <div class="specialist__image">
-                  <img src="images/2-removebg-preview (1).png" alt="Specialist Image" />
+                  <img src="images/landingPageImages/9-removebg-preview.png" alt="Specialist Image" />
                   <div class="specialist__overlay">
                     <a class="specialist__link" href="#"><i class="bx bx-link-alt"></i></a>
                   </div>
@@ -447,7 +419,7 @@
               </div>
               <div class="specialist__item">
                 <div class="specialist__image">
-                  <img src="images/3-removebg-preview.png" alt="Specialist Image" />
+                  <img src="images/landingPageImages/7-removebg-preview.png" alt="Specialist Image" />
                   <div class="specialist__overlay">
                     <a class="specialist__link" href="#"><i class="bx bx-link-alt"></i></a>
                   </div>
@@ -461,7 +433,7 @@
               </div>
               <div class="specialist__item">
                 <div class="specialist__image">
-                  <img src="images/5-removebg-preview.png" alt="Specialist Image" />
+                  <img src="images/landingPageImages/6-removebg-preview.png" alt="Specialist Image" />
                   <div class="specialist__overlay">
                     <a class="specialist__link" href="#"><i class="bx bx-link-alt"></i></a>
                   </div>
@@ -475,7 +447,7 @@
               </div>
               <div class="specialist__item">
                 <div class="specialist__image">
-                  <img src="images/1-removebg-preview (1).png" alt="Specialist Image" />
+                  <img src="images/landingPageImages/8-removebg-preview.png" alt="Specialist Image" />
                   <div class="specialist__overlay">
                     <a class="specialist__link" href="#"><i class="bx bx-link-alt"></i></a>
                   </div>
@@ -528,6 +500,8 @@
     <p>© 2025 CliniCode. All Rights Reserved.</p>
     <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
   </footer>
+  <script src="js/index.js"></script>
+
 </body>
 
 </html>

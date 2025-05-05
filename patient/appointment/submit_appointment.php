@@ -26,11 +26,13 @@ $stmt->bind_param("iisss", $patient_id, $doctor_id, $problem, $appointment_date,
 
 if ($stmt->execute()) {
     echo "<script>
-        alert('Appointment successfully booked!!');
+        alert('Appointment successfully booked !!');
         window.location.href = '../dash.php?patient_id={$patient_id}';
     </script>";
     exit();
-} else {
+}
+
+else {
     $errorMsg = $stmt->error;
     echo "<script>
         alert('Appointment booking failed! Error: {$errorMsg}');
@@ -41,3 +43,5 @@ if ($stmt->execute()) {
 $stmt->close();
 $conn->close();
 ?>
+
+

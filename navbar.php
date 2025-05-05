@@ -13,8 +13,13 @@
   <script src="/PG_wamp/index.js"></script>
 </head>
 
+<style>
+  .header__item-center{
+    font-family: "Montserrat", sans-serif!important;
+  }
+</style>
 
-<body>
+<body  >
   <div id="preloader">
     <div class="preloader-logo"></div>
   </div>
@@ -35,10 +40,13 @@
             <a class="nav__link" href="/PG_wamp/">Home</a>
           </li>
           <li class="nav__item">
-            <a class="nav__link" href="/PG_wamp/">All Doctors</a>
+            <a class="nav__link" href="/PG_wamp/">Doctors</a>
           </li>
           <li class="nav__item">
-            <a class="nav__link" href="/PG_wamp/">About Us</a>
+            <a class="nav__link" href="/PG_wamp/">Medicines</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="/PG_wamp/">About</a>
           </li>
           <li class="nav__item">
             <a class="nav__link" href="/PG_wamp/">Services</a>

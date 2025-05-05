@@ -1,29 +1,35 @@
 <?php
 session_start();
 include('../db_connect.php');
+
+if (isset($_GET['patient_id'])) {
+    $_SESSION['patient_id'] = $_GET['patient_id']; // store it in session
+}
+
 if (!isset($_SESSION['patient_id'])) {
     header("Location: ../index.html");
     exit();
 }
+
 $patient_id = $_SESSION['patient_id'];
 ?>
+
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Patient Dashboard</title>
+  <link rel="shortcut icon" href="/PG_wamp/images/clinicode.png" type="image/x-icon" />
     <link rel="stylesheet" href="dash.css">
     <link rel="stylesheet" href="../nav.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">   
 </head>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-<!-- Alpine.js for dropdown and toggle functionality (optional but helpful) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../js/index.js"></script>
 <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 <body>
-    <?php include "../nav2.php"  ?>
+    <?php include "../navbar.php"  ?>
     <div class="dashboard-container">
 
         <div class="dashboard-card">

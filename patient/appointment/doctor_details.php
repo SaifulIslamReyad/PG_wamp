@@ -50,15 +50,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Doctor Details & Appointment</title>
+  <link rel="shortcut icon" href="/PG_wamp/images/clinicode.png" type="image/x-icon" />
+
   <link rel="stylesheet" href="details.css">
   <link rel="stylesheet" href="../../nav.css">
 </head>
 
 <body>
 
-<?php include '../../nav.php'; ?>
+<?php include '../../navbar.php'; ?>
 
-<div class="container">
+<div class="container"> 
 
 <div class="doctor-details-container small-container">
   <h2>👨‍⚕️ <?php echo $doctor['doctor_name']; ?></h2>
@@ -141,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const option = document.createElement("div");
     option.textContent = date.toDateString().slice(0, 10); // e.g., "Wed Apr 17"
-    option.dataset.value = date.toISOString().split("T")[0]; // "YYYY-MM-DD"
+    option.dataset.value = date.toLocaleDateString('en-CA'); // Format: YYYY-MM-DD
 
     option.addEventListener("click", () => {
       // Set value to hidden input
@@ -162,3 +164,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
+
+
