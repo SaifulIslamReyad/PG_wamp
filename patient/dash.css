@@ -10,13 +10,18 @@ body {
     color: #2f3e4d;
 }
 
+
+
+
+
 .dashboard-card {
-    background-color: #ffffff;
+    max-width: 1000px;
+    /* background-color: #ffffff; */
     border: 1px solid #dfe7f0;
     border-radius: 15px;
     padding: 20px;
     margin: 30px auto;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
 .dashboard-header {
@@ -168,9 +173,9 @@ tbody tr:hover {
 }
 
 .prescription-card h3 {
-    font-size: 1.2rem;
+    font-size: 1.7rem;
     color: #1a73e8;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .prescription-card p {
@@ -199,46 +204,11 @@ tbody tr:hover {
     background-color: #f0f4fa;
 }
 
-/* Appointments */
-#appointments {
-    margin: 20px;
-    padding: 20px;
-    background-color: #f7faff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 123, 255, 0.1);
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
 
-.appointment-row {
-    background-color: #ffffff;
-    border-left: 5px solid #1a73e8;
-    margin-bottom: 20px;
-    padding: 15px 20px;
-    border-radius: 8px;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
 
-.appointment-row:hover {
-    background-color: #f0f8ff;
-    transform: scale(1.01);
-}
 
-.appointment-row span {
-    display: block;
-    margin-bottom: 6px;
-    color: #2f3e4d;
-    font-size: 16px;
-}
 
-.appointment-row span strong {
-    color: #1a73e8;
-    font-weight: 600;
-}
 
-/* Floating Appointment Button */
 .takeapp {
     position: fixed;
     bottom: 100px;
@@ -314,4 +284,79 @@ tbody tr:hover {
     display: block;
 }
 
+
+.hide-btn {
+    background-color: #1a73e8;
+    color: white;
+    padding: 7px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.hide-btn:hover {
+    background-color:  #10458a;
+}
+
+/* Center the button using flex */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0 0 0;
+}
+
+
+
+
+
+
+
+.filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 800px;
+    /* background-color: #f8f9ff; */
+    /* border: 1px solid #ccc; */
+    border-radius: 10px;
+}
+
+.filter-form input.find {
+    padding: 8px 8px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    min-width: 200px;
+    font-size: 14px;
+}
+
+.filter-form .hide-btn {
+    background-color: blue;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.filter-form .hide-btn:hover {
+    background-color: #0033cc;
+}
+
+.filter-form #filter_date{
+    border: 0px solid black;
+}
+
+.filter-form .input-group{
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    color: #9d9d9d;
+    background-color: white;
+    padding-left: 10px;
+}
 

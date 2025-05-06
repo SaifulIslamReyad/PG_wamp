@@ -4,9 +4,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Doctor's Dashboard</title>
-  <link rel="shortcut icon" href="/PG_wamp/images/clinicode.png" type="image/x-icon" />
-        <link rel="stylesheet" href="../dashboard.css"/>
+        <link rel="shortcut icon" href="/PG_wamp/images/clinicode.png" type="image/x-icon" />
+        <link rel="stylesheet" href="../css/dashboard.css"/>
         <script src="../js/index.js"></script>
+        <script src="dashboard.js"></script>
       </head>
       
 <body>
@@ -34,6 +35,22 @@ $totalResult = $conn->query($totalQuery)->fetch_assoc();
 $pendingResult = $conn->query($pendingQuery)->fetch_assoc();
 $completedResult = $conn->query($completedQuery)->fetch_assoc();
 ?>
+
+<script>
+  function toggleMenu() {
+      const menu = document.getElementById('dropdownMenu');
+      menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+    }
+
+    // Optional: Close the menu if clicked outside
+    window.addEventListener('click', function(e) {
+      const menu = document.getElementById('dropdownMenu');
+      if (!e.target.matches('.dots-button')) {
+        menu.style.display = 'none';
+      }
+    });
+</script>
+
 <div class="dashboard-header">
   <div class="doctor-profile">
     <img src="../images/suhad.png" alt="Doctor" class="doctor-img">
@@ -41,16 +58,27 @@ $completedResult = $conn->query($completedQuery)->fetch_assoc();
       <h2>Dr. Ashraful Islam Suhad</h2>
       <p>Oral & Dental Specialist</p>
     </div>
+  <div class="menu-container">
+    <button class="dots-button" onclick="toggleMenu()">⋮</button>
+    <div class="dropdown-menu" id="dropdownMenu">
+      <button onclick="location.href='add-prescription.php'">🥼 Profile</button>
+      <button onclick="location.href='add-prescription.php'">🔄 Switch Chamber</button>
+      <button onclick="location.href='add-prescription.php'">➕ Add Chamber</button>
+      <button onclick="location.href='add-prescription.php'">👨‍🦼 All Patients</button>
+      <button onclick="location.href='add-prescription.php'">➕ Create Patient</button>
+      <button onclick="location.href='add-prescription.php'">✨ Seen List</button>
+      <button onclick="location.href='add-prescription.php'">🖇 Follow-up List</button>
+      <button onclick="location.href='add-prescription.php'">🫖 Holiday</button>
+      <button onclick="location.href='add-prescription.php'">📞 Call settings</button>
+      <button onclick="location.href='add-prescription.php'">💊 Templates</button>
+      <button onclick="location.href='add-prescription.php'">➕ Add Templates</button>
+      <button onclick="location.href='add-prescription.php'">🛠 Edit Prescription</button>
+      <button onclick="location.href='add-prescription.php'">📤 Log out</button>
+    </div>
   </div>
-  <div class="quick-actions">
-    <button onclick="location.href='add-prescription.php'">🥼 Profile</button>
-    <button onclick="location.href='add-prescription.php'">🔄️ Switch Chamber</button>
-    <button onclick="location.href='add-prescription.php'">👨‍🦼 All Patients</button>
-    <button onclick="location.href='add-prescription.php'">💊 Templates</button>
-    <button onclick="location.href='add-prescription.php'">➕ Add Templates</button>
-    <button onclick="location.href='add-prescription.php'">🛠️ Edit Prescription</button>
-    <button onclick="location.href='add-prescription.php'">📤Log out</button>
   </div>
+
+
 </div>
 
 

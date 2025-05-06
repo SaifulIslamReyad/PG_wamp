@@ -356,7 +356,7 @@
                 </div>
                 <div class="specialist__content">
                   <h3>
-                    <a href="#">Dr. Saif Riyad</a>
+                    <a href="#">Dr. Saif Reyad</a>
                   </h3>
                   <p>Cardiologist</p>
                 </div>
@@ -426,7 +426,7 @@
                 </div>
                 <div class="specialist__content">
                   <h3>
-                    <a href="#">Dr. Siam Howlader</a>
+                    <a href="#">Dr. Siam Hossain</a>
                   </h3>
                   <p>Dental Surgery</p>
                 </div>
@@ -440,7 +440,7 @@
                 </div>
                 <div class="specialist__content">
                   <h3>
-                    <a href="#">Dr. Jannatul</a>
+                    <a href="#">Dr. Jannatul Ferdous</a>
                   </h3>
                     <p>Dental Surgery</p>
                 </div>
@@ -454,7 +454,7 @@
                 </div>
                 <div class="specialist__content">
                   <h3>
-                    <a href="#">Dr. Akash</a>
+                    <a href="#">Dr. Akash Talukder</a>
                   </h3>
                   <p>Dental Surgery</p>
                 </div>

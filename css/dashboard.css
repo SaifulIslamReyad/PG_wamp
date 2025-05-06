@@ -27,6 +27,9 @@ body {
 /* .dashboard-header {
     text-align: center;
     margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
 } */
 /* 
 .dashboard-header h2 {
@@ -228,7 +231,7 @@ td:nth-child(5) {
     flex-direction: row;
     padding: 20px;
     border-radius: 12px;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center
   }
   
@@ -341,3 +344,44 @@ td:nth-child(5) {
     font-weight: bold;
   }
   
+
+
+  
+  .menu-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dots-button {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .dropdown-menu button {
+    display: block;
+    width: 200px;
+    padding: 10px;
+    text-align: left;
+    background: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .dropdown-menu button:hover {
+    background-color: #f0f0f0;
+  }

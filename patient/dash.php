@@ -62,9 +62,20 @@ $patient_id = $_SESSION['patient_id'];
         </div>
 
         <!-- Prescriptions Section -->
+ 
         <div id="prescriptions" class="section active">
+            <form class="filter-form" onsubmit="event.preventDefault(); filterPrescriptions();">
+
+                <input type="text" id="filter_doctor" class="find" placeholder="Filter by doctor" />
+                <input type="text" id="filter_problem" class="find" placeholder="Filter by CC" />
+                <div class="input-group">
+                    <label for="filter_date">Filter by date</label>
+                    <input type="date" id="filter_date" class="find" />
+                </div>
+                <!-- <button type="submit" class="hide-btn">🔍 Filter</button> -->
+            </form>
             <?php
-            $prescription_sql = "SELECT p.prescription_id, p.issued_date, d.doctor_name, d.qualification 
+            $prescription_sql = "SELECT p.prescription_id, p.issued_date, p.cc, d.doctor_name, d.qualification 
                                  FROM prescriptions p 
                                  JOIN appointments a ON p.prescription_id = a.appointment_no 
                                  JOIN doctors d ON a.doctor_id = d.doctor_id 
@@ -97,6 +108,7 @@ $patient_id = $_SESSION['patient_id'];
                     'issued_date' => $prescription['issued_date'],
                     'doctor_name' => $prescription['doctor_name'],
                     'qualification' => $prescription['qualification'],
+                    'cc' => $prescription['cc'],
                     'medicines' => $medicines
                 ];
             }
@@ -104,7 +116,7 @@ $patient_id = $_SESSION['patient_id'];
             if (!empty($all_prescriptions)) {
                 foreach ($all_prescriptions as $prescription) {
                     echo '<div class="prescription-card">';
-                    // echo '<h3>Prescription ID: ' . htmlspecialchars($prescription['prescription_id']) . '</h3>';
+                    echo '<h3><strong>Chief Complaint:</strong>  ' . htmlspecialchars($prescription['cc']) . '</h3>';
                     echo '<p><strong>Issued Date:</strong> ' . htmlspecialchars($prescription['issued_date']) . '</p>';
                     echo '<p><strong>Doctor:</strong> ' . htmlspecialchars($prescription['doctor_name']) . ' (' . htmlspecialchars($prescription['qualification']) . ')</p>';
                     echo '<h4>Medicines:</h4>';
@@ -117,7 +129,11 @@ $patient_id = $_SESSION['patient_id'];
                     } else {
                         echo '<p>No medicines prescribed.</p>';
                     }
+                    echo '<div class="button-container">
+                            <button class="hide-btn">👀 Hide</button>
+                        </div>';
                     echo '</div>';
+
                 }
             } else {
                 echo '<p>No previous prescriptions found.</p>';
@@ -126,7 +142,19 @@ $patient_id = $_SESSION['patient_id'];
         </div>
 
         <!-- Appointments Section -->
+
+
         <div id="appointments" class="section">
+        <form class="filter-form" onsubmit="event.preventDefault(); filterPrescriptions();">
+                
+                <input type="text" id="filter_doctor" class="find" placeholder="Filter by doctor" />
+                <input type="text" id="filter_problem" class="find" placeholder="Filter by Problem" />
+                <div class="input-group">
+                    <label for="filter_date">Filter by date</label>
+                    <input type="date" id="filter_date" class="find" />
+                </div>
+                <!-- <button type="submit" class="hide-btn">🔍 Filter</button> -->
+            </form>
             <?php
             $appt_sql = "SELECT a.appointment_no, a.problem, a.appointment_date, a.appointment_time, a.status, d.doctor_name, d.qualification 
                          FROM appointments a 
@@ -140,13 +168,18 @@ $patient_id = $_SESSION['patient_id'];
             $result = $stmt->get_result();
 
             while ($appointment = $result->fetch_assoc()) {
-                echo '<div class="appointment-row">';
+
+               
+                echo '<div class="prescription-card">';
                 
                 echo '<span><strong>Problem:</strong> ' . htmlspecialchars($appointment['problem']) . '</span><br>';
                 echo '<span><strong>Date:</strong> ' . htmlspecialchars($appointment['appointment_date']) . '</span><br>';
                 echo '<span><strong>Time:</strong> ' . htmlspecialchars($appointment['appointment_time']) . '</span><br>';
                 echo '<span><strong>Status:</strong> ' . htmlspecialchars($appointment['status']) . '</span><br>';
                 echo '<span><strong>Doctor:</strong> ' . htmlspecialchars($appointment['doctor_name']) . ' (' . htmlspecialchars($appointment['qualification']) . ')</span>';
+                echo '<div class="button-container">
+                            <button class="hide-btn">⚙️ Edit</button>
+                        </div>';
                 echo '</div>';
             }
             ?>
@@ -155,7 +188,7 @@ $patient_id = $_SESSION['patient_id'];
         <!-- Take Appointment Button -->
         <div class="takeapp">
             <a href="appointment/form.php?patient_id=<?php echo $patient_id; ?>">
-                <i class="fas fa-capsules icon"></i> Take Appointment
+                <i class="fas fa-capsules icon"></i> Take New Appointment
             </a>
         </div>
         
