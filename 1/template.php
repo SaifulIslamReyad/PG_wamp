@@ -7,6 +7,7 @@
     <style>
         .temp{
             display: flex;
+            margin:15px;
         }
         .symptom {
             padding: 10px;
@@ -16,6 +17,7 @@
             border-radius: 5px;
             cursor: pointer;
             width: fit-content;
+            font-weight:bold;
         }
 
         .symptom:hover {

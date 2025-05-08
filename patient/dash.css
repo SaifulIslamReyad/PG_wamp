@@ -32,7 +32,7 @@ body {
 }
 
 .avatar-circle {
-    background-color: #1a73e8;
+    background-color: #374763;
     color: #fff;
     font-size: 24px;
     font-weight: bold;
@@ -52,7 +52,7 @@ body {
 }
 
 .update-btn {
-    background-color: #1a73e8;
+    background-color: #374763;
     color: white;
     padding: 10px 20px;
     border-radius: 8px;
@@ -65,7 +65,7 @@ body {
 }
 
 .update-btn:hover {
-    background-color: #125bb2;
+    background-color: #102851;
 }
 
 .welcome-text h2 {
@@ -85,11 +85,11 @@ body {
     background-color: #e8f0fe;
     padding: 12px 16px;
     border-radius: 10px;
-    border-left: 4px solid #1a73e8;
+    border-left: 4px solid #374763;
 }
 
 .dashboard-container {
-    background-color: #d2e2ed;
+    background-color: white;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.06);
@@ -166,16 +166,16 @@ tbody tr:hover {
 }
 
 .prescription-card {
-    background: #eaf3fb;
+    background: inherit;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
 }
 
 .prescription-card h3 {
     font-size: 1.7rem;
-    color: #1a73e8;
+    color: #374763;
     margin-bottom: 5px;
 }
 
@@ -197,7 +197,7 @@ tbody tr:hover {
 }
 
 .medicine-table th {
-    background-color: #1a73e8;
+    background-color: #374763;
     color: #ffffff;
 }
 
@@ -216,7 +216,7 @@ tbody tr:hover {
     right: 100px;
     font-size: 20px;
     font-weight: bold;
-    background: linear-gradient(45deg, #0555be, #062950);
+    background: linear-gradient(45deg, #102851 , #374763);
     color: white;
     border: none;
     border-radius: 50px;
@@ -229,7 +229,7 @@ tbody tr:hover {
 .takeapp a {
     display: inline-flex;
     align-items: center;
-    padding: 12px 20px;
+    padding: 0px 20px;
     color: white;
     text-decoration: none;
     border-radius: 50px;
@@ -243,7 +243,7 @@ tbody tr:hover {
 }
 
 .takeapp:hover {
-    background: linear-gradient(45deg, #125bb2, #397bd1);
+    background: linear-gradient(45deg, #102851,#102851);
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
 }
 
@@ -267,14 +267,15 @@ tbody tr:hover {
     background-color: #e0eaf5;
     color: #2f3e4d;
 }
-.toggle-buttons button.active {
-    background-color: #1a73e8;
-    color: white;
-}
 .toggle-buttons button:hover {
-    background-color: #125bb2;
+    background-color: #535c6b;
     color: white;
 }
+.toggle-buttons button.active {
+    background-color: #374763;
+    color: white;
+}
+
 
 .section {
     display: none;
@@ -287,16 +288,17 @@ tbody tr:hover {
 
 
 .hide-btn {
-    background-color: #1a73e8;
+    background-color: #374763;
     color: white;
     padding: 6px 8px;
     border: none;
     border-radius: 5px;
     font-size: 14px;
     cursor: pointer;
+    margin-left: 10px;
 }
 .hide-btn:hover {
-    background-color:  #10458a;
+    background-color:  #102851;
 }
 
 /* Center the button using flex */
@@ -332,6 +334,7 @@ tbody tr:hover {
     border-radius: 5px;
     min-width: 200px;
     font-size: 14px;
+    box-shadow: 2px 2px 2px rgb(65, 65, 65);
 }
 
 .filter-form .hide-btn {
@@ -350,7 +353,9 @@ tbody tr:hover {
 }
 
 .filter-form #filter_date{
-    border: 0px solid black;
+    border: none;
+    box-shadow: 0px 0px 0px white;
+
 }
 
 .filter-form .input-group{
@@ -359,5 +364,7 @@ tbody tr:hover {
     color: #9d9d9d;
     background-color: white;
     padding-left: 10px;
+    box-shadow: 2px 2px 2px rgb(65, 65, 65);
+
 }
 

@@ -131,6 +131,8 @@ $patient_id = $_SESSION['patient_id'];
                     }
                     echo '<div class="button-container">
                             <button class="hide-btn">👀 Hide</button>
+                            <button class="hide-btn"> ✨ Details </button>
+
                         </div>';
                     echo '</div>';
 
@@ -156,33 +158,52 @@ $patient_id = $_SESSION['patient_id'];
                 <!-- <button type="submit" class="hide-btn">🔍 Filter</button> -->
             </form>
             <?php
-            $appt_sql = "SELECT a.appointment_no, a.problem, a.appointment_date, a.appointment_time, a.status, d.doctor_name, d.qualification 
-                         FROM appointments a 
-                         JOIN doctors d ON a.doctor_id = d.doctor_id 
-                         WHERE a.patient_id = ? 
-                         and a.status='appointed'
-                         ORDER BY a.appointment_no DESC";
-            $stmt = $conn->prepare($appt_sql);
-            $stmt->bind_param("i", $patient_id);
-            $stmt->execute();
-            $result = $stmt->get_result();
+                $appt_sql = "SELECT a.appointment_no, a.problem, a.appointment_date, a.appointment_time, a.status, a.doctor_id, d.doctor_name, d.qualification 
+                FROM appointments a 
+                JOIN doctors d ON a.doctor_id = d.doctor_id 
+                WHERE a.patient_id = ? 
+                AND a.status = 'appointed'
+                ORDER BY a.appointment_no DESC";
 
-            while ($appointment = $result->fetch_assoc()) {
+                $stmt = $conn->prepare($appt_sql);
+                $stmt->bind_param("i", $patient_id);
+                $stmt->execute();
+                $result = $stmt->get_result();
 
-               
+                while ($appointment = $result->fetch_assoc()) {
+                $doctor_id = $appointment['doctor_id'];
+                $appointment_no = $appointment['appointment_no'];
+                $appointment_date = $appointment['appointment_date'];
+
+                $serial_sql = "SELECT COUNT(*) + 1 AS serial
+                                FROM appointments
+                                WHERE doctor_id = ?
+                                AND status = 'appointed'
+                                AND appointment_date = ?
+                                AND appointment_no < ?";
+
+                $serial_stmt = $conn->prepare($serial_sql);
+                $serial_stmt->bind_param("isi", $doctor_id, $appointment_date, $appointment_no);
+                $serial_stmt->execute();
+                $serial_result = $serial_stmt->get_result();
+                $row = $serial_result->fetch_assoc();
+                $serial = $row['serial'];
+
                 echo '<div class="prescription-card">';
-                
                 echo '<span><strong>Problem:</strong> ' . htmlspecialchars($appointment['problem']) . '</span><br>';
                 echo '<span><strong>Date:</strong> ' . htmlspecialchars($appointment['appointment_date']) . '</span><br>';
                 echo '<span><strong>Time:</strong> ' . htmlspecialchars($appointment['appointment_time']) . '</span><br>';
                 echo '<span><strong>Status:</strong> ' . htmlspecialchars($appointment['status']) . '</span><br>';
-                echo '<span><strong>Doctor:</strong> ' . htmlspecialchars($appointment['doctor_name']) . ' (' . htmlspecialchars($appointment['qualification']) . ')</span>';
+                echo '<span><strong>Doctor:</strong> ' . htmlspecialchars($appointment['doctor_name']) . ' (' . htmlspecialchars($appointment['qualification']) . ')</span><br>';
+                echo '<span><strong>Serial:</strong> ' . htmlspecialchars($serial) . '</span><br>';
                 echo '<div class="button-container">
                             <button class="hide-btn">⚙️ Edit</button>
+                            <button class="hide-btn">✨ Details</button>
                         </div>';
                 echo '</div>';
-            }
-            ?>
+                }
+                ?>
+
         </div>
 
         <!-- Take Appointment Button -->
@@ -193,6 +214,7 @@ $patient_id = $_SESSION['patient_id'];
         </div>
         
     </div>
+<?php include "../footer.php" ?>
 
     <script>
         function showSection(id) {
@@ -213,6 +235,7 @@ $patient_id = $_SESSION['patient_id'];
         }
     </script>
 
+<link rel="stylesheet" href="dash.css">
 
 </body>
 </html>

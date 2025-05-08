@@ -9,14 +9,14 @@
     background-color: #d2e2ed;
   }
   
-  .container {
+  .container-d {
     padding: 30px;
     color: #2c3e50;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 40px;
-    background-color: #d2e2ed;
+    background-color: white;
 
   }
   
@@ -37,9 +37,9 @@
     font-size: 26px;
   }
   
-  /* ===== Container Styling ===== */
-  .doctor-details-container,
-  .small-container {
+  /* ===== Container-d Styling ===== */
+  .doctor-details-container-d,
+  .small-container-d {
     /* color: #2980b9; */
     flex: 1 1 45%;
     min-width: 320px;
@@ -51,13 +51,13 @@
   }
   
   /* ===== Doctor Details Section ===== */
-  .small-container h2 {
-    color: #2980b9;
+  .small-container-d h2 {
+    color: #374763;
     font-size: 28px;
     margin-bottom: 20px;
   }
   
-  .doctor-details-container h3 {
+  .doctor-details-container-d h3 {
     font-size: 22px;
     color: #2c3e50;
     margin: 30px 0 15px;
@@ -65,13 +65,13 @@
     border-bottom: 2px solid #eee;
   }
   
-  .doctor-details-container p {
+  .doctor-details-container-d p {
     font-size: 16px;
     margin-bottom: 10px;
     line-height: 1.7;
   }
   
-  .doctor-details-container strong {
+  .doctor-details-container-d strong {
     color: #2c3e50;
   }
   
@@ -112,7 +112,7 @@
   }
   
   button[type="submit"] {
-    background-color: #3498db;
+    background-color: #374763;
     color: white;
     padding: 12px 20px;
     font-size: 16px;
@@ -126,7 +126,7 @@
   }
   
   button[type="submit"]:hover {
-    background-color: #2980b9;
+    background-color: #102851;
   }
   
   legend {
@@ -170,12 +170,12 @@
   }
   
   .calendar-picker div:hover {
-    background-color: #3498db;
+    background-color: #52617a;
     color: white;
   }
   
   .calendar-picker .selected {
-    background-color: #3ec1db !important;
+    background-color: #374763 !important;
     color: white;
     font-weight: bold;
   }
@@ -187,21 +187,21 @@
       align-items: center;
     }
   
-    .doctor-details-container,
-    .container {
+    .doctor-details-container-d,
+    .container-d {
       flex: 1 1 90%;
     }
   
-    .doctor-details-container h2,
-    .container h2 {
+    .doctor-details-container-d h2,
+    .container-d h2 {
       font-size: 24px;
     }
   
-    .doctor-details-container h3 {
+    .doctor-details-container-d h3 {
       font-size: 20px;
     }
   
-    .doctor-details-container p,
+    .doctor-details-container-d p,
     label,
     input,
     select {
@@ -213,7 +213,7 @@
 
 
 
-  .map-container {
+  .map-container-d {
     margin: 15px 0;
     border-radius: 10px;
     overflow: hidden;
@@ -222,10 +222,10 @@
   }
   
 
-  .doctor-details-container{
+  .doctor-details-container-d{
     max-width: 600px;
   }
-  .appointment-form-container{
+  .appointment-form-container-d{
     max-width: 900px;
     margin-top: 0px ;
   }

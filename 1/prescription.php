@@ -173,6 +173,34 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
             <button id="book-appointment-btn">🖼️ Pictures</button>
             <button id="book-appointment-btn">📸 Add Picture</button>
             <hr>
+<div class="vitals-section">
+  <label>
+    
+    <input type="text" name="bloodPressure" placeholder="Blood Pressure (mmHg)">
+  </label>
+
+  <label>
+    
+    <input type="number" name="pulseRate" placeholder="Pulse Rate (bpm)">
+  </label>
+
+  <label>
+    
+    <input type="text" name="temperature" placeholder="Temperature (°F)">
+  </label>
+
+  <label>
+    
+    <input type="number" name="weight" placeholder="Weight (kg)">
+  </label>
+
+  <label>
+    
+    <input type="number" name="spo2" placeholder="SpO₂ (%)">
+  </label>
+</div>
+
+            <hr>
             <?php include "template.php" ?>
             <hr>
     <h2 id="patient_history_h2"> Prescriptions</h2>
@@ -214,6 +242,7 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
             <?php else: ?>
                 <p>No medicines prescribed.</p>
             <?php endif; ?>
+            <button class="details-btn"> ✨ Details </button>
         </div>
     </div>
 <?php endforeach; ?>
@@ -327,17 +356,19 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
                     <div id="medicine-container-big"></div>
                     <button id="add-medicine">+</button>
                     
-                    <button type="button" id="generate-prescription-btn" onclick="generatePrescription()">Print</button>
+                    <button type="button" id="generate-prescription-btn" onclick="generatePrescription()">🖨️Print</button>
 
                 </div>
             </div>
-            <div class="footer">
+            <div class="footer-p">
                 <p>চেম্বার ১: হোসাইনিয়া মাদরাসা সড়ক, বৈদ্যপাড়া, বরিশাল।</p>
                 <p>চেম্বার ২:, শরীফ ভিলা, ভাটিখানা প্রধান সড়ক, বরিশাল।</p>
                 <p>📞 +880162-8949739</p>
             </div>
         </div>
     </div>
+    <?php include "../footer.php" ?>
+
 
     <script>
     // Load medicines from get_medicines.php

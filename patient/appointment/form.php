@@ -5,6 +5,7 @@ if (isset($_REQUEST['patient_id'])) {
     die("Error: Missing patient ID.");
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +13,7 @@ if (isset($_REQUEST['patient_id'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>All Registered Doctors</title>
   <link rel="shortcut icon" href="/PG_wamp/images/clinicode.png" type="image/x-icon" />
-
+<script src="../../js/index.js"></script>
   <link rel="stylesheet" href="form.css"> 
 
 </head>
@@ -44,6 +45,7 @@ if (isset($_REQUEST['patient_id'])) {
     <!-- Doctors rows will be injected here -->
   </tbody>
 </table>
+
 
 <script>
   let doctorsData = []; // Variable to hold the fetched doctor data
@@ -120,7 +122,7 @@ if (isset($_REQUEST['patient_id'])) {
   // Call the fetchDoctors function when the page is loaded
   window.onload = fetchDoctors;
 </script>
-
+<?php include "../../footer.php" ?>
 </body>
 </html>
 

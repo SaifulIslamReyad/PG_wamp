@@ -31,12 +31,13 @@ $phone = '01772977405';
       border-radius: 8px;
       padding: 10px 15px;
       background-color: #fff;
-      width: 150px;
+      width: 170px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       transition: transform 0.2s ease;
     }
     .pay-method-item:hover {
       transform: translateY(-2px);
+      cursor: pointer;
     }
     .icon {
       width: 48px;

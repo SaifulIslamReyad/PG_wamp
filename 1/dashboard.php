@@ -123,6 +123,7 @@ $completedResult = $conn->query($completedQuery)->fetch_assoc();
       </tbody>
     </table>
   </div>
+  <?php include "../footer.php" ?>
 
   <script>
     document.getElementById("currentDate").textContent = "🗓️"+

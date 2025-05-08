@@ -60,9 +60,9 @@
 
 <?php include '../../navbar.php'; ?>
 
-<div class="container"> 
+<div class="container-d"> 
 
-<div class="doctor-details-container small-container">
+<div class="doctor-details-container-d small-container-d">
   <h2>👨‍⚕️ <?php echo $doctor['doctor_name']; ?></h2>
   <p><strong>📨 Email:</strong> <?php echo $doctor['doctor_email']; ?></p>
   <p><strong>📱 Mobile:</strong> <?php echo $doctor['mobile']; ?></p>
@@ -89,7 +89,7 @@
     ?>
   </p>
     <!-- Embedded Google Map -->
-    <div class="map-container">
+    <div class="map-container-d">
     <iframe 
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3669.9707810422466!2d90.3460164!3d22.7145092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37553427816dde59%3A0x60f09fb3f33c67e8!2sNathullahbad%20Central%20Bus%20Terminal!5e0!3m2!1sen!2sbd!4v1713957389915!5m2!1sen!2sbd" 
       width="100%" 
@@ -104,7 +104,7 @@
 
 
 <!-- Appointment Form Section -->
-<div class="appointment-form-container small-container">
+<div class="appointment-form-container-d small-container-d">
   <h2>🩺Book Appointment</h2>
 
   <form action="submit_appointment.php?patient_id=<?php echo $patient_id; ?>&doctor_id=<?php echo $doctor_id; ?>" method="post">
@@ -128,6 +128,8 @@
     <button type="submit">Book Appointment</button>
   </form>
 </div>
+<?php include "../../footer.php" ?>
+
 </div>
 
 <script>
@@ -162,8 +164,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 </script>
-
+<script src="../../js/index.js"></script>
 </body>
+  
 </html>
 
 
