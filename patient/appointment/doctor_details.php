@@ -38,8 +38,8 @@
   // Example hardcoded values
   $consultation_time = "9:00 AM - 5:00 PM";
   $address = "Nathullabad Bus Terminal";
-  $fee = "200 Taka";
-  $booking_charge = "300 Taka";
+  $fee = "500 Taka";
+  $booking_charge = "100 Taka";
   $ratings = 4.5;
   $reviews = "Great doctor, very knowledgeable.";
 ?>
@@ -77,6 +77,7 @@
 
   <p><strong>💰 Fee:</strong> <?php echo $fee; ?></p>
   <p><strong>💳 Booking Charge:</strong> <?php echo $booking_charge; ?></p>
+  <p><strong>🧑‍🤝‍🧑 Total patients:</strong> <?php echo 9000; ?></p>
   <p>
     <strong>✨ Ratings:</strong> 
     <?php echo $ratings, "/5"; ?> 
@@ -103,7 +104,7 @@
 
 
 <!-- Appointment Form Section -->
-<div class="appointment-form-container small-container" style="margin-top: 40px;">
+<div class="appointment-form-container small-container">
   <h2>🩺Book Appointment</h2>
 
   <form action="submit_appointment.php?patient_id=<?php echo $patient_id; ?>&doctor_id=<?php echo $doctor_id; ?>" method="post">
@@ -123,7 +124,7 @@
   <div class="calendar-picker" id="calendar-picker"></div>
 </div>
 
-
+<?php include "payment.php" ?>
     <button type="submit">Book Appointment</button>
   </form>
 </div>

@@ -79,7 +79,7 @@ function setCC(text) {
         const eatWhenPainCheckbox = document.querySelector('.eat-when-pain');
         const daysInput = document.querySelector('.days-input');
 
-        if (medInput) medInput.value = "aspirin";
+        if (medInput) medInput.value = "Amoxicillin 500mg (tablet)";
         if (morningCheckbox) morningCheckbox.checked = true;
         if (nightCheckbox) nightCheckbox.checked = true;
         if (eatWhenPainCheckbox) eatWhenPainCheckbox.checked = true;

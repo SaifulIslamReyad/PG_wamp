@@ -43,20 +43,21 @@
             <a class="nav__link" href="/PG_wamp/">Doctors</a>
           </li>
           <li class="nav__item">
-            <a class="nav__link" href="/PG_wamp/">Medicines</a>
-          </li>
-          <li class="nav__item">
             <a class="nav__link" href="/PG_wamp/">About</a>
           </li>
+          <li class="nav__item">
+            <a class="nav__link" href="/PG_wamp/">Order Medicines</a>
+          </li>
+
           <li class="nav__item">
             <a class="nav__link" href="/PG_wamp/">Services</a>
           </li>
           <li class="nav__item">
             <a class="nav__link" href="/PG_wamp/">Contact</a>
           </li>
-          <li class="nav__item">
-            <a class="nav__link" href="/PG_wamp/">Instructions</a>
-          </li>
+          <!-- <li class="nav__item">
+            <a class="nav__link" href="/PG_wamp/">Order Medicine</a>
+          </li> -->
         </ul>
       </nav>
     </div>

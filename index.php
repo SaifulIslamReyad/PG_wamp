@@ -496,10 +496,8 @@
   <button id="back-to-top" class="back-to-top">
     <i class="fa-solid fa-angle-up"></i>
   </button>
-    <footer>
-    <p>© 2025 CliniCode. All Rights Reserved.</p>
-    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-  </footer>
+  <?php include "./footer.php" ?> 
+
   <script src="js/index.js"></script>
 
 </body>

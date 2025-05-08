@@ -128,8 +128,9 @@ h1 {
 }
 
 p {
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin-bottom: 10px;
+    text-align: left;
 }
 
 a {
@@ -288,10 +289,10 @@ tbody tr:hover {
 .hide-btn {
     background-color: #1a73e8;
     color: white;
-    padding: 7px 15px;
+    padding: 6px 8px;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
 }
 .hide-btn:hover {

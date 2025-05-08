@@ -109,21 +109,24 @@ span {
     margin-right: 10px;
 }
 
+input {
+    padding: 5px;
+    background-color: inherit;
+    border: none;
+    box-shadow: 1px 1px 1px #98b3ce;
+
+}
+
 .patient-info input {
     margin-right: 2px;
     padding: 1px;
-    background-color: #e6f2ff;
+    background-color: inherit;
     border: none;
     font-size: medium;
+    box-shadow: none;
 }
 
-input {
-    padding: 5px;
-    background-color: #e6f2ff;
-    border: none;
-    /* margin-right: 20px; */
 
-}
 
 .patient-info input[type="text"] {
     width: 80px;

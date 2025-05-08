@@ -173,16 +173,16 @@ INSERT INTO patients (patient_name, patient_phone, patient_password, patient_dob
 ('Tanjila Rahman', '01772977410', '123', '1991-12-01', 'F');
 
 INSERT INTO appointments (patient_id, doctor_id, problem, appointment_date, appointment_time, status) VALUES 
-(1, 1, 'Tooth Pain', '2025-04-19', '08:00 PM ', 'Appointed'),
-(1, 1, 'Fever', '2025-04-19', '08:00 PM ', 'Appointed'),
-(2, 1, 'Gum Bleeding', '2025-04-19', '08:00 PM ', 'Appointed'),
-(3, 1, 'Root Canal', '2025-04-19', '08:00 PM ', 'Appointed'),
-(4, 1, 'Oral Surgery', '2025-04-19', '08:00 PM ', 'Appointed'),
-(5, 1, 'Tooth Extraction', '2025-04-19', '08:00 PM ', 'Appointed'),
-(7, 1, 'Cleaning', '2025-04-19', '08:00 PM ', 'Appointed'),
-(8, 1, 'Teeth Whitening', '2025-04-19', '08:00 PM ', 'Appointed'),
-(9, 1, 'Filling', '2025-04-19', '08:00 PM ', 'Appointed'),
-(10, 1, 'Scaling', '2025-04-19', '08:00 PM ', 'Appointed');
+(1, 1, 'Tooth Pain', '2025-05-06', '08:00 PM ', 'Appointed'),
+(1, 1, 'Fever', '2025-05-06', '08:00 PM ', 'Appointed'),
+(2, 1, 'Gum Bleeding', '2025-05-06', '08:00 PM ', 'Appointed'),
+(3, 1, 'Root Canal', '2025-05-06', '08:00 PM ', 'Appointed'),
+(4, 1, 'Oral Surgery', '2025-05-06', '08:00 PM ', 'Appointed'),
+(5, 1, 'Tooth Extraction', '2025-05-06', '08:00 PM ', 'Appointed'),
+(7, 1, 'Cleaning', '2025-05-06', '08:00 PM ', 'Appointed'),
+(8, 1, 'Teeth Whitening', '2025-05-06', '08:00 PM ', 'Appointed'),
+(9, 1, 'Filling', '2025-05-06', '08:00 PM ', 'Appointed'),
+(10, 1, 'Scaling', '2025-05-06', '08:00 PM ', 'Appointed');
 
 
 -- INSERT INTO prescriptions (prescription_id, issued_date, cc) VALUES 
@@ -198,16 +198,39 @@ INSERT INTO appointments (patient_id, doctor_id, problem, appointment_date, appo
 
 
 INSERT INTO medicines (medicine_name) VALUES 
-('Amoxicillin'), 
-('Ibuprofen'), 
-('Paracetamol'), 
-('Metronidazole'), 
-('Clindamycin'), 
-('Azithromycin'), 
-('Diclofenac'), 
-('Omeprazole'), 
-('Ciprofloxacin'), 
-('Doxycycline');
+-- Tablets & Capsules
+('Amoxicillin 500mg (tablet)'), 
+('Ibuprofen 400mg (tablet)'), 
+('Paracetamol 500mg (tablet)'), 
+('Metronidazole 400mg (tablet)'), 
+('Clindamycin 300mg (capsule)'), 
+('Azithromycin 500mg (tablet)'), 
+('Diclofenac 50mg (tablet)'), 
+('Omeprazole 20mg (capsule)'), 
+('Ciprofloxacin 500mg (tablet)'), 
+('Doxycycline 100mg (capsule)'), 
+('Cetirizine 10mg (tablet)'), 
+('Ranitidine 150mg (tablet)'), 
+('Montelukast 10mg (tablet)'), 
+('Levocetirizine 5mg (tablet)'), 
+('Domperidone 10mg (tablet)'), 
+('Pantoprazole 40mg (tablet)'), 
+('Amlodipine 5mg (tablet)'), 
+('Losartan 50mg (tablet)'), 
+('Metformin 500mg (tablet)'), 
+('Aspirin 75mg (tablet)'), 
+
+-- Syrups
+('Paracetamol 120mg/5ml (syrup)'), 
+('Cetirizine 1mg/ml (syrup)'), 
+('Amoxicillin 250mg/5ml (syrup)'), 
+('Ibuprofen 100mg/5ml (syrup)'), 
+('Dextromethorphan 15mg/5ml (syrup)'), 
+('Ambroxol 15mg/5ml (syrup)'), 
+('Salbutamol 2mg/5ml (syrup)'), 
+('Ranitidine 75mg/5ml (syrup)'), 
+('Erythromycin 200mg/5ml (syrup)'), 
+('Azithromycin 200mg/5ml (syrup)');
 
 -- INSERT INTO prescribed_medicines (prescription_id, medicine_id, dosage, before_after, duration) VALUES 
 -- (1, 1, '1+1+1', 'After Meal', '5'),

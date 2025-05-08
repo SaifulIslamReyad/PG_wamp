@@ -339,18 +339,35 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
         </div>
     </div>
 
-
     <script>
+    // Load medicines from get_medicines.php
+    let medicineList = [];
+
+    fetch('./get_medicines.php')
+        .then(response => response.json())
+        .then(data => {
+            medicineList = data;
+        });
+
     document.getElementById('add-medicine').addEventListener('click', () => {
         const medicineEntry = document.createElement('div');
         medicineEntry.classList.add('medicine-entry');
-        
-        // Generate a unique identifier for each entry
         const uniqueId = Date.now();
+
+        // Create datalist with unique id for each entry (optional)
+        const datalistId = `medicine-suggestions-${uniqueId}`;
+        const datalist = document.createElement('datalist');
+        datalist.id = datalistId;
+
+        medicineList.forEach(medicine => {
+            const option = document.createElement('option');
+            option.value = medicine;
+            datalist.appendChild(option);
+        });
 
         medicineEntry.innerHTML = `
             <div class="last">  
-                <input type="text" class="medicine-input" name="medicine" placeholder="Enter or choose a medicine" list="medicine-suggestions">
+                <input type="text" class="medicine-input" name="medicine" placeholder="Enter or choose a medicine" list="${datalistId}">
                 <button type="button" class="remove-medicine">-</button>
             </div>
 
@@ -377,14 +394,15 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
             </div>
         `;
 
+        medicineEntry.appendChild(datalist);
         document.getElementById('medicine-container-big').appendChild(medicineEntry);
 
         medicineEntry.querySelector('.remove-medicine').addEventListener('click', () => {
             medicineEntry.remove();
         });
     });
-
 </script>
+
 
     <script src="generate.js"></script>
 
