@@ -169,9 +169,9 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
                 </div>
             </div>
             
-            <button id="book-appointment-btn">🧷 Book Follow-Up</button>
-            <button id="book-appointment-btn">🖼️ Pictures</button>
-            <button id="book-appointment-btn">📸 Add Picture</button>
+            <button id="book-appointment-btn">🧷 BOOK FOLLOW-UP</button>
+            <button id="book-appointment-btn">🖇️ IMAGES</button>
+            <button id="book-appointment-btn">📷 ADD IMAGE</button>
             <hr>
 <div class="vitals-section">
   <label>
@@ -242,7 +242,7 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
             <?php else: ?>
                 <p>No medicines prescribed.</p>
             <?php endif; ?>
-            <button class="details-btn"> ✨ Details </button>
+            <button class="details-btn"> ✨ DETAILS </button>
         </div>
     </div>
 <?php endforeach; ?>
@@ -356,7 +356,7 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
                     <div id="medicine-container-big"></div>
                     <button id="add-medicine">+</button>
                     
-                    <button type="button" id="generate-prescription-btn" onclick="generatePrescription()">🖨️Print</button>
+                    <button type="button" id="generate-prescription-btn" onclick="generatePrescription()">🖨️PRINT</button>
 
                 </div>
             </div>

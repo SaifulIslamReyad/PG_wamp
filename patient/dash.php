@@ -28,6 +28,21 @@ $patient_id = $_SESSION['patient_id'];
 <script src="../js/index.js"></script>
 <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+<script>
+  function toggleMenu() {
+      const menu = document.getElementById('dropdownMenu');
+      menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+    }
+
+    // Optional: Close the menu if clicked outside
+    window.addEventListener('click', function(e) {
+      const menu = document.getElementById('dropdownMenu');
+      if (!e.target.matches('.dots-button')) {
+        menu.style.display = 'none';
+      }
+    });
+</script>
+
 <body>
     <?php include "../navbar.php"  ?>
     <div class="dashboard-container">
@@ -40,6 +55,27 @@ $patient_id = $_SESSION['patient_id'];
                 <div class="welcome-text">
                     <h2><?php echo htmlspecialchars($_SESSION['patient_name']); ?></h2>
                 </div>
+                        <div class="menu-container">
+                            <button class="dots-button" onclick="toggleMenu()">⋮</button>
+                            <div class="dropdown-menu" id="dropdownMenu">
+                            <button onclick="location.href='add-prescription.php'">🥼 Profile</button>
+                            <button onclick="location.href='add-prescription.php'">⚙️Update Profile</button>
+                            <!-- <button onclick="location.href='add-prescription.php'">🔄 Switch Chamber</button> -->
+                            <button onclick="location.href='add-prescription.php'">🖇️ Images</button>
+                            <button onclick="location.href='add-prescription.php'">📷 Add Image</button>
+                            <button onclick="location.href='add-prescription.php'">👨‍🦼 All Doctors</button>
+                            <!-- <button onclick="location.href='add-prescription.php'">➕ Create Patient</button> -->
+                            <button onclick="location.href='add-prescription.php'">✨ Seen List</button>
+                            <button onclick="location.href='add-prescription.php'">🖇 Follow-up List</button>
+                            <!-- <button onclick="location.href='add-prescription.php'">🫖 Holiday</button> -->
+                            <button onclick="location.href='add-prescription.php'">📞 Call settings</button>
+                            <!-- <button onclick="location.href='add-prescription.php'">💊 Templates</button> -->
+                            <!-- <button onclick="location.href='add-prescription.php'">➕ Add Templates</button> -->
+                            <!-- <button onclick="location.href='add-prescription.php'">🛠 Edit Prescription</button> -->
+                            <button onclick="location.href='add-prescription.php'">📤 Log out</button>
+                            </div>
+                        </div>
+                
             </div>
 
             <div class="patient-info-grid">
@@ -49,9 +85,9 @@ $patient_id = $_SESSION['patient_id'];
                 <div><strong>🏚️ Address: </strong> Gollamari, Khulna</div>
             </div>
 
-            <div class="profile-actions">
+            <!-- <div class="profile-actions">
                 <a href="update_profile.php" class="update-btn"> ⚙️Update</a>
-            </div>
+            </div> -->
         </div>
 
         <hr><hr>
@@ -130,8 +166,8 @@ $patient_id = $_SESSION['patient_id'];
                         echo '<p>No medicines prescribed.</p>';
                     }
                     echo '<div class="button-container">
-                            <button class="hide-btn">👀 Hide</button>
-                            <button class="hide-btn"> ✨ Details </button>
+                            <button class="hide-btn">👀 HIDE</button>
+                            <button class="hide-btn"> ✨ DETAILS </button>
 
                         </div>';
                     echo '</div>';
@@ -197,8 +233,8 @@ $patient_id = $_SESSION['patient_id'];
                 echo '<span><strong>Doctor:</strong> ' . htmlspecialchars($appointment['doctor_name']) . ' (' . htmlspecialchars($appointment['qualification']) . ')</span><br>';
                 echo '<span><strong>Serial:</strong> ' . htmlspecialchars($serial) . '</span><br>';
                 echo '<div class="button-container">
-                            <button class="hide-btn">⚙️ Edit</button>
-                            <button class="hide-btn">✨ Details</button>
+                            <button class="hide-btn">⚙️ EDIT</button>
+                            <button class="hide-btn">✨ DETAILS</button>
                         </div>';
                 echo '</div>';
                 }
@@ -209,7 +245,7 @@ $patient_id = $_SESSION['patient_id'];
         <!-- Take Appointment Button -->
         <div class="takeapp">
             <a href="appointment/form.php?patient_id=<?php echo $patient_id; ?>">
-                <i class="fas fa-capsules icon"></i> Take New Appointment
+                <i class="fas fa-capsules icon"></i> TAKE NEW APPOINTMENT
             </a>
         </div>
         

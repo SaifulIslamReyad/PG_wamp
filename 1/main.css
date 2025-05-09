@@ -488,7 +488,7 @@ h4 {
 }
 
 #book-appointment-btn {
-  padding: 10px 10px;
+  padding: 7px 10px;
   background-color: #102851;
   color: white;
   border: none;
@@ -496,9 +496,11 @@ h4 {
   cursor: pointer;
   font-weight: bold;
   margin: 10px 5px 20px 5px;
+  font-size: 12px;
 }
 #book-appointment-btn:hover {
   background-color: hsl(206, 92%, 19%);
+  transform: translatey(-2px);
 }
 
 .details-btn {
@@ -507,7 +509,7 @@ h4 {
   background-color: #102851;
   color: white;
   padding: 6px 8px;
-  font-size: 16px;
+  font-size: 12px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
