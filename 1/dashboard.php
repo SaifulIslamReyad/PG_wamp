@@ -122,6 +122,7 @@ $completedResult = $conn->query($completedQuery)->fetch_assoc();
       <tbody id="appointmentsList">
       </tbody>
     </table>
+    <div class="add-appo">➕ADD APPOINTMENT</div>
   </div>
   <?php include "../footer.php" ?>
 
