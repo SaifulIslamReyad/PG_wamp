@@ -157,9 +157,9 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
             <div class="info-box">
                 <div>
                 <h3>Patient Information</h3>
+                <p><strong>Name:</strong> <?= htmlspecialchars($appointment['patient_name']) ?></p>
                 <p><strong>Phone:</strong> <?= htmlspecialchars($appointment['patient_phone']) ?></p>
                 <p><strong>Problem:</strong> <?= htmlspecialchars($appointment['problem']) ?></p>
-                <p><strong>Date of birth:</strong> <?= htmlspecialchars($appointment['patient_dob']) ?></p>
                 </div>
                 <div>
                 <h3>Appointment Information</h3>
@@ -169,9 +169,71 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
                 </div>
             </div>
             
+            <button id="book-appointment-btn">🔖 PROFILE</button>
             <button id="book-appointment-btn">🧷 BOOK FOLLOW-UP</button>
             <button id="book-appointment-btn">🖇️ IMAGES</button>
             <button id="book-appointment-btn">📷 ADD IMAGE</button>
+            <div id="popup-profile" class="popup-overlay">
+                <div class="popup-content">
+                    <span class="close-btn">&times;</span>
+                    <h3>More Patient Information</h3>
+                    <p><strong>✨ Name:</strong> <?= htmlspecialchars($appointment['patient_name']) ?></p>
+                    <p><strong>📞 Phone:</strong> <?= htmlspecialchars($appointment['patient_phone']) ?></p>
+                    <p><strong>👼 Date Of Birth:</strong> <?= htmlspecialchars($appointment['patient_dob']) ?></p>
+                    <p><strong>🏠 Address:</strong> Gollamari, Khulna</p>
+                    <p><strong>👷 Profession:</strong> Student</p>
+                    <p><strong>👪 Marital Status:</strong> Single</p>
+                    <p><strong>🩸 Blood group:</strong> B+</p>
+                    <p><strong>🛐 Religion:</strong> Islam</p>
+                    <p><strong>🛐 Nationality:</strong> Bangladeshi</p>
+                    <p><strong>👴 Age:</strong> <?= calculateAge($appointment['patient_dob']) ?> </p>
+                    <p><strong>🚻 Gender:</strong> <?= htmlspecialchars($appointment['patient_gender']) ?> </p>
+                </div>
+            </div>
+            <style>
+                .popup-overlay {
+                    display: none; 
+                    position: fixed;
+                    top: 0; left: 0;
+                    width: 100%; height: 100%;
+                    background: rgba(0, 0, 0, 0.6);
+                    z-index: 1000;
+                    }
+
+                    .popup-content {
+                    background: #fff;
+                    padding: 20px;
+                    width: 300px;
+                    max-width: 90%;
+                    margin: 100px auto;
+                    border-radius: 8px;
+                    position: relative;
+                    }
+
+                    .close-btn {
+                    position: absolute;
+                    top: 5px; right: 10px;
+                    cursor: pointer;
+                    font-size: 20px;
+                    color: #333;
+                    }
+
+            </style>
+            <script>
+                const btn = document.getElementById("book-appointment-btn");
+                const popup = document.getElementById("popup-profile");
+                const closeBtn = popup.querySelector(".close-btn");
+
+                btn.onclick = () => popup.style.display = "block";
+                closeBtn.onclick = () => popup.style.display = "none";
+
+                window.onclick = (e) => {
+                    if (e.target === popup) {
+                    popup.style.display = "none";
+                    }
+                };
+            </script>
+
             <hr>
 <div class="vitals-section">
   <label>
@@ -210,11 +272,11 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
     <div class="prescription-card">
         <!-- Summary Line (Clickable) -->
         <div class="prescription-summary" onclick="toggleTable(<?= $index ?>)">
-            <strong>Date:</strong> <?= htmlspecialchars($prescription['issued_date']) ?> |
-            <strong>CC:</strong> <?= htmlspecialchars($prescription['cc']) ?>
-        <p><strong>Doctor:</strong> <?= htmlspecialchars($prescription['doctor_name']) ?> (<?= htmlspecialchars($prescription['qualification']) ?>)</p>
+            <strong></strong> <?= htmlspecialchars($prescription['issued_date']) ?> |
+            <strong></strong> <?= htmlspecialchars($prescription['cc']) ?> |
+        <strong></strong> <?= htmlspecialchars($prescription['doctor_name']) ?> (<?= htmlspecialchars($prescription['qualification']) ?>)
 
-        </div>
+    </div>
 
         <!-- Hidden Medicine Table -->
         <div id="medicine-table-<?= $index ?>" class="medicine-table-container-big" style="display: none;">
@@ -243,7 +305,9 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
                 <p>No medicines prescribed.</p>
             <?php endif; ?>
             <button class="details-btn"> ✨ DETAILS </button>
+            <hr>
         </div>
+
     </div>
 <?php endforeach; ?>
 
@@ -296,33 +360,66 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
 
             <div class="main-content">
                 <div class="left-section">
-                    <label>🔹C/C:</label>
-                    <input type="text" id="cc-input" name="cc" required>
+                    <label for="cc-input">🔹C/C:</label>
+                    <input list="cc-options" id="cc-input" name="cc" required placeholder="Type/Select" />
+
+                        <datalist id="cc-options">
+                        <option value="Toothache">
+                        <option value="Sensitivity to hot or cold">
+                        <option value="Swollen gums">
+                        <option value="Bleeding gums">
+                        <option value="Bad breath">
+                        <option value="Loose tooth">
+                        <option value="Broken tooth">
+                        <option value="Tooth discoloration">
+                        <option value="Jaw pain">
+                        <option value="Mouth ulcers">
+                        <option value="Food impaction">
+                        <option value="Clicking sound in jaw">
+                        <option value="Pain during chewing">
+                        <option value="Dental check-up">
+                        <option value="Follow-up visit">
+                        </datalist>
+
                     <br>
                     <label>🔹M/H:</label>
-                    <ol>
-                        <li>HTN</li>
-                        <li>DM</li>
-                        <li>Asthma</li>
-                        <li>Bleeding disorder</li>
-                        <li>Pregnancy</li>
-                        <li>Hepatitis</li>
-                        <li>Kidney disease</li>
-                        <li>Others</li>
-                    </ol>
-                    <br>
-                    <label>🔹O/E:</label>
-                    <ol>
-                        <li>Caries</li>
-                        <li>Pulpitis</li>
-                        <li>Gingivitis</li>
-                        <li>Periodontitis</li>
-                        <li>Plaque</li>
-                        <li>Calculus</li>
-                        <li>Pericoronitis</li>
-                        <li>Impaction</li>
-                        <li>Others</li>
-                    </ol>
+                                        
+                <ul style="list-style: none; padding-left: 0;">
+                    <li><label><input type="checkbox" name="history[]" value="HTN"> HTN</label></li>
+                    <li><label><input type="checkbox" name="history[]" value="DM"> DM</label></li>
+                    <li><label><input type="checkbox" name="history[]" value="Asthma"> Asthma</label></li>
+                    <li><label><input type="checkbox" name="history[]" value="Bleeding disorder"> Bleeding disorder</label></li>
+                    <li><label><input type="checkbox" name="history[]" value="Pregnancy"> Pregnancy</label></li>
+                    <li><label><input type="checkbox" name="history[]" value="Hepatitis"> Hepatitis</label></li>
+                    <li><label><input type="checkbox" name="history[]" value="Kidney disease"> Kidney disease</label></li>
+                    <li>
+                        <label>Others: 
+                            <input type="text" name="history[]" placeholder="Specify other condition">
+                        </label>
+                    </li>
+
+                </ul>
+
+<br>
+
+<!-- O/E Findings -->
+<label>🔹O/E:</label>
+<ul style="list-style: none; padding-left: 0;">
+  <li><label><input type="checkbox" name="oe[]" value="Caries"> Caries</label></li>
+  <li><label><input type="checkbox" name="oe[]" value="Pulpitis"> Pulpitis</label></li>
+  <li><label><input type="checkbox" name="oe[]" value="Gingivitis"> Gingivitis</label></li>
+  <li><label><input type="checkbox" name="oe[]" value="Periodontitis"> Periodontitis</label></li>
+  <li><label><input type="checkbox" name="oe[]" value="Plaque"> Plaque</label></li>
+  <li><label><input type="checkbox" name="oe[]" value="Calculus"> Calculus</label></li>
+  <li><label><input type="checkbox" name="oe[]" value="Pericoronitis"> Pericoronitis</label></li>
+  <li><label><input type="checkbox" name="oe[]" value="Impaction"> Impaction</label></li>
+    <li>
+        <label>Others: 
+            <input type="text" name="history[]" placeholder="Specify other condition">
+        </label>
+    </li>
+</ul>
+
                     <div class="investigation-box">
                         <br>
                         <label>🔹Investigation:</label>
@@ -356,7 +453,7 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
                     <div id="medicine-container-big"></div>
                     <button id="add-medicine">+</button>
                     
-                    <button type="button" id="generate-prescription-btn" onclick="generatePrescription()">🖨️PRINT</button>
+                    <button type="button" id="generate-prescription-btn" onclick="generatePrescription()">🖨️ PRINT</button>
 
                 </div>
             </div>

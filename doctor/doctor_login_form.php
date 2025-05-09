@@ -130,6 +130,21 @@
             <button type="submit" class="login-button">Log in</button>
         </form>
         <div class="footer">
+
+
+        <a class="footer-a" href="./signup.php">Forgotten password?</a>
+        <style>
+        a:hover {
+          text-decoration: underline;
+          font-weight: bold;
+        }
+
+        </style>
+      
+        </div>
+
+        <div class="footer">
+          
         Don't have account yet?
         <a class="footer-a" href="./doctor_signup_form.php">Sign Up</a>
       

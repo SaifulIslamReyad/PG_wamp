@@ -437,17 +437,18 @@ ol {
 }
 
 .prescription-card {
-  padding: 15px;
-  border: 1px solid #ddd;
+  /* padding: 15px; */
+  /* border: 1px solid #ddd; */
   margin-bottom: 20px;
   border-radius: 5px;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
 }
 
 .medicine-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
+  margin-top: 7px;
+  margin-bottom: 20px;
 }
 
 .medicine-table th,
@@ -505,7 +506,7 @@ h4 {
 
 .details-btn {
   display: block;
-  margin: 10px auto 0px auto;
+  margin: 3px auto 15px auto;
   background-color: #102851;
   color: white;
   padding: 6px 8px;
@@ -542,4 +543,11 @@ h4 {
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 14px;
+}
+
+#cc-input{
+    padding: 5px;
+    background-color: inherit;
+    border: none;
+    box-shadow: 1px 1px 1px #98b3ce;
 }
