@@ -236,10 +236,7 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
 
             <hr>
 <div class="vitals-section">
-  <label>
-    
-    <input type="text" name="bloodPressure" placeholder="Blood Pressure (mmHg)">
-  </label>
+
 
   <label>
     
@@ -260,6 +257,14 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
     
     <input type="number" name="spo2" placeholder="SpO₂ (%)">
   </label>
+    <label>
+    
+    <input type="text" name="bloodPressure" placeholder="Blood Pressure (mmHg)">
+  </label>
+  <label>
+  <input type="number" name="bloodSugar" placeholder="Blood Sugar (mg/dL)">
+</label>
+
 </div>
 
             <hr>
