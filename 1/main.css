@@ -242,7 +242,7 @@ ol {
 #add-medicine {
   display: block;
   margin: 20px auto;
-  padding: 12px 30px;
+  padding: 12px 18px;
   font-size: 20px;
   font-weight: bold;
   background: linear-gradient(45deg, #14b3fe, #9ad0f2);
@@ -310,7 +310,7 @@ ol {
 .medicine-entry .last .remove-medicine {
   display: block;
   margin: 20px auto;
-  padding: 12px 30px;
+  padding: 12px 21px;
   font-size: 20px;
   font-weight: bold;
   background: linear-gradient(45deg, #d51515, #f29ad2);
@@ -550,4 +550,5 @@ h4 {
     background-color: inherit;
     border: none;
     box-shadow: 1px 1px 1px #98b3ce;
+    margin-top: 5px;
 }

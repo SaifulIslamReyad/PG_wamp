@@ -366,7 +366,7 @@ while ($prescription = $prescriptions_result->fetch_assoc()) {
             <div class="main-content">
                 <div class="left-section">
                     <label for="cc-input">🔹C/C:</label>
-                    <input list="cc-options" id="cc-input" name="cc" required placeholder="Type/Select" />
+                    <input style="margin-top:2px" list="cc-options" id="cc-input" name="cc" required placeholder="Type/Select" />
 
                         <datalist id="cc-options">
                         <option value="Toothache">
