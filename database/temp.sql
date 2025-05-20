@@ -172,17 +172,18 @@ INSERT INTO patients (patient_name, patient_phone, patient_password, patient_dob
 ('Lubna Akter', '01772977409', '123', '1994-02-10', 'F'),
 ('Tanjila Rahman', '01772977410', '123', '1991-12-01', 'F');
 
+
 INSERT INTO appointments (patient_id, doctor_id, problem, appointment_date, appointment_time, status) VALUES 
-(1, 1, 'Tooth Pain', '2025-05-06', '08:00 PM ', 'Appointed'),
-(1, 1, 'Fever', '2025-05-06', '08:00 PM ', 'Appointed'),
-(2, 1, 'Gum Bleeding', '2025-05-06', '08:00 PM ', 'Appointed'),
-(3, 1, 'Root Canal', '2025-05-06', '08:00 PM ', 'Appointed'),
-(4, 1, 'Oral Surgery', '2025-05-06', '08:00 PM ', 'Appointed'),
-(5, 1, 'Tooth Extraction', '2025-05-06', '08:00 PM ', 'Appointed'),
-(7, 1, 'Cleaning', '2025-05-06', '08:00 PM ', 'Appointed'),
-(8, 1, 'Teeth Whitening', '2025-05-06', '08:00 PM ', 'Appointed'),
-(9, 1, 'Filling', '2025-05-06', '08:00 PM ', 'Appointed'),
-(10, 1, 'Scaling', '2025-05-06', '08:00 PM ', 'Appointed');
+(1, 1, 'Tooth Pain', '2025-05-20', '08:00 PM ', 'Appointed'),
+(1, 1, 'Fever', '2025-05-20', '08:00 PM ', 'Appointed'),
+(2, 1, 'Gum Bleeding', '2025-05-20', '08:00 PM ', 'Appointed'),
+(3, 1, 'Root Canal', '2025-05-20', '08:00 PM ', 'Appointed'),
+(4, 1, 'Oral Surgery', '2025-05-20', '08:00 PM ', 'Appointed'),
+(5, 1, 'Tooth Extraction', '2025-05-20', '08:00 PM ', 'Appointed'),
+(7, 1, 'Cleaning', '2025-05-20', '08:00 PM ', 'Appointed'),
+(8, 1, 'Teeth Whitening', '2025-05-20', '08:00 PM ', 'Appointed'),
+(9, 1, 'Filling', '2025-05-20', '08:00 PM ', 'Appointed'),
+(10, 1, 'Scaling', '2025-05-20', '08:00 PM ', 'Appointed');
 
 
 -- INSERT INTO prescriptions (prescription_id, issued_date, cc) VALUES 
