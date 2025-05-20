@@ -28,12 +28,13 @@ try {
 
     echo "<script>
         alert('Doctor registered successfully!');
-        window.location.href = '../login/login.html';
+        window.location.href = './doctor_login_form.php';
     </script>";
+    
 } catch (Exception $e) {
     echo "<script>
         alert('Error: " . $e->getMessage() . "');
-        window.location.href = 'doctor_signup_form.html';
+        window.location.href = 'doctor_signup_form.php';
     </script>";
 }
 

@@ -253,4 +253,4 @@ INSERT INTO medicines (medicine_name) VALUES
 -- (2, 6, '1+1+1', 'After Meal', '3'),
 -- (2, 7, '1+1+1', 'After Meal', '5'),
 -- (2, 8, '1+1+1', 'Before Meal', '7'),
--- (2, 9, '1+1+1', 'After Meal', '3');
+-- (2, 9, '1+1+1', 'After Meal', '3');  

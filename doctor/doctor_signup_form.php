@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor Signup</title>
-  <link rel="shortcut icon" href="/PG_wamp/images/clinicode.png" type="image/x-icon" />
+   <link rel="shortcut icon" href="/PG_wamp/images/clinicode.png" type="image/x-icon" />
     <link rel="stylesheet" href="./signup.css">
     <link rel="stylesheet" href="/PG_wamp/css/layout.css">
     <link rel="stylesheet" href="../css/general.css">

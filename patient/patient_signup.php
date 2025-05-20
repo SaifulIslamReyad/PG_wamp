@@ -14,12 +14,12 @@ try {
     $stmt->close();
     echo "<script>
         alert('Patient registered successfully!');
-        window.location.href = 'login.html';
+        window.location.href = 'patient_login_form.php';
     </script>";
 } catch (Exception $e) {"
     <script>
         alert('Error: " . $e->getMessage() . "');
-        window.location.href = 'signup.html';
+        window.location.href = 'signup.php';
     </script>";
 }
 

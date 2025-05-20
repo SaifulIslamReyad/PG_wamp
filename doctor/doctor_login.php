@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<h2> Invalid password. <a href='../index.html'>Try again</a> </h2>";
         }
     } else {
-        echo "Doctor not found. <a href='../index.html'>Signup as new doctor and Try again</a>";
+        echo "Doctor not found. <a href='../index.php'>Signup as new doctor and Try again</a>";
     }
     
     $stmt->close();
