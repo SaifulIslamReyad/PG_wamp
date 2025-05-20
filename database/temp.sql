@@ -1,5 +1,5 @@
-CREATE DATABASE clinicode;
-use clinicode;
+-- CREATE DATABASE clinicode;
+-- use clinicode;
 
 CREATE TABLE specializations (
     specialization_id INT AUTO_INCREMENT PRIMARY KEY,
